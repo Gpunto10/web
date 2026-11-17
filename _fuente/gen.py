@@ -369,14 +369,13 @@ INDEX = f'''<!doctype html>
     <div class="pillar reveal" style="--d:120ms"><div class="pillar-top">{ICONS['piezas']}<span class="pnum">02</span></div><h3>Uno las piezas</h3><p>Decido qué importa y qué no puede fallar en cada flujo y punto de contacto, para que todo funcione como un solo servicio.</p></div>
     <div class="pillar reveal" style="--d:240ms"><div class="pillar-top">{ICONS['personas']}<span class="pnum">03</span></div><h3>Pienso en las personas y en el negocio</h3><p>Alineo a los equipos en torno a los mensajes que hay que transmitir, para que lo bueno para las personas también lo sea para el negocio.</p></div>
   </div>
-</div></section>
-
-<section class="statement-wrap" aria-label="Mi enfoque"><div class="inner">
   <div class="statement reveal"><span class="roam r1" aria-hidden="true"></span><span class="roam r2" aria-hidden="true"></span>
     <span class="dot" aria-hidden="true"></span>
     <p>No diseño píxeles.<br>Diseño lo que hace que esos píxeles <span class="hand-u light">tengan sentido.{SCRIBBLE}</span></p>
   </div>
 </div></section>
+
+
 
 <section class="band" id="casos"><div class="inner">
   <div class="sec-head"><span class="chip chip-sky">Casos · 2024 a 2026</span><h2>Qué descubrimos y en qué se tradujo</h2><p>Cinco proyectos de Service Design y Research contados por sector, sin nombres de marca ni datos internos, por confidencialidad.</p></div>

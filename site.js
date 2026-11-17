@@ -20,6 +20,23 @@
     });
   }
 
+  // Menú: en vez de desplazarse, la sección aparece directamente, como si fuera una página aparte
+  document.querySelectorAll('.nav a[href*="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var url = new URL(a.href, location.href);
+      if (url.pathname !== location.pathname || !url.hash) return;
+      var target = document.getElementById(url.hash.slice(1));
+      if (!target) return;
+      e.preventDefault();
+      history.pushState(null, '', url.hash);
+      target.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+      target.querySelectorAll('.doodle.draw').forEach(function (d) { d.classList.add('drawn'); });
+      window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - 64, behavior: 'instant' });
+      if (!reduce) { target.classList.remove('page-in'); void target.offsetWidth; target.classList.add('page-in'); }
+      target.setAttribute('tabindex', '-1'); target.focus({ preventScroll: true });
+    });
+  });
+
   // Barra de lectura (páginas de caso) y botón de volver arriba
   var bar = document.getElementById('progress'), top = document.getElementById('totop'), ticking = false;
   function update() {
