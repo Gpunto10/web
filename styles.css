@@ -422,3 +422,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .hero .proof{align-items:flex-start;font-size:clamp(20px,2.1vw,26px)}
 .hero .proof > .dot{margin-top:.5em}
 .proof .wink{display:inline-block;vertical-align:-.3em;width:1.5em;height:1.5em;margin-left:.15em}
+/* tarjetas de caso: vuelta al formato original con la foto un poco mayor */
+.case .thumb,.case.wide .thumb{width:96px;height:96px;border-radius:50%;object-position:50% 50%}
+.case:hover .thumb{transform:scale(1.08)}
+.case{padding-top:var(--s6)}
