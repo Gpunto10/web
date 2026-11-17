@@ -634,3 +634,20 @@ h1,h2,h3{font-weight:500}
 @keyframes fcDeal{0%,22%{transform:translateX(-50%) rotate(0);z-index:4;opacity:1}28%{transform:translateX(-135%) rotate(-12deg);z-index:5;opacity:0}30%,50%{transform:translateX(-43%) translateY(-12px) rotate(4deg);z-index:1;opacity:.55}55%,75%{transform:translateX(-45%) translateY(-8px) rotate(2.5deg);z-index:2;opacity:.75}80%,96%{transform:translateX(-47%) translateY(-4px) rotate(1deg);z-index:3;opacity:.92}100%{transform:translateX(-50%) rotate(0);z-index:4;opacity:1}}
 @media (max-width:640px){.ex-stage{grid-template-columns:minmax(0,1fr) 84px;gap:var(--s3);padding:var(--s3)}.p4{left:calc(100% - 52px)}.p5{left:calc(100% - 30px)}.fc{width:86%}}
 @media (prefers-reduced-motion:reduce){.ex-pin,.ex-notes li,.fc{animation:none!important;opacity:1}.fc.c2{transform:translateX(-62%) rotate(-4deg)}.fc.c3{transform:translateX(-38%) rotate(4deg)}.fc.c1{transform:translateX(-50%);z-index:3}}
+/* Menú móvil */
+.show-s,.mnav{display:none}
+.menu-btn{display:grid;align-content:center;gap:6px;width:42px;height:38px;padding:0 10px;border:1.5px solid var(--ink);border-radius:10px;background:transparent;cursor:pointer}
+.menu-btn span{display:block;height:1.5px;background:var(--ink);transition:transform .25s}
+.nav.open .menu-btn span:first-child{transform:translateY(3.75px) rotate(45deg)}
+.nav.open .menu-btn span:last-child{transform:translateY(-3.75px) rotate(-45deg)}
+@media (max-width:720px){
+  .show-s{display:list-item}
+  .nav ul{gap:var(--s3)}
+  .mnav{display:block;overflow:hidden;max-height:0;transition:max-height .3s ease;border-top:1px solid transparent}
+  .nav.open .mnav{max-height:260px;border-top-color:var(--line)}
+  .mnav ul{list-style:none;margin:0;padding:var(--s2) var(--s4) var(--s4);display:grid}
+  .mnav a{display:block;padding:14px 0;font-size:22px;font-weight:500;letter-spacing:-.02em;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+  .mnav li:last-child a{border-bottom:0}
+  .mnav a.active{color:#2440FF}
+}
+.nav .mnav a:not(.btn){color:var(--ink)}.nav .mnav a.active{color:#2440FF!important;text-decoration:none}

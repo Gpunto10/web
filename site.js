@@ -20,6 +20,20 @@
     });
   }
 
+  // Menú móvil (hamburguesa junto a "Hablemos")
+  var mbtn = document.querySelector('.menu-btn'), hdr = document.querySelector('header.nav');
+  function setMenu(open) {
+    if (!mbtn) return;
+    hdr.classList.toggle('open', open);
+    mbtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    mbtn.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+  }
+  if (mbtn) {
+    mbtn.addEventListener('click', function () { setMenu(!hdr.classList.contains('open')); });
+    document.querySelectorAll('.mnav a, .nav .btn').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+  }
+
   // Menú: "Cómo trabajo", "Casos" y "Sobre mí" se abren como una vista aparte (solo esa sección, sin poder seguir bajando).
   // El logo, "Hablemos" o el botón de volver devuelven la web completa.
   var SOLO = ['como-trabajo', 'casos', 'sobre-mi'], root = document.documentElement;

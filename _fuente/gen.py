@@ -227,8 +227,15 @@ def nav(prefix):
     <li class="hide-s"><a href="{prefix}#casos">Casos</a></li>
     <li class="hide-s"><a href="{prefix}#sobre-mi">Sobre mí</a></li>
     <li><a class="btn btn-primary btn-small" href="{prefix}#contacto">Hablemos</a></li>
+    <li class="show-s"><button class="menu-btn" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Abrir menú"><span></span><span></span></button></li>
   </ul></nav>
-</div></header>'''
+</div>
+<nav class="mnav" id="mnav" aria-label="Menú móvil"><ul>
+  <li><a href="{prefix}#como-trabajo">Cómo trabajo</a></li>
+  <li><a href="{prefix}#casos">Casos</a></li>
+  <li><a href="{prefix}#sobre-mi">Sobre mí</a></li>
+</ul></nav>
+</header>'''
 
 FOOT = '<footer class="band foot"><div class="inner"><span>© 2026 Gema Díez · Madrid</span><span>Service Designer estratégica</span></div></footer>\n<a class="totop" id="totop" href="#" aria-label="Volver arriba" title="Volver arriba"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></a>\n<script src="' + v('site.js') + '" defer></script>'
 
