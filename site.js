@@ -132,7 +132,15 @@
         log.appendChild(t); log.scrollTop = log.scrollHeight;
         setTimeout(function () {
           t.remove();
-          bubble('¡Muchas gracias, ' + name.split(' ')[0] + '! Me llega a mi email y te responderé lo antes posible.', 'them');
+          bubble('¡Gracias por escribirme, ' + name.split(' ')[0] + '! 😊', 'them');
+          setTimeout(function () {
+            var t2 = document.createElement('p'); t2.className = 'bub them typing'; t2.innerHTML = '<i></i><i></i><i></i>';
+            log.appendChild(t2); log.scrollTop = log.scrollHeight;
+            setTimeout(function () {
+              t2.remove();
+              bubble('Leo cada mensaje yo misma, con calma. Te contesto por email muy pronto y vemos juntas o juntos cómo te puedo ayudar.', 'them');
+            }, 1300);
+          }, 700);
         }, 1200);
       };
       var key = chat.getAttribute('data-key');
