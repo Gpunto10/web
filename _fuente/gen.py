@@ -93,7 +93,7 @@ dict(
    "Nueva arquitectura del menú («Quién / Qué / Cómo») y de la home, bloque a bloque.",
    "Requisitos para los wireframes y primeros wireframes.",
    "Presentación al comité interno: menú actual frente a propuesta.",
-   "Piezas derivadas: propuesta de página SEO para una causa, match de contenidos antes y después (el «tetris» de la navegación) y análisis de la landing de microdonaciones."]),
+   "Piezas derivadas: propuesta de página SEO para una causa, match de contenidos antes y después (el «tetris» de la navegación) y análisis de la landing de microdonaciones."]) + "@@ONG@@",
  traduccion=ul([
    "<strong>Un acuerdo de toda la casa:</strong> el workshop logró que áreas con objetivos distintos, desde la captación pura hasta la influencia, compartieran una misma definición de éxito. Esa definición era donar con menos pasos, entender de un vistazo qué hace la organización y publicar sin fricciones.",
    "<strong>Un menú centrado en el usuario:</strong> de unas 32 secciones organizadas por departamentos se pasó a tres bloques (quién somos, qué hacemos y cómo colaborar). La propuesta se validó con las áreas, que aportaron ajustes concretos.",
@@ -342,6 +342,35 @@ def farma_demo():
             '<figcaption>Uno de los cuatro arquetipos. Recreación con nombre y datos modificados.</figcaption></figure>')
     return journey + arch
 
+
+def ong_demo():
+    notes = [("La vía para colaborar queda en el tercio inferior, sin el peso que merece.", "d"),
+             ("Iconos y botones sin una lógica visual común.", "d"),
+             ("Bloques seguidos con el mismo fondo: se lee como texto corrido.", "d"),
+             ("En móvil, el scroll es larguísimo y un botón fijo tapa el contenido.", "m"),
+             ("El menú apenas se ve y los elementos se apilan.", "m")]
+    pins = "".join(f'<span class="ex-pin p{i}" style="--d:{(i-1)*2}s">{i}</span>' for i in range(1, 6))
+    nl = "".join(f'<li style="--d:{(i-1)*2}s"><b>{i}</b><span>{t}</span></li>' for i, (t, _) in enumerate(notes, 1))
+    desk = ('<div class="ex-desk"><span class="ex-chrome"><i></i><i></i><i></i></span>'
+            '<span class="ex-hero"></span><span class="ex-row3"><i></i><i></i><i></i></span>'
+            '<span class="ex-band"></span><span class="ex-band"></span><span class="ex-row4"><i></i><i></i><i></i><i></i></span><span class="ex-foot"></span></div>')
+    mob = ('<div class="ex-mob"><span class="ex-mbar"></span><span class="ex-hero"></span><span class="ex-band"></span><span class="ex-band"></span>'
+           '<span class="ex-band"></span><span class="ex-sticky"></span></div>')
+    evalx = ('<figure class="eval ex" aria-label="Recreación animada de la evaluación experta de la home">'
+             '<span class="ev-k">Evaluación experta · Home</span>'
+             '<div class="ex-stage" aria-hidden="true">' + desk + mob + pins + '</div>'
+             '<ol class="ex-notes">' + nl + '</ol>'
+             '<figcaption>Cada punto marcado en la home, en escritorio y en móvil, con su explicación. Recreación esquemática.</figcaption></figure>')
+    cards = [("Actividad 1", "El futuro colaborador", "Definir quién es, qué le mueve a colaborar y qué le frena."),
+             ("Actividad 2", "Happy path", "Dibujar el recorrido ideal, desde que descubre la causa hasta que colabora."),
+             ("Actividad 3", "Arquitectura", "Ordenar los contenidos del menú pensando en esa persona, no en los departamentos."),
+             ("Cierre", "Puesta en común", "Cada grupo comparte lo suyo y se acuerdan los siguientes pasos.")]
+    cs = "".join(f'<div class="fc c{i}"><span class="fc-k">{k}</span><h4>{t}</h4><p>{d}</p><span class="fc-m">Materiales</span><i class="sk w80"></i><i class="sk w60"></i></div>' for i, (k, t, d) in enumerate(cards, 1))
+    deck = ('<figure class="eval fcs" aria-label="Fichas de las actividades del workshop">'
+            '<span class="ev-k">Fichas del workshop</span><div class="fc-deck">' + cs + '</div>'
+            '<figcaption>Las cuatro fichas que guiaron el workshop de co-creación. Recreación con textos resumidos.</figcaption></figure>')
+    return evalx + deck
+
 STEP_KIND = {"El reto": "reto", "Mi rol": "rol", "Enfoque": "enfoque", "Hallazgos clave": "hallazgos", "Entregables": "entregables", "En qué se tradujo": "tradujo"}
 
 def step(n, title, body, white):
@@ -367,7 +396,7 @@ def case_page(i, c):
     if c["extra"]:
         lab, h, body = c["extra"]; body = body.replace("@@WORKSHOP@@", workshop_demo())
         trad += f'<div class="extra"><span class="label">{lab}</span><h3>{h}</h3>{body}</div>'
-    steps = [("El reto", c["reto"]), ("Mi rol", c["rol"]), ("Enfoque", c["enfoque"]), ("Hallazgos clave", hall), ("Entregables", c["entregables"].replace("@@EVAL@@", eval_demo()).replace("@@FARMA@@", farma_demo())), ("En qué se tradujo", trad)]
+    steps = [("El reto", c["reto"]), ("Mi rol", c["rol"]), ("Enfoque", c["enfoque"]), ("Hallazgos clave", hall), ("Entregables", c["entregables"].replace("@@EVAL@@", eval_demo()).replace("@@FARMA@@", farma_demo()).replace("@@ONG@@", ong_demo())), ("En qué se tradujo", trad)]
     body = "".join(step(k + 1, t, b, k % 2 == 0) + (pull if t == "Hallazgos clave" else "") for k, (t, b) in enumerate(steps))
     return f'''<!doctype html>
 <html lang="es">
