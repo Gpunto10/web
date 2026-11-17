@@ -510,3 +510,42 @@ h1,h2,h3{font-weight:500}
 @media (max-width:860px){.step .prose{border-top:1.5px solid var(--ink);padding-top:var(--s6)}}
 .step.dark .prose{border-color:rgba(255,255,255,.35)}
 .hl{background:linear-gradient(transparent 58%,#D5DCFF 58%);-webkit-box-decoration-break:clone;box-decoration-break:clone;color:var(--ink);font-weight:500}
+/* Entregable animado: evaluación pantalla a pantalla (caso diabetes) */
+.eval{margin:var(--s6) 0 0;padding:var(--s6);background:var(--white);border:1.5px solid var(--ink);border-radius:20px;display:grid;gap:var(--s4)}
+.eval-stage{display:grid;grid-template-columns:190px minmax(0,1fr);gap:var(--s6);align-items:center}
+.phone{position:relative;width:190px;aspect-ratio:9/18.5;border:1.5px solid var(--ink);border-radius:28px;background:var(--paper);overflow:hidden;box-shadow:inset 0 0 0 6px var(--white)}
+.phone::before{content:"";position:absolute;top:12px;left:50%;width:54px;height:6px;border-radius:9px;background:var(--ink);transform:translateX(-50%);z-index:2}
+.ph-screen{position:absolute;inset:6px;border-radius:22px;padding:34px 16px 16px;display:flex;flex-direction:column;gap:9px;background:var(--white);opacity:0;animation:evShow 14s infinite both}
+.ph-bar{height:4px;width:40%;border-radius:4px;background:#2440FF}
+.ph-title{font-size:15px;font-weight:600;letter-spacing:-.02em;margin-top:4px}
+.sk{display:block;height:6px;border-radius:4px;background:#E4E0D6}
+.sk.w90{width:90%}.sk.w80{width:80%}.sk.w70{width:70%}.sk.w60{width:60%}.sk.w50{width:50%}
+.ph-field{height:24px;border:1px solid #CFCBC1;border-radius:7px}
+.ph-opt{height:22px;border:1px solid #CFCBC1;border-radius:7px;position:relative}
+.ph-opt::before{content:"";position:absolute;left:8px;top:6px;width:9px;height:9px;border-radius:50%;border:1.5px solid #9E9A90}
+.ph-qr{width:84px;height:84px;margin:6px auto;border-radius:8px;background:repeating-conic-gradient(#161616 0 25%,#fff 0 50%) 0 0/14px 14px;border:6px solid #fff;outline:1.5px solid #161616}
+.ph-btn{margin-top:auto;height:30px;border-radius:8px;background:#2440FF;color:#fff;font-size:11px;font-weight:500;display:grid;place-items:center}
+.ph-hot{position:absolute;border:1.5px dashed #2440FF;border-radius:9px;background:rgba(36,64,255,.08);animation:evPulse 1.6s ease-in-out infinite}
+.hot-a{left:10px;right:10px;top:74px;height:28px}
+.hot-b{left:10px;right:10px;top:104px;height:96px}
+.hot-c{left:30px;right:30px;top:58px;height:20px}
+.hot-d{left:10px;right:10px;top:66px;height:82px}
+.ev-notes{position:relative;min-height:190px}
+.ev-note{position:absolute;inset:0 0 auto;display:grid;gap:10px;align-content:start;padding:var(--s5);border:1.5px solid #2440FF;border-radius:16px;background:#F3F5FF;opacity:0;animation:evNote 14s infinite both}
+.ev-note::before{content:"";position:absolute;right:100%;top:44px;width:var(--s6);border-top:1.5px dashed #2440FF}
+.ev-note::after{content:"";position:absolute;right:calc(100% + var(--s6) - 4px);top:40px;width:9px;height:9px;border-radius:50%;background:#2440FF}
+.ev-k{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--soft)}
+.ev-tag{justify-self:start;font-size:12px;font-weight:500;color:#fff;background:#2440FF;border-radius:999px;padding:3px 10px}
+.ev-note p{margin:0;font-size:17px;line-height:1.35;letter-spacing:-.015em;color:var(--ink);font-weight:500}
+.ev-dots{display:flex;gap:6px;padding-left:4px}
+.ev-dots span{width:22px;height:4px;border-radius:4px;background:#E4E0D6;position:relative;overflow:hidden}
+.ev-dots span::after{content:"";position:absolute;inset:0;background:#2440FF;transform:scaleX(0);transform-origin:left;animation:evDot 14s infinite both linear}
+.eval figcaption{font-size:14px;color:var(--soft)}
+.e2,.e2::after{animation-delay:3.5s!important}.e3,.e3::after{animation-delay:7s!important}.e4,.e4::after{animation-delay:10.5s!important}
+.ev-dots .e2::after{animation-delay:3.5s}.ev-dots .e3::after{animation-delay:7s}.ev-dots .e4::after{animation-delay:10.5s}
+@keyframes evShow{0%{opacity:0;transform:translateX(14px)}3%{opacity:1;transform:none}24%{opacity:1;transform:none}27%{opacity:0;transform:translateX(-14px)}100%{opacity:0}}
+@keyframes evNote{0%,4%{opacity:0;transform:translateY(8px)}8%{opacity:1;transform:none}23%{opacity:1}26%,100%{opacity:0}}
+@keyframes evDot{0%{transform:scaleX(0)}25%{transform:scaleX(1)}26%,100%{transform:scaleX(0)}}
+@keyframes evPulse{50%{background:rgba(36,64,255,.18)}}
+@media (max-width:640px){.eval{padding:var(--s5)}.eval-stage{grid-template-columns:1fr;justify-items:center;gap:var(--s5)}.ev-notes{width:100%;min-height:228px}.ev-note::before,.ev-note::after{display:none}}
+@media (prefers-reduced-motion:reduce){.ph-screen,.ev-note,.ph-hot,.ev-dots span::after{animation:none!important}.ph-screen.e1,.ev-note.e1{opacity:1}}

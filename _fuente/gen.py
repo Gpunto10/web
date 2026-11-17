@@ -203,7 +203,7 @@ dict(
  quote=("A menudo no sé si me he pinchado o no.", "Usuaria del test"),
  entregables=ul([
    "Informe de resultados con objetivos, metodología, key insights, evaluación general y detallada pantalla a pantalla, oportunidades y conclusiones.",
-   "Notas de cada sesión y análisis de arquitectura de la información."]),
+   "Notas de cada sesión y análisis de arquitectura de la información."]) + "@@EVAL@@",
  traduccion=ul([
    "<strong>Validación de la propuesta de valor:</strong> el prototipo encajaba con las necesidades no cubiertas, centralizar los datos y saber cuándo se ha medicado. Esto daba base para seguir desarrollando.",
    "<strong>Ajustes concretos antes del lanzamiento:</strong>" + '<ul class="sublist"><li>agrupar el registro en bloques (perfil, dispositivos y documentación);</li><li>hacer multirrespuesta la pregunta de tratamiento;</li><li>sustituir las siglas por un lenguaje del paciente;</li><li>aclarar con copy y tutorial qué es solo visualización y qué permite añadir datos;</li><li>mejorar la accesibilidad.</li></ul>',
@@ -269,6 +269,31 @@ def card(c, wide=False, k=0):
   <span class="go">Leer el caso</span>
 </a>'''
 
+
+EVAL_SCREENS = [
+  ("Creación de cuenta", "Crear cuenta", "Accesibilidad", "Contraste y tamaño de letra insuficientes para quien pierde visión.", "hot-a"),
+  ("Perfilado", "Tu perfil", "Arquitectura", "Agrupar el registro en bloques: perfil, dispositivos y documentación.", "hot-b"),
+  ("Vinculación del dispositivo", "Vincular", "Lenguaje", "Nadie reconoce su sensor por la sigla: mejor «sensor» que «CGM».", "hot-c"),
+  ("Tratamiento", "Tratamiento", "Interacción", "La pregunta de tratamiento debe permitir varias respuestas.", "hot-d"),
+]
+def eval_demo():
+    screens, notes, dots = [], [], []
+    for i, (sec, title, kind, text, hot) in enumerate(EVAL_SCREENS, 1):
+        if i == 3:
+            body = '<span class="ph-qr"></span><i class="sk w70"></i><i class="sk w50"></i>'
+        elif i == 4:
+            body = '<span class="ph-opt"></span><span class="ph-opt"></span><span class="ph-opt"></span><i class="sk w60"></i>'
+        else:
+            body = '<i class="sk w80"></i><i class="sk w60"></i><span class="ph-field"></span><span class="ph-field"></span><span class="ph-field"></span>'
+        screens.append(f'<div class="ph-screen e{i}"><span class="ph-bar"></span><b class="ph-title">{title}</b>{body}<span class="ph-btn">Continuar</span><span class="ph-hot {hot}"></span></div>')
+        notes.append(f'<div class="ev-note e{i}"><span class="ev-k">Pantalla {i} · {sec}</span><span class="ev-tag">{kind}</span><p>{text}</p><i class="sk w90"></i><i class="sk w60"></i></div>')
+        dots.append(f'<span class="e{i}"></span>')
+    return ('<figure class="eval" aria-label="Recreación animada de la evaluación pantalla a pantalla">'
+            '<div class="eval-stage"><div class="phone" aria-hidden="true">' + "".join(screens) + '</div>'
+            '<div class="ev-notes">' + "".join(notes) + '</div></div>'
+            '<div class="ev-dots" aria-hidden="true">' + "".join(dots) + '</div>'
+            '<figcaption>Así era la evaluación detallada: cada pantalla del prototipo, con lo que falla y cómo mejorarlo. Recreación esquemática.</figcaption></figure>')
+
 STEP_KIND = {"El reto": "reto", "Mi rol": "rol", "Enfoque": "enfoque", "Hallazgos clave": "hallazgos", "Entregables": "entregables", "En qué se tradujo": "tradujo"}
 
 def step(n, title, body, white):
@@ -294,7 +319,7 @@ def case_page(i, c):
     if c["extra"]:
         lab, h, body = c["extra"]
         trad += f'<div class="extra"><span class="label">{lab}</span><h3>{h}</h3>{body}</div>'
-    steps = [("El reto", c["reto"]), ("Mi rol", c["rol"]), ("Enfoque", c["enfoque"]), ("Hallazgos clave", hall), ("Entregables", c["entregables"]), ("En qué se tradujo", trad)]
+    steps = [("El reto", c["reto"]), ("Mi rol", c["rol"]), ("Enfoque", c["enfoque"]), ("Hallazgos clave", hall), ("Entregables", c["entregables"].replace("@@EVAL@@", eval_demo())), ("En qué se tradujo", trad)]
     body = "".join(step(k + 1, t, b, k % 2 == 0) + (pull if t == "Hallazgos clave" else "") for k, (t, b) in enumerate(steps))
     return f'''<!doctype html>
 <html lang="es">
