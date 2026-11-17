@@ -24,7 +24,7 @@ dict(
  lede="El research con 38 personas convirtió una estrategia de negocio («Multienergía») en un backlog de oportunidades priorizado con negocio, un customer journey B2B con KPIs y, después, en principios de experiencia aterrizados en cada canal de atención.",
  sheet=[("Cliente","Energética líder en España"),("Sector","Energía B2B y B2C"),("Duración","Fase 1, fase 2 y extensión B2C (septiembre de 2024 a mayo de 2025)"),("Equipo","Otra Service Designer y yo en research y service design, con apoyo de UX")],
  reto=p("La compañía vendía a empresas por verticales (gas, carburantes, luz...), y cada uno tenía su propio flujo, interlocutor y canal de venta. Un mismo cliente podía tener varios gestores y procesos distintos según lo que tuviera contratado.",
-        "La nueva estrategia, con visión a 2027, era ofrecer a las empresas una solución energética integral con un solo proveedor. Había dos objetivos de negocio: convertir a los clientes actuales en clientes «multienergía» y captar otros nuevos, con foco en pymes, sin aumentar la fuerza comercial y apoyándose más en lo digital."),
+        "La nueva estrategia, con visión a 2027, era ofrecer a las empresas <span class='hl'>una solución energética integral con un solo proveedor</span>. Había dos objetivos de negocio: convertir a los clientes actuales en clientes «multienergía» y captar otros nuevos, con foco en pymes, sin aumentar la fuerza comercial y apoyándose más en lo digital."),
  rol=p("Research y Service Design a partes iguales con otra Service Designer: las dos hicimos el mismo trabajo durante todo el proyecto. Diseñamos y realizamos las entrevistas, hicimos la síntesis, mapeamos la experiencia de cliente «AS IS» y facilitamos juntas todos los workshops, tanto los de priorización con negocio como los B2C."),
  enfoque=p("Investigación cualitativa con los tres actores del ecosistema:") + ul([
    "<strong>14 entrevistas a empresas cliente:</strong> pymes de hostelería, industria y agro, con perfiles digitales y no digitales, algunas ya multienergía.",
@@ -67,7 +67,7 @@ dict(
  lede="El diagnóstico y el workshop de co-creación alinearon a toda la organización en una visión común de la nueva web. Esa visión se tradujo en una nueva arquitectura de menú validada con las áreas, en wireframes con requisitos claros y en una presentación al comité interno de la organización.",
  sheet=[("Cliente","Delegación española de una ONG internacional de infancia"),("Sector","Tercer sector, captación de fondos"),("Duración","Fase 1 (diagnóstico) y fase 2 (workshop, arquitectura y wireframes), 2026"),("Equipo","Research, análisis y arquitectura de la información llevados por mí")],
  reto=p("La organización iba a rediseñar su web y a migrarla a un nuevo CMS. La web había crecido durante años a base de soluciones puntuales. Su menú tenía unas 32 secciones, cada departamento ocupaba su propio espacio y el 80 % del tráfico llegaba desde móvil, donde la navegación era el punto más crítico.",
-        "El reto no era solo cambiar el menú: había que reconfigurar cómo se mostraba la organización en un mercado de captación cada vez más saturado."),
+        "El reto no era solo cambiar el menú: había que <span class='hl'>reconfigurar cómo se mostraba la organización</span> en un mercado de captación cada vez más saturado."),
  rol=p("Llevé yo todo el trabajo de research y estrategia: entrevistas con stakeholders, auditoría y análisis heurístico, benchmark, diseño y facilitación del workshop, arquetipos y journeys, y la nueva arquitectura de la información con sus requisitos para los wireframes."),
  enfoque="<h3>Fase 1 · Diagnóstico y entendimiento</h3>" + ul([
    "<strong>Entrevistas con stakeholders</strong> de las distintas áreas: captación, comunicación, contenidos, tecnología e influencia.",
@@ -111,7 +111,7 @@ dict(
  h1="Workshop de adopción de IA: un formato, dos contextos",
  lede="Diseñé un formato de discovery workshop que parte del día a día real de las personas, y no de la tecnología, para decidir qué IA construir primero. Lo apliqué con el equipo de compras de una fintech y con el equipo comercial de mi consultora, y en ambos casos salió una hoja de prioridades sobre la que construir la solución.",
  sheet=[("Contexto 1","Procurement de una fintech internacional de pagos (4 personas, 90 minutos, septiembre de 2026)"),("Contexto 2","Equipo comercial (SDRs y Business Managers) que vende una suite de IA empresarial (7 personas)"),("Formato","Sesiones de 90 minutos a 2 horas, en cinco bloques"),("Equipo","Senior Researcher (yo) y Senior UX Designer")],
- reto=p("Las empresas tienen acceso a herramientas de IA, pero la adopción se queda en usos sueltos, como redactar correos o resumir textos. El reto era identificar dónde aporta valor real la IA en el trabajo de cada equipo y qué debería resolverse primero, antes de construir una solución o una demo a medida.") +
+ reto=p("Las empresas tienen acceso a herramientas de IA, pero la adopción se queda en usos sueltos, como redactar correos o resumir textos. El reto era identificar <span class='hl'>dónde aporta valor real la IA en el trabajo de cada equipo</span> y qué debería resolverse primero, antes de construir una solución o una demo a medida.") +
    '<p class="premise">La premisa del formato: «Hoy no venimos a ver otra demo: venimos a construir la vuestra.»</p>',
  rol=p("Diseño del formato y de las dinámicas, facilitación, síntesis y presentación de resultados, junto a una UX Designer."),
  enfoque=p("Cinco bloques que van del día a día a la prioridad:") + ol([
@@ -149,7 +149,7 @@ dict(
  h1="Farmacéutica internacional: una app que acompañe al paciente, no solo a su tratamiento",
  lede="12 entrevistas con pacientes crónicos se tradujeron en dos cosas. A corto plazo, mejoras de diseño concretas para cada sección de la app. A largo plazo, una hoja de ruta de producto organizada por las fases del patient journey y por cuatro arquetipos de paciente.",
  sheet=[("Cliente","Farmacéutica internacional"),("Sector","Salud, app de acompañamiento al paciente"),("Año","2025"),("Equipo","Trabajo individual, de principio a fin")],
- reto=p("La farmacéutica había lanzado una app para pacientes con enfermedades inmunomediadas, como la enfermedad de Crohn, la psoriasis o la dermatitis atópica. Quería saber si encajaba con lo que de verdad necesitan estos pacientes y qué mejorar.",
+ reto=p("La farmacéutica había lanzado una app para pacientes con enfermedades inmunomediadas, como la enfermedad de Crohn, la psoriasis o la dermatitis atópica. Quería saber <span class='hl'>si encajaba con lo que de verdad necesitan estos pacientes</span> y qué mejorar.",
         "El estudio tenía dos objetivos: <strong>entender</strong> las necesidades del paciente desde el diagnóstico hasta hoy y <strong>testar</strong> la app en manos reales."),
  rol=p("Llevé el proyecto sola de principio a fin: diseño del estudio y del perfil de reclutamiento, guion, entrevistas y tests, análisis, construcción del journey y de los arquetipos, recomendaciones y presentación del informe."),
  enfoque=ul([
@@ -186,7 +186,7 @@ dict(
  h1="Startup de salud digital: validar una app de diabetes antes de lanzarla",
  lede="Un test con usuarias de un prototipo confirmó que la app cubría una necesidad que nadie estaba resolviendo, saber cuánta insulina te has puesto y cuándo, y detectó los ajustes de lenguaje, flujo y accesibilidad necesarios antes del lanzamiento.",
  sheet=[("Cliente","Startup de salud digital (dispositivo y app para pacientes insulinodependientes)"),("Fecha","Abril de 2024"),("Equipo","Trabajo individual, de principio a fin"),("Idioma del informe","Inglés")],
- reto=p("La startup tenía un prototipo de app que se sincroniza con un dispositivo para la pluma de insulina, con el sensor de glucosa y con el glucómetro. Necesitaba saber, antes de seguir desarrollando, si el onboarding y el panel de control se entendían y si respondían a lo que necesitan los pacientes."),
+ reto=p("La startup tenía un prototipo de app que se sincroniza con un dispositivo para la pluma de insulina, con el sensor de glucosa y con el glucómetro. Necesitaba saber, antes de seguir desarrollando, <span class='hl'>si el onboarding y el panel de control se entendían</span> y si respondían a lo que necesitan los pacientes."),
  rol=p("Llevé el proyecto sola de principio a fin: diseño del test y de las tareas, sesiones con usuarias, análisis, informe y recomendaciones."),
  enfoque=ul([
    "<strong>Test de usabilidad con 5 usuarias</strong> insulinodependientes que usan pluma, de distintas edades y niveles de enfermedad.",

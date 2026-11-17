@@ -504,3 +504,9 @@ h1,h2,h3{font-weight:500}
 .hero .proof{border-top:0;padding-top:0;margin-top:var(--s3)}
 .hero .inner{padding-bottom:0}
 .hero .inner::after{content:"";display:block;height:1.5px;background:var(--ink);margin-top:var(--s7)}
+/* Pasos de caso: número y texto alineados arriba, línea entre ambos, un subrayado clave en el reto */
+.step-head{top:0}
+@media (min-width:861px){.step .prose{border-left:1.5px solid var(--ink);padding-left:var(--s7)}.step .inner{column-gap:var(--s7)}}
+@media (max-width:860px){.step .prose{border-top:1.5px solid var(--ink);padding-top:var(--s6)}}
+.step.dark .prose{border-color:rgba(255,255,255,.35)}
+.hl{background:linear-gradient(transparent 58%,#D5DCFF 58%);-webkit-box-decoration-break:clone;box-decoration-break:clone;color:var(--ink);font-weight:500}
