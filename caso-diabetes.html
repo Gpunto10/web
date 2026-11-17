@@ -5,9 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Validar una app de diabetes antes de lanzarla · Gema Díez</title>
 <meta name="description" content="Un test con usuarias de un prototipo confirmó que la app cubría una necesidad que nadie estaba resolviendo, saber cuánta insulina te has puesto y cuándo, y detectó los ajustes de lenguaje, flujo y accesibilidad necesarios antes del lanzamiento.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@500&display=swap"><link rel="stylesheet" href="styles.css?v=26d78034">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@500&display=swap"><link rel="stylesheet" href="styles.css?v=e4f2143c">
 </head>
 <body>
+<div class="progress" aria-hidden="true"><span id="progress"></span></div>
 <header class="nav"><div class="inner">
   <a class="brand" href="index.html" aria-label="Gema Díez, inicio"><span class="dot" aria-hidden="true"></span>Gema Díez</a>
   <nav aria-label="Principal"><ul>
@@ -25,29 +26,29 @@
       <span class="tag">Salud digital · Diabetes</span>
       <h1>Startup de salud digital: validar una app de diabetes antes de lanzarla</h1>
       <p class="lede">Un test con usuarias de un prototipo confirmó que la app cubría una necesidad que nadie estaba resolviendo, saber cuánta insulina te has puesto y cuándo, y detectó los ajustes de lenguaje, flujo y accesibilidad necesarios antes del lanzamiento.</p>
-      <div class="pills"><span>5 usuarias</span><span>2 momentos de uso</span><span>Abril 2024</span></div>
+      <dl class="stats"><div><dt>usuarias</dt><dd>5</dd></div><div><dt>momentos de uso</dt><dd>2</dd></div><div><dt>año</dt><dd>2024</dd></div></dl>
     </div>
     <figure class="hero-photo"><img src="img/caso-diabetes.jpg?v=90d43ef7" alt="" width="800" height="800"><span class="dot" aria-hidden="true"></span></figure>
   </div>
   <div class="sheet"><div><span class="label">Cliente</span><b>Startup de salud digital (dispositivo y app para pacientes insulinodependientes)</b></div><div><span class="label">Fecha</span><b>Abril de 2024</b></div><div><span class="label">Equipo</span><b>Trabajo individual, de principio a fin</b></div><div><span class="label">Idioma del informe</span><b>Inglés</b></div></div>
 </div></section>
-<section class="band step white"><div class="inner">
-  <div class="step-head"><span class="num">01</span><span class="bar"></span><h2>El reto</h2></div>
+<section class="band step step-reto white" id="reto"><div class="inner">
+  <div class="step-head reveal"><span class="bignum" aria-hidden="true">01</span><span class="chip chip-sky">Paso 01 de 06</span><h2>El reto</h2></div>
   <div class="prose"><p>La startup tenía un prototipo de app que se sincroniza con un dispositivo para la pluma de insulina, con el sensor de glucosa y con el glucómetro. Necesitaba saber, antes de seguir desarrollando, si el onboarding y el panel de control se entendían y si respondían a lo que necesitan los pacientes.</p></div>
-</div></section><section class="band step"><div class="inner">
-  <div class="step-head"><span class="num">02</span><span class="bar"></span><h2>Mi rol</h2></div>
+</div></section><section class="band step step-rol" id="rol"><div class="inner">
+  <div class="step-head reveal"><span class="bignum" aria-hidden="true">02</span><span class="chip chip-lav">Paso 02 de 06</span><h2>Mi rol</h2></div>
   <div class="prose"><p>Llevé el proyecto sola de principio a fin: diseño del test y de las tareas, sesiones con usuarias, análisis, informe y recomendaciones.</p></div>
-</div></section><section class="band step white"><div class="inner">
-  <div class="step-head"><span class="num">03</span><span class="bar"></span><h2>Enfoque</h2></div>
+</div></section><section class="band step step-enfoque white" id="enfoque"><div class="inner">
+  <div class="step-head reveal"><span class="bignum" aria-hidden="true">03</span><span class="chip chip-sky">Paso 03 de 06</span><h2>Enfoque</h2></div>
   <div class="prose"><ul class="list"><li><strong>Test de usabilidad con 5 usuarias</strong> insulinodependientes que usan pluma, de distintas edades y niveles de enfermedad.</li><li><strong>Dos tareas que simulan dos momentos de vida del producto:</strong><ul class="sublist"><li><strong>Onboarding:</strong> entrar por primera vez, crear el perfil y vincular los dispositivos.</li><li><strong>Seguimiento a los 3 meses:</strong> entrar y valorar el panel de control con datos acumulados.</li></ul></li><li><strong>Conversación de contexto</strong> sobre la experiencia de vivir con diabetes, para entender las necesidades de fondo más allá de la interfaz.</li></ul></div>
-</div></section><section class="band step"><div class="inner">
-  <div class="step-head"><span class="num">04</span><span class="bar"></span><h2>Hallazgos clave</h2></div>
-  <div class="prose"><ul class="list"><li><strong>Un diagnóstico en la edad adulta obliga a «reaprender» el cuerpo y los hábitos con poco apoyo.</strong> Los pacientes se vuelven expertos muy rápido y por su cuenta, porque «su vida depende de ello».</li><li><strong>Su información está dispersa</strong> en varias apps y no la centraliza nadie, ni siquiera la consulta médica. Sienten que se les trata de forma genérica.</li><li><strong>La app cubre una necesidad hasta ahora sin resolver:</strong> controlar cuántas veces y cuánta insulina se han inyectado.</li><li><strong>Onboarding claro y rápido,</strong> que encaja con su modelo mental. La sincronización de dispositivos sorprende por lo fácil que es y la glucosa en tiempo real genera un «efecto wow».</li><li><strong>El lenguaje técnico no funciona:</strong> las siglas de los dispositivos no se reconocen (ninguna usuaria identificó su propio sensor por su sigla) y los recién diagnosticados prefieren «sensor» a «CGM».</li><li><strong>Secciones ambiguas:</strong> no hay consenso sobre qué son «Mi red», «Aprende» o «Informes», y los iconos de la curva personal no se entienden.</li><li><strong>Baja accesibilidad</strong>, un aspecto crítico para un público que tiende a perder visión por la propia enfermedad.</li></ul><figure class="quote" style="margin:var(--s3) 0 0"><p>A menudo no sé si me he pinchado o no.</p><figcaption class="label">Usuaria del test</figcaption></figure></div>
-</div></section><section class="band step white"><div class="inner">
-  <div class="step-head"><span class="num">05</span><span class="bar"></span><h2>Entregables</h2></div>
+</div></section><section class="band step step-hallazgos dark" id="hallazgos"><div class="inner">
+  <div class="step-head reveal"><span class="bignum" aria-hidden="true">04</span><span class="chip chip-lav">Paso 04 de 06</span><h2>Hallazgos clave</h2></div>
+  <div class="prose"><ul class="list"><li><strong>Un diagnóstico en la edad adulta obliga a «reaprender» el cuerpo y los hábitos con poco apoyo.</strong> Los pacientes se vuelven expertos muy rápido y por su cuenta, porque «su vida depende de ello».</li><li><strong>Su información está dispersa</strong> en varias apps y no la centraliza nadie, ni siquiera la consulta médica. Sienten que se les trata de forma genérica.</li><li><strong>La app cubre una necesidad hasta ahora sin resolver:</strong> controlar cuántas veces y cuánta insulina se han inyectado.</li><li><strong>Onboarding claro y rápido,</strong> que encaja con su modelo mental. La sincronización de dispositivos sorprende por lo fácil que es y la glucosa en tiempo real genera un «efecto wow».</li><li><strong>El lenguaje técnico no funciona:</strong> las siglas de los dispositivos no se reconocen (ninguna usuaria identificó su propio sensor por su sigla) y los recién diagnosticados prefieren «sensor» a «CGM».</li><li><strong>Secciones ambiguas:</strong> no hay consenso sobre qué son «Mi red», «Aprende» o «Informes», y los iconos de la curva personal no se entienden.</li><li><strong>Baja accesibilidad</strong>, un aspecto crítico para un público que tiende a perder visión por la propia enfermedad.</li></ul></div>
+</div></section><section class="pull"><div class="inner"><figure class="reveal"><span class="qmark" aria-hidden="true">“</span><blockquote><p>A menudo no sé si me he pinchado o no.</p></blockquote><figcaption><span class="dot" aria-hidden="true"></span>Usuaria del test</figcaption></figure></div></section><section class="band step step-entregables white" id="entregables"><div class="inner">
+  <div class="step-head reveal"><span class="bignum" aria-hidden="true">05</span><span class="chip chip-sky">Paso 05 de 06</span><h2>Entregables</h2></div>
   <div class="prose"><ul class="list"><li>Informe de resultados con objetivos, metodología, key insights, evaluación general y detallada pantalla a pantalla, oportunidades y conclusiones.</li><li>Notas de cada sesión y análisis de arquitectura de la información.</li></ul></div>
-</div></section><section class="band step"><div class="inner">
-  <div class="step-head"><span class="num">06</span><span class="bar"></span><h2>En qué se tradujo</h2></div>
+</div></section><section class="band step step-tradujo" id="tradujo"><div class="inner">
+  <div class="step-head reveal"><span class="bignum" aria-hidden="true">06</span><span class="chip chip-lav">Paso 06 de 06</span><h2>En qué se tradujo</h2></div>
   <div class="prose"><ul class="list"><li><strong>Validación de la propuesta de valor:</strong> el prototipo encajaba con las necesidades no cubiertas, centralizar los datos y saber cuándo se ha medicado. Esto daba base para seguir desarrollando.</li><li><strong>Ajustes concretos antes del lanzamiento:</strong><ul class="sublist"><li>agrupar el registro en bloques (perfil, dispositivos y documentación);</li><li>hacer multirrespuesta la pregunta de tratamiento;</li><li>sustituir las siglas por un lenguaje del paciente;</li><li>aclarar con copy y tutorial qué es solo visualización y qué permite añadir datos;</li><li>mejorar la accesibilidad.</li></ul></li><li><strong>Hoja de ruta de producto:</strong> convertir «Aprende» en un espacio con fuentes médicas fiables desde el diagnóstico, dar acceso al endocrino a los indicadores del paciente, abrir un canal directo de ayuda y valorar una calculadora de carbohidratos, que ya usan en otras apps.</li><li><strong>Oportunidad de engagement:</strong> el acompañamiento personal que piden los pacientes es el elemento que puede convertir una herramienta de registro en una app de referencia.</li><li><strong>Continuidad:</strong> la startup contrató más fases de las previstas al principio.</li></ul></div>
 </div></section>
 <section class="band next"><div class="inner">
@@ -56,5 +57,7 @@
 </div></section>
 </main>
 <footer class="band foot"><div class="inner"><span>© 2026 Gema Díez · Madrid</span><span>Service Designer estratégica</span></div></footer>
+<a class="totop" id="totop" href="#" aria-label="Volver arriba" title="Volver arriba"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></a>
+<script src="site.js?v=e7f9529b" defer></script>
 </body>
 </html>

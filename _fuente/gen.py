@@ -182,7 +182,7 @@ dict(
  slug="caso-diabetes", tag="Salud digital · Diabetes",
  card="Validar una app de diabetes antes de lanzarla",
  card_lede="Un test con usuarias confirmó una necesidad que nadie resolvía y detectó los ajustes de lenguaje, flujo y accesibilidad previos al lanzamiento.",
- facts=["5 usuarias", "2 momentos de uso", "Abril 2024"],
+ facts=["5 usuarias", "2 momentos de uso", "2024"],
  h1="Startup de salud digital: validar una app de diabetes antes de lanzarla",
  lede="Un test con usuarias de un prototipo confirmó que la app cubría una necesidad que nadie estaba resolviendo, saber cuánta insulina te has puesto y cuándo, y detectó los ajustes de lenguaje, flujo y accesibilidad necesarios antes del lanzamiento.",
  sheet=[("Cliente","Startup de salud digital (dispositivo y app para pacientes insulinodependientes)"),("Fecha","Abril de 2024"),("Equipo","Trabajo individual, de principio a fin"),("Idioma del informe","Inglés")],
@@ -214,7 +214,7 @@ dict(
 ),
 ]
 
-FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@500&display=swap"><link rel="stylesheet" href="' + v("styles.css") + '">'
+FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@500&display=swap"><link rel="stylesheet" href="' + v("styles.css") + '">'
 
 # Línea ondulada de las cabeceras de caso (trazo con degradado amanecer, nunca relleno)
 WAVE = '''<svg class="wave" viewBox="0 0 1440 600" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="amanecer" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#78BAE6"/><stop offset="1" stop-color="#A99BE8"/></linearGradient></defs><path d="M-20 40 C 400 6, 700 10, 900 130 S 1200 540, 1460 470" fill="none" stroke="url(#amanecer)" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>'''
@@ -230,7 +230,7 @@ def nav(prefix):
   </ul></nav>
 </div></header>'''
 
-FOOT = '<footer class="band foot"><div class="inner"><span>© 2026 Gema Díez · Madrid</span><span>Service Designer estratégica</span></div></footer>'
+FOOT = '<footer class="band foot"><div class="inner"><span>© 2026 Gema Díez · Madrid</span><span>Service Designer estratégica</span></div></footer>\n<a class="totop" id="totop" href="#" aria-label="Volver arriba" title="Volver arriba"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></a>\n<script src="' + v('site.js') + '" defer></script>'
 
 ICONS = {
  "sistema": '<svg viewBox="0 0 48 48" width="44" height="44" fill="none" stroke-width="1.5" aria-hidden="true"><path d="M24 8 A16 16 0 0 0 24 40" stroke="#161616"/><path d="M26 8 A16 16 0 0 1 26 40" stroke="#A99BE8" stroke-width="2"/></svg>',
@@ -238,9 +238,20 @@ ICONS = {
  "personas": '<svg viewBox="0 0 48 48" width="44" height="44" fill="none" stroke-width="1.5" aria-hidden="true"><circle cx="18" cy="24" r="12" stroke="#161616"/><circle cx="30" cy="24" r="12" stroke="#78BAE6" stroke-width="2"/></svg>',
 }
 
-def card(c, wide=False):
+# Cifras de la cabecera de cada caso: dato grande + etiqueta, sin caja (no deben parecer botones)
+STATS = {
+ "caso-energia": [("38", "entrevistas"), ("3", "fases"), ("2024–25", "de septiembre a mayo")],
+ "caso-ong": [("2", "fases"), ("32 → 3", "secciones del menú"), ("2026", "año")],
+ "caso-ia": [("2", "equipos"), ("11", "personas"), ("90–120", "minutos por sesión")],
+ "caso-farma": [("12", "entrevistas"), ("7", "enfermedades"), ("2025", "año")],
+ "caso-diabetes": [("5", "usuarias"), ("2", "momentos de uso"), ("2024", "año")],
+}
+
+LINES = ["ln-top", "ln-left", "ln-right", "ln-bottom", "ln-top-r"]  # posición de la línea de color de cada tarjeta
+
+def card(c, wide=False, k=0):
     facts = "".join(f"<span>{f}</span>" for f in c["facts"])
-    return f'''<a class="case{' wide' if wide else ''}" href="{c['slug']}.html">
+    return f'''<a class="case reveal {LINES[k % 5]}{' wide' if wide else ''}" style="--d:{(k % 3)*100}ms" href="{c['slug']}.html">
   <img class="thumb" src="{v('img/' + c['slug'] + '.jpg')}" alt="" width="72" height="72" loading="lazy">
   <span class="tag">{c['tag']}</span>
   <div><h3>{c['card']}</h3><p class="lede">{c['card_lede']}</p></div>
@@ -248,27 +259,33 @@ def card(c, wide=False):
   <span class="go">Leer el caso</span>
 </a>'''
 
+STEP_KIND = {"El reto": "reto", "Mi rol": "rol", "Enfoque": "enfoque", "Hallazgos clave": "hallazgos", "Entregables": "entregables", "En qué se tradujo": "tradujo"}
+
 def step(n, title, body, white):
-    return f'''<section class="band step{' white' if white else ''}"><div class="inner">
-  <div class="step-head"><span class="num">{n:02d}</span><span class="bar"></span><h2>{title}</h2></div>
+    kind = STEP_KIND[title]
+    tone = " dark" if kind == "hallazgos" else (" white" if white else "")
+    chip = "chip-sky" if n % 2 else "chip-lav"
+    return f'''<section class="band step step-{kind}{tone}" id="{kind}"><div class="inner">
+  <div class="step-head reveal"><span class="bignum" aria-hidden="true">{n:02d}</span><span class="chip {chip}">Paso {n:02d} de 06</span><h2>{title}</h2></div>
   <div class="prose">{body}</div>
 </div></section>'''
 
 def case_page(i, c):
     nxt = CASES[(i + 1) % len(CASES)]
     sheet = "".join(f'<div><span class="label">{k}</span><b>{v}</b></div>' for k, v in c["sheet"])
-    pills = "".join(f"<span>{f}</span>" for f in c["facts"])
+    pills = "".join(f'<div><dt>{l}</dt><dd>{n}</dd></div>' for n, l in STATS[c["slug"]])
     trad = c["traduccion"]
     if c["quote"]:
         q, who = c["quote"]
-        hall = c["hallazgos"] + f'<figure class="quote" style="margin:var(--s3) 0 0"><p>{q}</p><figcaption class="label">{who}</figcaption></figure>'
+        pull = f'''<section class="pull"><div class="inner"><figure class="reveal"><span class="qmark" aria-hidden="true">“</span><blockquote><p>{q}</p></blockquote><figcaption><span class="dot" aria-hidden="true"></span>{who}</figcaption></figure></div></section>'''
     else:
-        hall = c["hallazgos"]
+        pull = ""
+    hall = c["hallazgos"]
     if c["extra"]:
         lab, h, body = c["extra"]
         trad += f'<div class="extra"><span class="label">{lab}</span><h3>{h}</h3>{body}</div>'
     steps = [("El reto", c["reto"]), ("Mi rol", c["rol"]), ("Enfoque", c["enfoque"]), ("Hallazgos clave", hall), ("Entregables", c["entregables"]), ("En qué se tradujo", trad)]
-    body = "".join(step(k + 1, t, b, k % 2 == 0) for k, (t, b) in enumerate(steps))
+    body = "".join(step(k + 1, t, b, k % 2 == 0) + (pull if t == "Hallazgos clave" else "") for k, (t, b) in enumerate(steps))
     return f'''<!doctype html>
 <html lang="es">
 <head>
@@ -279,6 +296,7 @@ def case_page(i, c):
 {FONTS}
 </head>
 <body>
+<div class="progress" aria-hidden="true"><span id="progress"></span></div>
 {nav('index.html')}
 <main>
 <section class="case-hero">{WAVE}<div class="inner">
@@ -288,7 +306,7 @@ def case_page(i, c):
       <span class="tag">{c['tag']}</span>
       <h1>{c['h1']}</h1>
       <p class="lede">{c['lede']}</p>
-      <div class="pills">{pills}</div>
+      <dl class="stats">{pills}</dl>
     </div>
     <figure class="hero-photo"><img src="{v('img/' + c['slug'] + '.jpg')}" alt="" width="800" height="800"><span class="dot" aria-hidden="true"></span></figure>
   </div>
@@ -305,7 +323,7 @@ def case_page(i, c):
 </html>
 '''
 
-cards = "".join(card(c, wide=(k >= 3)) for k, c in enumerate(CASES))
+cards = "".join(card(c, wide=(k >= 3), k=k) for k, c in enumerate(CASES))
 
 INDEX = f'''<!doctype html>
 <html lang="es">
@@ -320,7 +338,7 @@ INDEX = f'''<!doctype html>
 {nav('')}
 <main>
 <section class="hero" id="inicio"><div class="inner">
-  <span class="label">Service Designer estratégica</span>
+  <span class="chip chip-sky">Service Designer estratégica</span>
   <h1>Entiendo el sistema. <span class="mark">Uno las piezas.</span> Pienso en las personas y en el negocio.</h1>
   <p class="sub">Hago que lo fragmentado funcione como un solo servicio.</p>
   <div class="ctas"><a class="btn btn-primary" href="#contacto">Cuéntame tu proyecto</a><a class="btn btn-secondary" href="#casos">Ver casos</a></div>
@@ -328,28 +346,38 @@ INDEX = f'''<!doctype html>
 </div></section>
 
 <section class="band white" id="como-trabajo"><div class="inner">
-  <div class="sec-head"><span class="label">Cómo trabajo</span><h2>Tres pasos para que un servicio complejo funcione</h2><p>La investigación es mi punto de partida, no mi entregable. Escucho a las personas y leo los datos para decidir qué hacer.</p></div>
+  <div class="sec-head"><span class="chip chip-lav">Cómo trabajo</span><h2>Tres pasos para que un servicio complejo funcione</h2><p>La investigación es mi punto de partida, no mi entregable. Escucho a las personas y leo los datos para decidir qué hacer.</p></div>
   <div class="pillars">
-    <div class="pillar">{ICONS['sistema']}<h3>Entiendo el sistema</h3><p>Mapeo cómo funcionan las cosas de verdad: quién las sostiene, qué herramientas usa cada equipo y dónde se rompe la experiencia.</p></div>
-    <div class="pillar">{ICONS['piezas']}<h3>Uno las piezas</h3><p>Decido qué importa y qué no puede fallar en cada flujo y punto de contacto, para que todo funcione como un solo servicio.</p></div>
-    <div class="pillar">{ICONS['personas']}<h3>Pienso en las personas y en el negocio</h3><p>Alineo a los equipos en torno a los mensajes que hay que transmitir, para que lo bueno para las personas también lo sea para el negocio.</p></div>
+    <div class="pillar reveal" style="--d:0ms"><div class="pillar-top">{ICONS['sistema']}<span class="pnum">01</span></div><h3>Entiendo el sistema</h3><p>Mapeo cómo funcionan las cosas de verdad: quién las sostiene, qué herramientas usa cada equipo y dónde se rompe la experiencia.</p></div>
+    <div class="pillar reveal" style="--d:120ms"><div class="pillar-top">{ICONS['piezas']}<span class="pnum">02</span></div><h3>Uno las piezas</h3><p>Decido qué importa y qué no puede fallar en cada flujo y punto de contacto, para que todo funcione como un solo servicio.</p></div>
+    <div class="pillar reveal" style="--d:240ms"><div class="pillar-top">{ICONS['personas']}<span class="pnum">03</span></div><h3>Pienso en las personas y en el negocio</h3><p>Alineo a los equipos en torno a los mensajes que hay que transmitir, para que lo bueno para las personas también lo sea para el negocio.</p></div>
   </div>
-  <p class="not-pixels">No diseño píxeles: diseño lo que hace que <span class="mark">esos píxeles tengan sentido</span>.</p>
+</div></section>
+
+<section class="statement" aria-label="Mi enfoque"><div class="inner">
+  <span class="dot" aria-hidden="true"></span>
+  <p class="reveal">No diseño píxeles.<br>Diseño lo que hace que <span class="glow">esos píxeles tengan sentido.</span></p>
 </div></section>
 
 <section class="band" id="casos"><div class="inner">
-  <div class="sec-head"><span class="label">Casos · 2024 a 2026</span><h2>Lo que descubrimos y en qué se tradujo</h2><p>Cinco proyectos de Service Design y Research contados por sector, sin nombres de marca ni datos internos, por confidencialidad.</p></div>
+  <div class="sec-head"><span class="chip chip-sky">Casos · 2024 a 2026</span><h2>Lo que descubrimos y en qué se tradujo</h2><p>Cinco proyectos de Service Design y Research contados por sector, sin nombres de marca ni datos internos, por confidencialidad.</p></div>
   <div class="cases">{cards}</div>
 </div></section>
 
 <section class="band white" id="hallazgos"><div class="inner">
-  <div class="sec-head"><span class="label">Hallazgos</span><h2>A veces el problema no es el que parece</h2><p>Algunas cosas que descubrí escuchando a las personas que usan y sostienen el servicio.</p></div>
-  <div class="findings">
-    <div class="finding big"><p>La confianza pesaba más que el precio: el cliente no quería cambiar de proveedor, pero tampoco que se olvidaran de él.</p><span class="label">Energía</span></div>
-    <div class="finding"><p>La web reflejaba cómo estaba organizada la ONG, no lo que necesitaba quien quería donar.</p><span class="label">Tercer sector</span></div>
-    <div class="finding"><p>El objetivo del paciente no es superar la enfermedad, sino llevar una vida normal.</p><span class="label">Salud</span></div>
-    <div class="finding"><p>Ninguna usuaria reconoció su propio sensor por su sigla.</p><span class="label">Salud digital</span></div>
-    <div class="finding"><p>Preparar una reunión con una cuenta nueva llevaba de 30 a 60 minutos de búsqueda.</p><span class="label">Adopción de IA</span></div>
+  <div class="findings-wrap">
+    <div class="findings-head">
+      <span class="chip chip-lav">Hallazgos</span>
+      <h2>A veces el problema no es el que parece</h2>
+      <p>Cinco cosas que solo aparecieron al escuchar a las personas que usan y sostienen el servicio, y lo que cambiaron.</p>
+    </div>
+    <div class="findings">
+      <a class="finding reveal acc-sky" href="caso-energia.html"><span class="fnum">01</span><div><span class="chip chip-sky">Energía</span><h3>En energía, la confianza pesaba más que el precio.</h3><p>Las pymes no querían cambiar de proveedor, pero sí sentir que su gestor no se olvidaba de ellas. Por eso una de las prioridades fue convertir la atención al cliente en un «gestor remoto».</p><span class="go">Ver el caso</span></div></a>
+      <a class="finding reveal acc-lav" href="caso-ong.html"><span class="fnum">02</span><div><span class="chip chip-lav">Tercer sector</span><h3>La web estaba ordenada como la ONG, no como piensa quien quiere donar.</h3><p>Tenía unas 32 secciones repartidas por departamentos. Las reordenamos en tres bloques que cualquiera entiende: quién somos, qué hacemos y cómo colaborar.</p><span class="go">Ver el caso</span></div></a>
+      <a class="finding reveal acc-sky" href="caso-farma.html"><span class="fnum">03</span><div><span class="chip chip-sky">Salud</span><h3>Un paciente crónico no quiere superar la enfermedad. Quiere llevar una vida normal.</h3><p>Lo emocional pesa tanto como lo físico. De ahí salieron un registro de emociones en el centro de la app y un «modo brote» con menos avisos y ayuda directa.</p><span class="go">Ver el caso</span></div></a>
+      <a class="finding reveal acc-lav" href="caso-diabetes.html"><span class="fnum">04</span><div><span class="chip chip-lav">Salud digital</span><h3>Ninguna usuaria reconoció su propio sensor por su sigla.</h3><p>Quien acaba de recibir el diagnóstico no habla en siglas técnicas. Antes del lanzamiento, la app cambió «CGM» por palabras del paciente, como «sensor».</p><span class="go">Ver el caso</span></div></a>
+      <a class="finding reveal acc-sky" href="caso-ia.html"><span class="fnum">05</span><div><span class="chip chip-sky">Adopción de IA</span><h3>Para decidir qué IA construir, primero hay que ver en qué se va el tiempo.</h3><p>Preparar una reunión con una cuenta nueva llevaba de 30 a 60 minutos de búsqueda. Las prioridades salieron de tareas reales como esa, no de la tecnología disponible.</p><span class="go">Ver el caso</span></div></a>
+    </div>
   </div>
 </div></section>
 
@@ -357,7 +385,7 @@ INDEX = f'''<!doctype html>
   <div class="about">
     <div class="photo"><img src="{v(PHOTO)}" alt="Retrato de Gema Díez sonriendo" width="400" height="400"></div>
     <div class="bio">
-      <span class="label">Sobre mí</span>
+      <span class="chip chip-lav">Sobre mí</span>
       <p class="lead">Soy Gema Díez, Service Designer estratégica con más de 8 años trabajando en servicios complejos.</p>
       <p>He trabajado en energía, banca, salud, seguros, retail y tercer sector. Mi trabajo empieza donde las cosas están fragmentadas, con plataformas que no se hablan, equipos con visiones distintas y mensajes que no llegan, y termina cuando funcionan como un solo servicio.</p>
       <p>Mapeo cómo son las cosas de verdad, escuchando a las personas y leyendo los datos, decido qué no puede fallar y ayudo a que todo el equipo empuje en la misma dirección.</p>
@@ -372,7 +400,7 @@ INDEX = f'''<!doctype html>
 </div></section>
 
 <section class="band white" id="contacto"><div class="inner">
-  <div class="sec-head"><span class="label">Contacto</span><h2>Si tu servicio tiene muchas piezas y no sabes por dónde empezar, empiezo yo.</h2></div>
+  <div class="sec-head"><span class="chip chip-sky">Contacto</span><h2>Si tu servicio tiene muchas piezas y no sabes por dónde empezar, empiezo yo.</h2></div>
   <div class="doors">
     <div class="door">
       <span class="label">Para proyectos</span>
