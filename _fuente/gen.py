@@ -56,7 +56,7 @@ dict(
  extra=("Extensión B2C", "Principios de experiencia en cada canal",
    p("Con el lanzamiento de la nueva marca, facilitamos <strong>3 workshops de 4 horas</strong> con personas de experiencia de cliente, estaciones de servicio y canal presencial. El objetivo era aterrizar los principios de experiencia de la marca en los momentos clave del customer journey.",
      "Las dinámicas se adaptaron a cada perfil: desde reflexionar sobre cómo otras marcas escuchan y cuidan a sus clientes hasta idear acciones concretas por momento (repostaje, pago, firma de contrato, resolución de dudas...).",
-     "<strong>Resultado:</strong> el ADN de marca se tradujo en <strong>decálogos de experiencia por canal</strong> (teléfono, estaciones de servicio y oficinas), con acciones que puede llevar a cabo directamente el empleado. También se acordó en qué formato comunicarlos a los equipos y se elaboró un backlog de mejoras por canal.")),
+     "<strong>Resultado:</strong> el ADN de marca se tradujo en <strong>decálogos de experiencia por canal</strong> (teléfono, estaciones de servicio y oficinas), con acciones que puede llevar a cabo directamente el empleado. También se acordó en qué formato comunicarlos a los equipos y se elaboró un backlog de mejoras por canal.") + "@@WORKSHOP@@"),
 ),
 dict(
  slug="caso-ong", tag="Tercer sector · Captación",
@@ -294,6 +294,27 @@ def eval_demo():
             '<div class="ev-dots" aria-hidden="true">' + "".join(dots) + '</div>'
             '<figcaption>Así era la evaluación detallada: cada pantalla del prototipo, con lo que falla y cómo mejorarlo. Recreación esquemática.</figcaption></figure>')
 
+
+def workshop_demo():
+    import random
+    rnd = random.Random(7)
+    cols = ["Repostaje", "Pago", "Contrato", "Dudas"]
+    head = '<span class="wk-corner"></span>' + "".join(f'<span class="wk-col">{c}</span>' for c in cols)
+    rows = ""
+    for r in range(3):
+        rows += f'<span class="wk-row"><span class="lng">Principio&nbsp;</span><span class="sht">P</span>{r+1}</span>'
+        for c in range(4):
+            n = rnd.randint(2, 5)
+            its = "".join(f'<i class="pi g{rnd.randint(1,5)}" style="--d:{rnd.uniform(.2,5.2):.2f}s;--r:{rnd.uniform(-7,7):.1f}deg"></i>' for _ in range(n))
+            rows += f'<span class="wk-cell">{its}</span>'
+    legend = "".join(f'<span><i class="pi g{g}"></i>Grupo {g}</span>' for g in range(1, 6))
+    deca = "".join(f'<li style="--d:{5.6 + k*0.32:.2f}s"><b>{k:02d}</b><i class="sk w{rnd.choice([60,70,80,90])}"></i></li>' for k in range(1, 11))
+    return ('<figure class="eval wk" aria-label="Recreación animada del workshop: los grupos llenan la matriz y sale el decálogo">'
+            '<div class="wk-stage"><div class="wk-board" aria-hidden="true">' + head + rows + '</div>'
+            '<div class="wk-flip" aria-hidden="true"><span class="ev-k">Decálogo de experiencia</span><ol>' + deca + '</ol></div></div>'
+            '<div class="wk-legend" aria-hidden="true">' + legend + '</div>'
+            '<figcaption>Cinco grupos bajan cada principio de marca a los momentos clave, y de ahí sale el decálogo de cada canal. Recreación esquemática.</figcaption></figure>')
+
 STEP_KIND = {"El reto": "reto", "Mi rol": "rol", "Enfoque": "enfoque", "Hallazgos clave": "hallazgos", "Entregables": "entregables", "En qué se tradujo": "tradujo"}
 
 def step(n, title, body, white):
@@ -317,7 +338,7 @@ def case_page(i, c):
         pull = ""
     hall = c["hallazgos"]
     if c["extra"]:
-        lab, h, body = c["extra"]
+        lab, h, body = c["extra"]; body = body.replace("@@WORKSHOP@@", workshop_demo())
         trad += f'<div class="extra"><span class="label">{lab}</span><h3>{h}</h3>{body}</div>'
     steps = [("El reto", c["reto"]), ("Mi rol", c["rol"]), ("Enfoque", c["enfoque"]), ("Hallazgos clave", hall), ("Entregables", c["entregables"].replace("@@EVAL@@", eval_demo())), ("En qué se tradujo", trad)]
     body = "".join(step(k + 1, t, b, k % 2 == 0) + (pull if t == "Hallazgos clave" else "") for k, (t, b) in enumerate(steps))
