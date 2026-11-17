@@ -501,3 +501,6 @@ h1,h2,h3{font-weight:500}
 .step.dark .bignum{color:#7D90FF}
 .step.dark .chip-sky,.step.dark .chip-lav{background:rgba(255,255,255,.1);color:#C3CCFF}
 .step.dark .num,.step.dark .list li::before{color:#7D90FF}
+.hero .proof{border-top:0;padding-top:0;margin-top:var(--s3)}
+.hero .inner{padding-bottom:0}
+.hero .inner::after{content:"";display:block;height:1.5px;background:var(--ink);margin-top:var(--s7)}
