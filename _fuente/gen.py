@@ -414,6 +414,20 @@ INDEX = f'''<!doctype html>
       </ul>
     </div>
   </div>
+  <div class="mentor reveal">
+    <div class="mentor-score">
+      <span class="chip chip-lav">Como docente</span>
+      <b>9,58</b>
+      <p>de valoración de mi alumnado en las clases de research.</p>
+      <span class="note n-mentor">lo dicen mis alumnos/as{ARROW_DOWN}</span>
+    </div>
+    <div class="mentor-quotes">
+      <blockquote><p>Es muy atenta y divertida, se nota que se preocupa por cada uno y dedica tiempo a cada grupo!</p></blockquote>
+      <blockquote><p>Lo mejor de esta materia, da gusto encontrarse con una persona con tanto conocimiento</p></blockquote>
+      <blockquote><p>Genial instrucciones, explicaciones, actitud... Mis dieses</p></blockquote>
+      <a class="link mentor-src" href="https://lnkd.in/p/dmYyr5pn" target="_blank" rel="noopener">Ver la publicación de la escuela en LinkedIn ↗</a>
+    </div>
+  </div>
 </div></section>
 
 <section class="band white" id="contacto"><div class="inner">

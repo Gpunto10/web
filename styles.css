@@ -452,3 +452,19 @@ section[id]{scroll-margin-top:64px}
 [data-view="como-trabajo"] .solo-back{background:var(--white)}
 .solo .solo-back .inner{padding-top:var(--s4)}
 .solo main > section.is-view > .inner{padding-bottom:var(--s6)}
+/* mentora: valoración y citas literales del alumnado */
+.mentor{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:var(--s7);margin-top:var(--s8);padding-top:var(--s7);border-top:1px solid var(--line);align-items:start}
+.mentor-score{position:relative;display:grid;gap:var(--s2)}
+.mentor-score b{font-size:clamp(72px,9vw,120px);font-weight:600;letter-spacing:-.06em;line-height:.9;margin-top:var(--s3);background:linear-gradient(135deg,#78BAE6,#A99BE8);-webkit-background-clip:text;background-clip:text;color:transparent;justify-self:start}
+.mentor-score p{color:var(--soft);max-width:26ch}
+.n-mentor{position:relative;display:inline-block;margin-top:var(--s4);transform:rotate(-3deg);color:var(--lav-text)}
+.n-mentor .arrow-down{position:absolute;right:-48px;top:2px;width:40px;transform:rotate(-70deg)}
+.mentor-quotes{display:grid;gap:var(--s3)}
+.mentor-quotes blockquote{margin:0;padding:var(--s5) var(--s5) var(--s5) var(--s6);background:var(--white);border:1px solid var(--line);border-radius:16px;position:relative}
+.mentor-quotes blockquote::before{content:"“";position:absolute;left:14px;top:6px;font-size:40px;font-weight:600;line-height:1;color:var(--lav)}
+.mentor-quotes blockquote p{font-size:clamp(17px,1.6vw,19px);letter-spacing:-.01em;line-height:1.4}
+.mentor-quotes blockquote:nth-child(2){margin-left:var(--s6)}
+.mentor-quotes blockquote:nth-child(2)::before{color:var(--sky)}
+.mentor-src{justify-self:start;font-size:14px;margin-top:var(--s2)}
+@media (max-width:820px){.mentor{grid-template-columns:1fr;gap:var(--s5)}.mentor-quotes blockquote:nth-child(2){margin-left:0}}
+@media (max-width:820px){.n-mentor .arrow-down{display:none}}
