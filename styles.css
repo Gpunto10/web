@@ -384,3 +384,22 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .anim .doodle.draw path:nth-child(3){transition-delay:1.5s;transition-duration:.35s}
 .anim .doodle.draw path:nth-child(4){transition-delay:1.8s;transition-duration:.5s}
 .proof > span:not(.dot){flex:0 1 auto}.proof{max-width:780px}
+/* banda de enfoque más estrecha, con círculos en movimiento */
+.statement .inner{padding-block:clamp(48px,7vw,84px);gap:var(--s4)}
+.statement p{font-size:clamp(28px,4.2vw,52px)}
+.roam{position:absolute;border-radius:50%;pointer-events:none}
+.roam.r1{width:300px;height:300px;border:1.5px dashed rgba(120,186,230,.7);left:12%;top:50%;margin-top:-150px;animation:roam1 18s ease-in-out infinite,spin 40s linear infinite}
+.roam.r2{width:220px;height:220px;border:1.5px dashed rgba(169,155,232,.75);right:14%;top:50%;margin-top:-110px;animation:roam2 22s ease-in-out infinite}
+@keyframes roam1{0%,100%{translate:0 0}25%{translate:60px -40px}50%{translate:140px 20px}75%{translate:40px 50px}}
+@keyframes roam2{0%,100%{translate:0 0}30%{translate:-80px 40px}60%{translate:-30px -50px}}
+.statement .dot{animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.6);opacity:.6}}
+@media (max-width:720px){.roam.r1{left:-80px}.roam.r2{right:-60px}}
+@media (prefers-reduced-motion:reduce){.roam,.statement .dot{animation:none}}
+.statement .inner{padding-block:clamp(40px,5vw,60px)}.statement p{max-width:30ch;font-size:clamp(26px,3.6vw,44px)}.statement .dot{width:10px;height:10px}
+/* tarjetas de caso: la foto, grande y protagonista */
+.case .thumb{width:100%;height:auto;aspect-ratio:4/3;border-radius:14px;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1),filter .3s}
+.case.wide .thumb{aspect-ratio:16/9}
+.case:hover .thumb{transform:scale(1.025)}
+.case{padding-top:var(--s5)}
+.case .thumb{object-position:50% 65%}

@@ -262,7 +262,7 @@ LINES = ["ln-top", "ln-left", "ln-right", "ln-bottom", "ln-top-r"]  # posición 
 def card(c, wide=False, k=0):
     facts = "".join(f"<span>{f}</span>" for f in c["facts"])
     return f'''<a class="case reveal {LINES[k % 5]}{' wide' if wide else ''}" style="--d:{(k % 3)*100}ms" href="{c['slug']}.html">
-  <img class="thumb" src="{v('img/' + c['slug'] + '.jpg')}" alt="" width="72" height="72" loading="lazy">
+  <img class="thumb" src="{v('img/' + c['slug'] + '.jpg')}" alt="" width="800" height="800" loading="lazy">
   <span class="tag">{c['tag']}</span>
   <div><h3>{c['card']}</h3><p class="lede">{c['card_lede']}</p></div>
   <div class="facts">{facts}</div>
@@ -371,13 +371,13 @@ INDEX = f'''<!doctype html>
   </div>
 </div></section>
 
-<section class="statement" aria-label="Mi enfoque"><div class="inner">
+<section class="statement" aria-label="Mi enfoque"><span class="roam r1" aria-hidden="true"></span><span class="roam r2" aria-hidden="true"></span><div class="inner">
   <span class="dot" aria-hidden="true"></span>
   <p class="reveal">No diseño píxeles.<br>Diseño lo que hace que <span class="glow">esos píxeles tengan sentido.</span></p>
 </div></section>
 
 <section class="band" id="casos"><div class="inner">
-  <div class="sec-head"><span class="chip chip-sky">Casos · 2024 a 2026</span><h2>Lo que descubrimos y en qué se tradujo</h2><p>Cinco proyectos de Service Design y Research contados por sector, sin nombres de marca ni datos internos, por confidencialidad.</p></div>
+  <div class="sec-head"><span class="chip chip-sky">Casos · 2024 a 2026</span><h2>Qué descubrimos y en qué se tradujo</h2><p>Cinco proyectos de Service Design y Research contados por sector, sin nombres de marca ni datos internos, por confidencialidad.</p></div>
   <div class="cases">{cards}</div>
 </div></section>
 
