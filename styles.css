@@ -437,3 +437,4 @@ section[id]{scroll-margin-top:64px}
 .page-in{animation:pagein .5s cubic-bezier(.2,.7,.2,1)}
 @keyframes pagein{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.page-in{animation:none}}
+.statement::before{display:none}
