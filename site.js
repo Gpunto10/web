@@ -10,6 +10,14 @@
       es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
     }, { threshold: 0.15, rootMargin: '0px 0px -6% 0px' });
     els.forEach(function (el) { io.observe(el); });
+    // trazos a mano: se dibujan al entrar en pantalla
+    var dio = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('drawn'); dio.unobserve(e.target); } });
+    }, { threshold: 0.6 });
+    document.querySelectorAll('.doodle.draw').forEach(function (d) {
+      d.querySelectorAll('path').forEach(function (p) { p.setAttribute('pathLength', '1'); });
+      dio.observe(d);
+    });
   }
 
   // Barra de lectura (páginas de caso) y botón de volver arriba

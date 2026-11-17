@@ -214,7 +214,7 @@ dict(
 ),
 ]
 
-FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@500&display=swap"><link rel="stylesheet" href="' + v("styles.css") + '">'
+FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@500&display=swap"><link rel="stylesheet" href="' + v("styles.css") + '"><script>if(\'IntersectionObserver\' in window&&!matchMedia(\'(prefers-reduced-motion: reduce)\').matches)document.documentElement.classList.add(\'anim\')</script>'
 
 # Línea ondulada de las cabeceras de caso (trazo con degradado amanecer, nunca relleno)
 WAVE = '''<svg class="wave" viewBox="0 0 1440 600" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="amanecer" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#78BAE6"/><stop offset="1" stop-color="#A99BE8"/></linearGradient></defs><path d="M-20 40 C 400 6, 700 10, 900 130 S 1200 540, 1460 470" fill="none" stroke="url(#amanecer)" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>'''
@@ -246,6 +246,15 @@ STATS = {
  "caso-farma": [("12", "entrevistas"), ("7", "enfermedades"), ("2025", "año")],
  "caso-diabetes": [("5", "usuarias"), ("2", "momentos de uso"), ("2024", "año")],
 }
+
+# Trazos "dibujados a mano" (SVG). Se dibujan solos al entrar en pantalla (.draw)
+ARROW = '<svg class="doodle draw arrow" viewBox="0 0 120 60" aria-hidden="true"><path pathLength="1" d="M6 50 C 22 18, 58 6, 104 18"/><path pathLength="1" d="M90 6 L106 18 L91 29"/></svg>'
+ARROW_DOWN = '<svg class="doodle draw arrow-down" viewBox="0 0 70 90" aria-hidden="true"><path pathLength="1" d="M12 6 C 50 14, 62 46, 40 80"/><path pathLength="1" d="M28 70 L40 82 L52 70"/></svg>'
+SCRIBBLE = '<svg class="doodle draw scribble" viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M4 16 C 40 6, 70 20, 110 12 S 190 6, 230 14 S 280 12, 296 8"/></svg>'
+LOOP = '<svg class="doodle draw loop" viewBox="0 0 220 120" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M30 70 C 20 30, 90 8, 150 16 C 205 24, 214 70, 170 98 C 120 124, 40 112, 22 80 C 14 64, 30 44, 60 36"/></svg>'
+# Nota a mano de cada caso, junto a la foto de cabecera
+NOTES = {"caso-energia": "de vender productos<br>a vender una relación", "caso-ong": "32 secciones → 3 bloques",
+ "caso-ia": "¿qué IA construimos primero?", "caso-farma": "una vida normal,<br>no solo un tratamiento", "caso-diabetes": "«¿me he pinchado o no?»"}
 
 LINES = ["ln-top", "ln-left", "ln-right", "ln-bottom", "ln-top-r"]  # posición de la línea de color de cada tarjeta
 
@@ -308,7 +317,7 @@ def case_page(i, c):
       <p class="lede">{c['lede']}</p>
       <dl class="stats">{pills}</dl>
     </div>
-    <figure class="hero-photo"><img src="{v('img/' + c['slug'] + '.jpg')}" alt="" width="800" height="800"><span class="dot" aria-hidden="true"></span></figure>
+    <figure class="hero-photo"><img class="float" style="--f:9s" src="{v('img/' + c['slug'] + '.jpg')}" alt="" width="800" height="800"><span class="dot" aria-hidden="true"></span><figcaption class="note n-case">{ARROW}{NOTES[c['slug']]}</figcaption></figure>
   </div>
   <div class="sheet">{sheet}</div>
 </div></section>
@@ -337,16 +346,23 @@ INDEX = f'''<!doctype html>
 <body>
 {nav('')}
 <main>
-<section class="hero" id="inicio"><div class="inner">
+<section class="hero" id="inicio">
+<div class="orbits" aria-hidden="true"><span class="orbit o1"></span><span class="orbit o2"></span></div>
+<div class="inner">
   <span class="chip chip-sky">Service Designer estratégica</span>
-  <h1>Entiendo el sistema. <span class="mark">Uno las piezas.</span> Pienso en las personas y en el negocio.</h1>
+  <h1 class="bigtype" aria-label="Entiendo el sistema. Uno las piezas. Pienso en las personas y en el negocio.">
+    <span class="row" style="--d:0ms" aria-hidden="true"><span>Entiendo el sistema.</span><img class="ph float" style="--f:7s" src="{v('img/caso-energia.jpg')}" alt=""></span>
+    <span class="row indent" style="--d:120ms" aria-hidden="true"><img class="ph float" style="--f:8s" src="{v('img/caso-ong.jpg')}" alt=""><span class="accent">Uno las piezas.</span><span class="note n-hero">lo que mejor<br>se me da{ARROW}</span></span>
+    <span class="row" style="--d:240ms" aria-hidden="true"><span>Pienso en las personas</span></span>
+    <span class="row" style="--d:360ms" aria-hidden="true"><span>y en el negocio.</span><img class="ph wide float" style="--f:9s" src="{v('img/caso-farma.jpg')}" alt=""></span>
+  </h1>
   <p class="sub">Hago que lo fragmentado funcione como un solo servicio.</p>
   <div class="ctas"><a class="btn btn-primary" href="#contacto">Cuéntame tu proyecto</a><a class="btn btn-secondary" href="#casos">Ver casos</a></div>
   <p class="proof"><span class="dot" aria-hidden="true"></span><span><b>En los cinco casos</b> que cuento aquí, el cliente contrató más fases de las previstas al principio.</span></p>
 </div></section>
 
 <section class="band white" id="como-trabajo"><div class="inner">
-  <div class="sec-head"><span class="chip chip-lav">Cómo trabajo</span><h2>Tres pasos para que un servicio complejo funcione</h2><p>La investigación es mi punto de partida, no mi entregable. Escucho a las personas y leo los datos para decidir qué hacer.</p></div>
+  <div class="sec-head"><span class="chip chip-lav">Cómo trabajo</span><h2>Tres pasos para que un servicio <span class="hand-u">complejo{SCRIBBLE}</span> funcione</h2><p>La investigación es mi punto de partida, no mi entregable. Escucho a las personas y leo los datos para decidir qué hacer.</p></div>
   <div class="pillars">
     <div class="pillar reveal" style="--d:0ms"><div class="pillar-top">{ICONS['sistema']}<span class="pnum">01</span></div><h3>Entiendo el sistema</h3><p>Mapeo cómo funcionan las cosas de verdad: quién las sostiene, qué herramientas usa cada equipo y dónde se rompe la experiencia.</p></div>
     <div class="pillar reveal" style="--d:120ms"><div class="pillar-top">{ICONS['piezas']}<span class="pnum">02</span></div><h3>Uno las piezas</h3><p>Decido qué importa y qué no puede fallar en cada flujo y punto de contacto, para que todo funcione como un solo servicio.</p></div>
@@ -368,7 +384,7 @@ INDEX = f'''<!doctype html>
   <div class="findings-wrap">
     <div class="findings-head">
       <span class="chip chip-lav">Hallazgos</span>
-      <h2>A veces el problema no es el que parece</h2>
+      <h2>A veces el problema <span class="hand-o">no es{LOOP}</span> el que parece</h2>
       <p>Cinco cosas que solo aparecieron al escuchar a las personas que usan y sostienen el servicio, y lo que cambiaron.</p>
     </div>
     <div class="findings">
@@ -383,7 +399,7 @@ INDEX = f'''<!doctype html>
 
 <section class="band" id="sobre-mi"><div class="inner">
   <div class="about">
-    <div class="photo"><img src="{v(PHOTO)}" alt="Retrato de Gema Díez sonriendo" width="400" height="400"></div>
+    <div class="photo"><img src="{v(PHOTO)}" alt="Retrato de Gema Díez sonriendo" width="400" height="400"><span class="note n-about">¡hola, soy yo!{ARROW_DOWN}</span></div>
     <div class="bio">
       <span class="chip chip-lav">Sobre mí</span>
       <p class="lead">Soy Gema Díez, Service Designer estratégica con más de 8 años trabajando en servicios complejos.</p>
