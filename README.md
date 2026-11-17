@@ -7,3 +7,6 @@ Web personal (portfolio) publicada con GitHub Pages.
 - Imágenes de los casos: originales en `_fuente/imagenes/`; `python3 _fuente/imagenes.py` las recorta en `img/`.
 - Los estilos están en `styles.css` (sistema "Luz de cumbre", v0.5).
 - Cada cambio que llega a la rama `main` se publica solo en uno o dos minutos.
+
+## Versiones guardadas
+- `anterior/`: copia congelada de la web antes de la v7 (17 nov 2026), con las pruebas de color A–D (`anterior/prueba-*.html`). No se regenera con `gen.py`.

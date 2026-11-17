@@ -468,3 +468,36 @@ section[id]{scroll-margin-top:64px}
 .mentor-src{justify-self:start;font-size:14px;margin-top:var(--s2)}
 @media (max-width:820px){.mentor{grid-template-columns:1fr;gap:var(--s5)}.mentor-quotes blockquote:nth-child(2){margin-left:0}}
 @media (max-width:820px){.n-mentor .arrow-down{display:none}}
+
+/* ===== v7 (17 nov 2026): versión D elegida por Gema. Crema único, azul eléctrico, bordes marcados ===== */
+/* Base común de las pruebas: un solo fondo, menos degradados, etiquetas iguales */
+:root{--paper:#F5EFE4}
+body,body::before{background:var(--paper)}
+.nav{background:rgba(245,239,228,.92)}
+.band.white,.statement-wrap,[data-view="como-trabajo"] .solo-back{background:var(--paper)}
+.band{border-top:0}
+.finding{background:var(--white)}
+.case::before{display:none}
+.mark{background:none}
+.chip-sky,.chip-lav{background:var(--chip-bg);color:var(--chip-fg)}
+.bignum,.qmark,.mentor-score b{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:var(--acc)}
+.glow{background:none;color:var(--acc2)}
+/* D · Mezcla A + C: estructura y color de la C (bordes, sombra dura, azul eléctrico y lima) con la letra más ligera y el violeta de la A */
+:root{--acc:#2440FF;--acc2:#D7F25A;--chip-bg:#E3E8FF;--chip-fg:#2440FF;--sky:#2440FF;--lav:#8D6CF0;--sky-text:#2440FF;--lav-text:#6A45E0;--line:#161616;--acc-light:#D7F25A}
+h1,h2,h3{font-weight:500}
+.sec-head h2,.findings-head h2{letter-spacing:-.04em}
+.bio .lead,.quote p,.pull blockquote p{font-weight:500}
+.bigtype .accent{font-weight:500;color:#2440FF}
+.case,.pillar,.finding,.door,.mentor-quotes blockquote,.pillars{border-width:1.5px}
+.case,.pillar,.finding,.door{box-shadow:none;transition:transform .2s,border-color .2s}
+.case:hover,.pillar:hover,.finding:hover{transform:translateY(-3px);border-color:#2440FF}
+.case .thumb{filter:none}
+.btn-primary{background:#2440FF;border-color:#2440FF}
+.btn-primary:hover{background:#161616;border-color:#161616}
+#como-trabajo .statement{background:var(--ink)}
+#como-trabajo .statement p{font-weight:500}
+#como-trabajo .statement .hand-u .scribble{color:#7D90FF}
+.note{color:#6A45E0}
+.step.dark .bignum{color:#7D90FF}
+.step.dark .chip-sky,.step.dark .chip-lav{background:rgba(255,255,255,.1);color:#C3CCFF}
+.step.dark .num,.step.dark .list li::before{color:#7D90FF}
