@@ -446,3 +446,5 @@ section[id]{scroll-margin-top:64px}
 .solo main > section.is-view{min-height:calc(100vh - 64px - 160px);border-top:0}
 .nav ul a.active{color:var(--ink)!important;text-decoration:underline;text-decoration-color:var(--lav);text-decoration-thickness:2px;text-underline-offset:6px}
 .solo .totop{display:none}
+/* en la página de cada caso, la foto siempre a color */
+.hero-photo img,.hero-photo:hover img{filter:none}
