@@ -138,7 +138,7 @@
             log.appendChild(t2); log.scrollTop = log.scrollHeight;
             setTimeout(function () {
               t2.remove();
-              bubble('Leo cada mensaje yo misma, con calma. Te contesto por email muy pronto y vemos juntas o juntos cómo te puedo ayudar.', 'them');
+              bubble('Leo cada mensaje yo misma, con calma. Te contesto por email muy pronto y vemos cómo te puedo echar una mano.', 'them');
             }, 1300);
           }, 700);
         }, 1200);
