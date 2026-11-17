@@ -28,9 +28,5 @@ h1,h2,h3{font-weight:700}
 .btn-primary:hover{background:#161616;border-color:#161616}
 #como-trabajo .statement{background:#2440FF}
 #como-trabajo .statement .hand-u .scribble{color:#D7F25A}
-#hallazgos{background:#161616;color:#fff}
-#hallazgos .findings-head p{color:rgba(255,255,255,.75)}
-#hallazgos .finding{color:var(--ink);box-shadow:5px 5px 0 #D7F25A}
-#hallazgos .doodle{color:#D7F25A}
 #contacto{background:#D7F25A}
 .note{color:#2440FF}

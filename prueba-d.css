@@ -1,0 +1,33 @@
+/* Base común de las pruebas: un solo fondo, menos degradados, etiquetas iguales */
+:root{--paper:#F5EFE4}
+body,body::before{background:var(--paper)}
+.nav{background:rgba(245,239,228,.92)}
+.band.white,.statement-wrap,[data-view="como-trabajo"] .solo-back{background:var(--paper)}
+.band{border-top:0}
+.finding{background:var(--white)}
+.case.ln-left::before,.case.ln-right::before,.case.ln-bottom::before{display:none}
+.mark{background:none}
+.chip-sky,.chip-lav{background:var(--chip-bg);color:var(--chip-fg)}
+.bignum,.qmark,.mentor-score b{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:var(--acc)}
+.glow{background:none;color:var(--acc2)}
+.pv-bar{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:50;display:flex;gap:14px;align-items:center;flex-wrap:wrap;justify-content:center;max-width:calc(100vw - 32px);padding:8px 14px;border-radius:999px;background:#161616;color:#fff;font:500 13px/1.2 var(--sans);box-shadow:0 6px 24px rgba(0,0,0,.18)}
+.pv-bar nav{display:flex;gap:10px}
+.pv-bar a{color:#fff;opacity:.7;text-decoration:none}.pv-bar a:hover{opacity:1}
+.pv-bar b{color:var(--acc-light,#fff);text-decoration:underline;text-underline-offset:3px}
+/* D · Mezcla A + C: estructura y color de la C (bordes, sombra dura, azul eléctrico y lima) con la letra más ligera y el violeta de la A */
+:root{--acc:#2440FF;--acc2:#D7F25A;--chip-bg:#E3E8FF;--chip-fg:#2440FF;--sky:#2440FF;--lav:#8D6CF0;--sky-text:#2440FF;--lav-text:#6A45E0;--line:#161616;--acc-light:#D7F25A}
+h1,h2,h3{font-weight:500}
+.sec-head h2,.findings-head h2{letter-spacing:-.04em}
+.bio .lead,.quote p,.pull blockquote p{font-weight:500}
+.bigtype .accent{font-weight:500;color:#2440FF}
+.case,.pillar,.finding,.door,.mentor-quotes blockquote,.pillars{border-width:1.5px}
+.case,.pillar,.finding,.door{box-shadow:5px 5px 0 #161616;transition:transform .2s,box-shadow .2s}
+.case:hover,.pillar:hover,.finding:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 #2440FF}
+.case .thumb{filter:none}
+.btn-primary{background:#2440FF;border-color:#2440FF}
+.btn-primary:hover{background:#161616;border-color:#161616}
+#como-trabajo .statement{background:#2440FF}
+#como-trabajo .statement p{font-weight:500}
+#como-trabajo .statement .hand-u .scribble{color:#D7F25A}
+#contacto{background:#D7F25A}
+.note{color:#6A45E0}

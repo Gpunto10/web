@@ -3,7 +3,7 @@
 import os, re, hashlib
 R = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 src = open(os.path.join(R, "index.html"), encoding="utf-8").read()
-V = {"a": "A · Crema y calma", "b": "B · Color por secciones", "c": "C · Robusta"}
+V = {"a": "A · Crema y calma", "b": "B · Color por secciones", "c": "C · Robusta", "d": "D · Mezcla A + C"}
 def h(p): return hashlib.md5(open(os.path.join(R, p), "rb").read()).hexdigest()[:8]
 for k, name in V.items():
     css = f"prueba-{k}.css"

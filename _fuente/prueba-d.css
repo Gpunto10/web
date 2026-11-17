@@ -1,0 +1,17 @@
+/* D · Mezcla A + C: estructura y color de la C (bordes, sombra dura, azul eléctrico y lima) con la letra más ligera y el violeta de la A */
+:root{--acc:#2440FF;--acc2:#D7F25A;--chip-bg:#E3E8FF;--chip-fg:#2440FF;--sky:#2440FF;--lav:#8D6CF0;--sky-text:#2440FF;--lav-text:#6A45E0;--line:#161616;--acc-light:#D7F25A}
+h1,h2,h3{font-weight:500}
+.sec-head h2,.findings-head h2{letter-spacing:-.04em}
+.bio .lead,.quote p,.pull blockquote p{font-weight:500}
+.bigtype .accent{font-weight:500;color:#2440FF}
+.case,.pillar,.finding,.door,.mentor-quotes blockquote,.pillars{border-width:1.5px}
+.case,.pillar,.finding,.door{box-shadow:5px 5px 0 #161616;transition:transform .2s,box-shadow .2s}
+.case:hover,.pillar:hover,.finding:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 #2440FF}
+.case .thumb{filter:none}
+.btn-primary{background:#2440FF;border-color:#2440FF}
+.btn-primary:hover{background:#161616;border-color:#161616}
+#como-trabajo .statement{background:#2440FF}
+#como-trabajo .statement p{font-weight:500}
+#como-trabajo .statement .hand-u .scribble{color:#D7F25A}
+#contacto{background:#D7F25A}
+.note{color:#6A45E0}
