@@ -240,7 +240,7 @@ def nav(prefix):
 
 # Chat de contacto. Para que llegue a tu email, pega aquí la clave de Web3Forms (web3forms.com).
 # Mientras esté vacía, el chat abre el programa de correo con el mensaje ya escrito.
-CHAT_KEY = ""
+CHAT_KEY = "846b664b-7e4f-4e66-84b3-b6f36242411f"
 CHAT = ('<div class="chat" id="chat" data-key="' + CHAT_KEY + '" data-mail="gd.glez@gmail.com">'
   '<button class="chat-fab" type="button" aria-expanded="false" aria-controls="chat-panel"><img src="' + v(PHOTO) + '" alt=""><span>Hablemos</span></button>'
   '<section class="chat-panel" id="chat-panel" role="dialog" aria-label="Escríbeme" hidden>'
