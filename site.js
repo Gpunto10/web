@@ -98,4 +98,59 @@
     window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
     var t = document.querySelector('.brand'); if (t) t.focus({ preventScroll: true });
   });
+  // Chat de contacto: envía a Web3Forms si hay clave (data-key); si no, abre el correo con el mensaje escrito.
+  var chat = document.getElementById('chat');
+  if (chat) {
+    var fab = chat.querySelector('.chat-fab'), panel = chat.querySelector('.chat-panel'),
+        xBtn = chat.querySelector('.chat-x'), form = chat.querySelector('.chat-form'),
+        log = chat.querySelector('.chat-log'), err = chat.querySelector('.chat-err');
+    var openChat = function (open) {
+      chat.classList.toggle('open', open);
+      panel.hidden = !open;
+      fab.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (open) { var f = form.querySelector('textarea'); if (f && !chat.classList.contains('sent')) setTimeout(function () { f.focus(); }, 60); }
+      else fab.focus();
+    };
+    fab.addEventListener('click', function () { openChat(true); });
+    xBtn.addEventListener('click', function () { openChat(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && chat.classList.contains('open')) openChat(false); });
+    var bubble = function (text, who) {
+      var p = document.createElement('p'); p.className = 'bub ' + who; p.textContent = text;
+      log.appendChild(p); log.scrollTop = log.scrollHeight; return p;
+    };
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var msg = form.message.value.trim(), name = form.name.value.trim(), mail = form.email.value.trim();
+      if (!msg || !name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) { err.textContent = 'Necesito tu mensaje, tu nombre y un email válido para poder responderte.'; return; }
+      if (form.botcheck.checked) return;
+      err.textContent = '';
+      var btn = form.querySelector('.chat-send'); btn.disabled = true; btn.textContent = 'Enviando…';
+      var thanks = function () {
+        chat.classList.add('sent');
+        bubble(msg, 'me');
+        var t = document.createElement('p'); t.className = 'bub them typing'; t.innerHTML = '<i></i><i></i><i></i>';
+        log.appendChild(t); log.scrollTop = log.scrollHeight;
+        setTimeout(function () {
+          t.remove();
+          bubble('¡Muchas gracias, ' + name.split(' ')[0] + '! Me llega a mi email y te responderé lo antes posible.', 'them');
+        }, 1200);
+      };
+      var key = chat.getAttribute('data-key');
+      if (key) {
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({ access_key: key, subject: 'Nuevo mensaje desde tu web', from_name: 'Web de Gema Díez', name: name, email: mail, message: msg })
+        }).then(function (r) { return r.json(); }).then(function (d) {
+          if (d && d.success) thanks(); else throw new Error();
+        }).catch(function () {
+          btn.disabled = false; btn.textContent = 'Enviar';
+          err.textContent = 'No se ha podido enviar. Prueba otra vez o escríbeme a ' + chat.getAttribute('data-mail') + '.';
+        });
+      } else {
+        location.href = 'mailto:' + chat.getAttribute('data-mail') + '?subject=' + encodeURIComponent('Mensaje desde tu web, de ' + name) +
+          '&body=' + encodeURIComponent(msg + '\n\n' + name + ' · ' + mail);
+        thanks();
+      }
+    });
+  }
 })();

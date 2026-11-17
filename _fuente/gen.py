@@ -237,7 +237,25 @@ def nav(prefix):
 </ul></nav>
 </header>'''
 
-FOOT = '<footer class="band foot"><div class="inner"><span>© 2026 Gema Díez · Madrid</span><span>Service Designer estratégica</span></div></footer>\n<a class="totop" id="totop" href="#" aria-label="Volver arriba" title="Volver arriba"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></a>\n<script src="' + v('site.js') + '" defer></script>'
+
+# Chat de contacto. Para que llegue a tu email, pega aquí la clave de Web3Forms (web3forms.com).
+# Mientras esté vacía, el chat abre el programa de correo con el mensaje ya escrito.
+CHAT_KEY = ""
+CHAT = ('<div class="chat" id="chat" data-key="' + CHAT_KEY + '" data-mail="gd.glez@gmail.com">'
+  '<button class="chat-fab" type="button" aria-expanded="false" aria-controls="chat-panel"><img src="' + v(PHOTO) + '" alt=""><span>Hablemos</span></button>'
+  '<section class="chat-panel" id="chat-panel" role="dialog" aria-label="Escríbeme" hidden>'
+  '<header class="chat-head"><img src="' + v(PHOTO) + '" alt=""><div><b>Gema Díez</b><span>Te respondo por email</span></div>'
+  '<button class="chat-x" type="button" aria-label="Cerrar chat">✕</button></header>'
+  '<div class="chat-log" aria-live="polite"><p class="bub them">¡Hola! Soy Gema 👋</p><p class="bub them">Cuéntame tu proyecto, tu reto o tu duda y te contesto por email.</p></div>'
+  '<form class="chat-form" novalidate>'
+  '<textarea name="message" rows="3" placeholder="Escribe tu mensaje…" required aria-label="Mensaje"></textarea>'
+  '<div class="chat-row"><input name="name" placeholder="Tu nombre" autocomplete="name" required aria-label="Nombre"><input name="email" type="email" placeholder="Tu email" autocomplete="email" required aria-label="Email"></div>'
+  '<input type="checkbox" name="botcheck" class="chat-hp" tabindex="-1" autocomplete="off" aria-hidden="true">'
+  '<p class="chat-err" role="alert"></p>'
+  '<button class="btn btn-primary chat-send" type="submit">Enviar</button></form>'
+  '</section></div>')
+
+FOOT = '<footer class="band foot"><div class="inner"><span>© 2026 Gema Díez · Madrid</span><span>Service Designer estratégica</span></div></footer>\n<a class="totop" id="totop" href="#" aria-label="Volver arriba" title="Volver arriba"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></a>\n' + CHAT + '\n<script src="' + v('site.js') + '" defer></script>'
 
 ICONS = {
  "sistema": '<svg viewBox="0 0 48 48" width="44" height="44" fill="none" stroke-width="1.5" aria-hidden="true"><path d="M24 8 A16 16 0 0 0 24 40" stroke="#161616"/><path d="M26 8 A16 16 0 0 1 26 40" stroke="#A99BE8" stroke-width="2"/></svg>',
