@@ -448,3 +448,7 @@ section[id]{scroll-margin-top:64px}
 .solo .totop{display:none}
 /* en la página de cada caso, la foto siempre a color */
 .hero-photo img,.hero-photo:hover img{filter:none}
+/* el botón de volver toma el fondo de la sección que se está viendo */
+[data-view="como-trabajo"] .solo-back{background:var(--white)}
+.solo .solo-back .inner{padding-top:var(--s4)}
+.solo main > section.is-view > .inner{padding-bottom:var(--s6)}
