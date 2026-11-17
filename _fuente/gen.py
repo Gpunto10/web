@@ -435,6 +435,7 @@ INDEX = f'''<!doctype html>
   </div>
 </div></section>
 </main>
+<div class="solo-back"><div class="inner"><a class="btn btn-secondary" href="#inicio">← Ver la web completa</a></div></div>
 {FOOT}
 <script>
 (function(){{

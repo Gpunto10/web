@@ -20,22 +20,54 @@
     });
   }
 
-  // Menú: en vez de desplazarse, la sección aparece directamente, como si fuera una página aparte
-  document.querySelectorAll('.nav a[href*="#"]').forEach(function (a) {
+  // Menú: "Cómo trabajo", "Casos" y "Sobre mí" se abren como una vista aparte (solo esa sección, sin poder seguir bajando).
+  // El logo, "Hablemos" o el botón de volver devuelven la web completa.
+  var SOLO = ['como-trabajo', 'casos', 'sobre-mi'], root = document.documentElement;
+  function show(id) {
+    var main = document.querySelector('main');
+    if (!main) return;
+    if (id && SOLO.indexOf(id) > -1) {
+      root.classList.add('solo'); root.setAttribute('data-view', id);
+      var t = document.getElementById(id);
+      main.querySelectorAll(':scope > section').forEach(function (sec) { sec.classList.toggle('is-view', sec === t); });
+      t.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+      t.querySelectorAll('.doodle.draw').forEach(function (d) { d.classList.add('drawn'); });
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      if (!reduce) { t.classList.remove('page-in'); void t.offsetWidth; t.classList.add('page-in'); }
+      t.setAttribute('tabindex', '-1'); t.focus({ preventScroll: true });
+    } else {
+      root.classList.remove('solo'); root.removeAttribute('data-view');
+    }
+    document.querySelectorAll('.nav ul a').forEach(function (a) {
+      a.classList.toggle('active', !!id && a.getAttribute('href').split('#')[1] === id);
+    });
+  }
+  function onHome() { var p = location.pathname; return /\/$|index\.html$/.test(p); }
+  document.querySelectorAll('.nav a[href*="#"], .solo-back a').forEach(function (a) {
     a.addEventListener('click', function (e) {
-      var url = new URL(a.href, location.href);
-      if (url.pathname !== location.pathname || !url.hash) return;
-      var target = document.getElementById(url.hash.slice(1));
-      if (!target) return;
+      if (!onHome()) return; // desde una página de caso, se navega normalmente
+      var id = a.getAttribute('href').split('#')[1] || '';
       e.preventDefault();
-      history.pushState(null, '', url.hash);
-      target.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
-      target.querySelectorAll('.doodle.draw').forEach(function (d) { d.classList.add('drawn'); });
-      window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - 64, behavior: 'instant' });
-      if (!reduce) { target.classList.remove('page-in'); void target.offsetWidth; target.classList.add('page-in'); }
-      target.setAttribute('tabindex', '-1'); target.focus({ preventScroll: true });
+      if (SOLO.indexOf(id) > -1) {
+        history.pushState({ view: id }, '', '#' + id);
+        show(id);
+      } else {
+        history.pushState({ view: '' }, '', id && id !== 'inicio' ? '#' + id : location.pathname);
+        show('');
+        var t = id && id !== 'inicio' ? document.getElementById(id) : null;
+        window.scrollTo({ top: t ? t.getBoundingClientRect().top + window.pageYOffset - 64 : 0, behavior: 'instant' });
+      }
     });
   });
+  window.addEventListener('popstate', function (e) {
+    show(e.state && e.state.view ? e.state.view : '');
+    if (!(e.state && e.state.view)) { var t = location.hash && document.getElementById(location.hash.slice(1)); if (t) t.scrollIntoView(); }
+  });
+  // Al llegar con un enlace de vista (index.html#casos desde una página de caso), abrir esa vista
+  if (onHome() && SOLO.indexOf(location.hash.slice(1)) > -1 && document.referrer.indexOf(location.host) > -1) {
+    history.replaceState({ view: location.hash.slice(1) }, '', location.hash);
+    show(location.hash.slice(1));
+  }
 
   // Barra de lectura (páginas de caso) y botón de volver arriba
   var bar = document.getElementById('progress'), top = document.getElementById('totop'), ticking = false;

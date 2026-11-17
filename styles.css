@@ -438,3 +438,11 @@ section[id]{scroll-margin-top:64px}
 @keyframes pagein{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.page-in{animation:none}}
 .statement::before{display:none}
+/* vista aparte al entrar desde el menú: solo se ve esa sección */
+.solo-back{display:none}
+.solo main > section:not(.is-view){display:none}
+.solo .solo-back{display:block;background:inherit}
+.solo .solo-back .inner{padding-block:0 var(--s8);display:flex;justify-content:center}
+.solo main > section.is-view{min-height:calc(100vh - 64px - 160px);border-top:0}
+.nav ul a.active{color:var(--ink)!important;text-decoration:underline;text-decoration-color:var(--lav);text-decoration-thickness:2px;text-underline-offset:6px}
+.solo .totop{display:none}
