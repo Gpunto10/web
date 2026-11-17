@@ -252,6 +252,7 @@ ARROW = '<svg class="doodle draw arrow" viewBox="0 0 120 60" aria-hidden="true">
 ARROW_DOWN = '<svg class="doodle draw arrow-down" viewBox="0 0 70 90" aria-hidden="true"><path pathLength="1" d="M12 6 C 50 14, 62 46, 40 80"/><path pathLength="1" d="M28 70 L40 82 L52 70"/></svg>'
 SCRIBBLE = '<svg class="doodle draw scribble" viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M4 16 C 40 6, 70 20, 110 12 S 190 6, 230 14 S 280 12, 296 8"/></svg>'
 LOOP = '<svg class="doodle draw loop" viewBox="0 0 220 120" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M30 70 C 20 30, 90 8, 150 16 C 205 24, 214 70, 170 98 C 120 124, 40 112, 22 80 C 14 64, 30 44, 60 36"/></svg>'
+WINK = '<svg class="doodle draw wink" viewBox="0 0 48 48" role="img" aria-label="guiño"><path pathLength="1" d="M24 4 C 36 3, 45 13, 44 25 C 43 37, 33 45, 22 44 C 10 43, 3 33, 4 22 C 5 12, 13 5, 25 5"/><path pathLength="1" d="M15 18 C 16 17, 17 17, 17 19"/><path pathLength="1" d="M28 19 C 30 17, 33 17, 35 19"/><path pathLength="1" d="M13 28 C 18 36, 30 37, 36 27"/></svg>'
 # Nota a mano de cada caso, junto a la foto de cabecera
 NOTES = {"caso-energia": "de vender productos<br>a vender una relación", "caso-ong": "32 secciones → 3 bloques",
  "caso-ia": "¿qué IA construimos primero?", "caso-farma": "una vida normal,<br>no solo un tratamiento", "caso-diabetes": "«¿me he pinchado o no?»"}
@@ -357,8 +358,8 @@ INDEX = f'''<!doctype html>
     <span class="row" style="--d:360ms" aria-hidden="true"><span>y en el negocio.</span></span>
   </h1>
   <p class="sub">Hago que lo fragmentado funcione como un solo servicio.</p>
-  <div class="ctas"><a class="btn btn-primary" href="#contacto">Cuéntame tu proyecto</a><a class="btn btn-secondary" href="#casos">Ver casos</a></div>
-  <p class="proof"><span class="dot" aria-hidden="true"></span><span><b>En los cinco casos</b> que cuento aquí, el cliente contrató más fases de las previstas al principio.</span></p>
+  <div class="ctas"><a class="btn btn-secondary" href="#contacto">Cuéntame tu proyecto</a><a class="btn btn-primary" href="#casos">Ver casos</a></div>
+  <p class="proof"><span class="dot" aria-hidden="true"></span><span>En 2025 y 2026, <b>todos mis clientes han vuelto a contar conmigo</b> para nuevas fases y proyectos.</span>{WINK}</p>
 </div></section>
 
 <section class="band white" id="como-trabajo"><div class="inner">

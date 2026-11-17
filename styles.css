@@ -378,3 +378,9 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .bigtype .row{justify-self:start}
 .n-case{left:-2%}
 .n-hero{left:calc(100% + 1.1em)}.n-hero .arrow{left:-74px;top:30px;width:62px}
+.proof{align-items:center}
+.proof .wink{width:34px;height:34px;flex:none;color:var(--sky-text);transform:rotate(-8deg)}
+.proof .wink path{stroke-width:2.6}
+.anim .doodle.draw path:nth-child(3){transition-delay:1.5s;transition-duration:.35s}
+.anim .doodle.draw path:nth-child(4){transition-delay:1.8s;transition-duration:.5s}
+.proof > span:not(.dot){flex:0 1 auto}.proof{max-width:780px}
