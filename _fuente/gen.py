@@ -169,7 +169,7 @@ dict(
    "Patient journey en cinco etapas, con emociones, momentos críticos y necesidades por etapa.",
    "Modelo de cuatro variables y cuatro arquetipos de paciente, cada uno con lo que quiere y lo que necesita de la app.",
    "Evaluación de usabilidad por sección, con puntos positivos, fricciones y mejoras.",
-   "Oportunidades por fase del journey y funcionalidades por arquetipo."]),
+   "Oportunidades por fase del journey y funcionalidades por arquetipo."]) + "@@FARMA@@",
  traduccion=ul([
    "<strong>Mejoras de diseño listas para aplicar:</strong> reforzar el CTA de registro, renombrar las secciones genéricas, unificar en un solo botón las dos rutas de configuración del recordatorio, colocar el registro emocional en el centro y bajar el peso de «ajustes» en la home, entre otras.",
    "<strong>Proteger lo que funciona:</strong> se recomendó dar más protagonismo al mapa corporal y a la información del tratamiento en tono cercano, porque eran los mayores diferenciales de la app.",
@@ -315,6 +315,33 @@ def workshop_demo():
             '<div class="wk-legend" aria-hidden="true">' + legend + '</div>'
             '<figcaption>Cinco grupos bajan cada principio de marca a los momentos clave, y de ahí sale el decálogo de cada canal. Recreación esquemática.</figcaption></figure>')
 
+
+def farma_demo():
+    stages = ["Inicio de síntomas", "Diagnóstico", "Adaptación al tratamiento", "Vida con la enfermedad", "Brotes y recaídas"]
+    st = "".join(f'<li class="jy-s s{i}" style="--d:{(i-1)*0.9:.1f}s"><b>{i}</b><span>{t}</span></li>' for i, t in enumerate(stages, 1))
+    journey = ('<figure class="eval jy" aria-label="Journey del paciente en cinco etapas, cíclico desde la tercera">'
+               '<span class="ev-k">Patient journey</span><ol class="jy-row">' + st + '</ol>'
+               '<svg class="jy-loop" viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path d="M30 6 C 30 34, 270 34, 270 6" pathLength="1"/><path class="jy-head" d="M262 12 L270 4 L276 14" pathLength="1"/></svg>'
+               '<p class="jy-note">Hasta el diagnóstico el camino es lineal. Desde el tratamiento, las etapas se repiten y se solapan.</p>'
+               '<figcaption>Recreación esquemática del journey.</figcaption></figure>')
+    bars = [("Estabilidad", 3), ("Impacto en su vida", 5), ("Expertise", 4), ("Apertura a aprender", 3)]
+    br = "".join(f'<div class="ar-v"><span>{n}</span><span class="ar-dots">' + "".join(f'<i class="{"on" if k < v else ""}" style="--d:{0.15*k + 0.4*j:.2f}s"></i>' for k in range(5)) + '</span></div>' for j, (n, v) in enumerate(bars))
+    face = ('<svg class="ar-face doodle draw" viewBox="0 0 160 160" aria-hidden="true">'
+            '<path pathLength="1" d="M52 70 C 46 36, 74 22, 92 26 C 116 30, 124 52, 116 78 C 112 96, 100 108, 82 108 C 64 108, 56 92, 52 70 Z"/>'
+            '<path pathLength="1" d="M48 66 C 50 30, 112 18, 122 62 C 112 46, 86 40, 64 50 C 58 54, 52 60, 48 66"/>'
+            '<path pathLength="1" d="M62 68 a 10 10 0 1 0 20 0 a 10 10 0 1 0 -20 0 M 90 68 a 10 10 0 1 0 20 0 a 10 10 0 1 0 -20 0 M 82 68 L 90 68"/>'
+            '<path pathLength="1" d="M76 92 C 82 96, 90 96, 96 92"/>'
+            '<path pathLength="1" d="M70 106 L 68 120 C 40 124, 26 140, 22 158 M 98 106 L 100 120 C 128 124, 140 140, 144 158"/>'
+            '</svg>')
+    arch = ('<figure class="eval ar" aria-label="Ficha de arquetipo de paciente">'
+            '<div class="ar-id">' + face + '<span class="ev-k">Arquetipo</span><h4>La perfeccionista</h4>'
+            '<p>Conoce su enfermedad al detalle, contrasta lo que lee y quiere tenerlo todo bajo control. Cuando algo se le escapa, lo vive con culpa.</p></div>'
+            '<div class="ar-body"><div class="ar-q"><span class="ar-k">Quiere</span><p>Una herramienta seria, fiable y exacta.</p></div>'
+            '<div class="ar-q"><span class="ar-k">Necesita</span><p>Sentir que tiene el control y confirmar que lo está haciendo bien.</p></div>'
+            '<div class="ar-vars">' + br + '</div></div>'
+            '<figcaption>Uno de los cuatro arquetipos. Recreación con nombre y datos modificados.</figcaption></figure>')
+    return journey + arch
+
 STEP_KIND = {"El reto": "reto", "Mi rol": "rol", "Enfoque": "enfoque", "Hallazgos clave": "hallazgos", "Entregables": "entregables", "En qué se tradujo": "tradujo"}
 
 def step(n, title, body, white):
@@ -340,7 +367,7 @@ def case_page(i, c):
     if c["extra"]:
         lab, h, body = c["extra"]; body = body.replace("@@WORKSHOP@@", workshop_demo())
         trad += f'<div class="extra"><span class="label">{lab}</span><h3>{h}</h3>{body}</div>'
-    steps = [("El reto", c["reto"]), ("Mi rol", c["rol"]), ("Enfoque", c["enfoque"]), ("Hallazgos clave", hall), ("Entregables", c["entregables"].replace("@@EVAL@@", eval_demo())), ("En qué se tradujo", trad)]
+    steps = [("El reto", c["reto"]), ("Mi rol", c["rol"]), ("Enfoque", c["enfoque"]), ("Hallazgos clave", hall), ("Entregables", c["entregables"].replace("@@EVAL@@", eval_demo()).replace("@@FARMA@@", farma_demo())), ("En qué se tradujo", trad)]
     body = "".join(step(k + 1, t, b, k % 2 == 0) + (pull if t == "Hallazgos clave" else "") for k, (t, b) in enumerate(steps))
     return f'''<!doctype html>
 <html lang="es">

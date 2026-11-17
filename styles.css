@@ -572,3 +572,34 @@ h1,h2,h3{font-weight:500}
 @media (prefers-reduced-motion:reduce){.wk-cell .pi,.wk-flip li{animation:none!important;opacity:1}}
 .wk-row .sht{display:none}
 @media (max-width:760px){.wk-row .lng{display:none}.wk-row .sht{display:inline}}
+/* Entregables animados: journey y arquetipo (caso farma) */
+.jy{gap:var(--s3)}
+.jy-row{list-style:none;margin:var(--s2) 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.jy-s{display:grid;gap:6px;align-content:start;min-height:112px;padding:12px;border-radius:12px;border:1.5px solid var(--ink);font-size:14px;font-weight:500;line-height:1.2;letter-spacing:-.01em;animation:jyOn 9s infinite both;animation-delay:var(--d)}
+.jy-s b{font-size:26px;font-weight:500;letter-spacing:-.04em;line-height:1}
+.jy-s.s1{background:#161616;color:#fff}.jy-s.s2{background:#C3CCFF}.jy-s.s3{background:#2440FF;color:#fff}.jy-s.s4{background:#C9BDFF}.jy-s.s5{background:#D7F25A}
+.jy-loop{width:58%;height:34px;margin-left:36%;overflow:visible;fill:none;stroke:#2440FF;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.jy-loop path{stroke-dasharray:.04 .03;animation:jyFlow 2.4s linear infinite}
+.jy-loop .jy-head{stroke-dasharray:none;animation:none}
+.jy-note{margin:0;font-size:16px;font-weight:500;letter-spacing:-.015em;line-height:1.35}
+@keyframes jyOn{0%{opacity:.25;transform:translateY(6px)}6%{opacity:1;transform:none}100%{opacity:1}}
+@keyframes jyFlow{to{stroke-dashoffset:-.07}}
+.ar{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:var(--s5) var(--s6);margin-top:var(--s4)}
+.ar figcaption{grid-column:1 / -1}
+.ar-id{display:grid;gap:8px;align-content:start;padding:var(--s4);background:#F3F5FF;border:1.5px solid #2440FF;border-radius:14px}
+.ar-face{width:112px;height:112px;color:var(--ink);margin-bottom:4px}
+.ar-face path{stroke-width:2.2}
+.ar-id h4{margin:0;font-size:24px;font-weight:500;letter-spacing:-.03em;line-height:1.1}
+.ar-id p{margin:0;font-size:14.5px;color:var(--soft);line-height:1.45}
+.ar-body{display:grid;gap:var(--s4);align-content:start}
+.ar-q{display:grid;gap:6px}
+.ar-k,.ar-v > span:first-child{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--soft)}
+.ar-q p{margin:0;padding:10px 12px;background:var(--paper);border-radius:10px;font-size:15.5px;font-weight:500;line-height:1.35}
+.ar-vars{display:grid;gap:10px;padding-top:var(--s2);border-top:1.5px solid var(--ink)}
+.ar-v{display:flex;justify-content:space-between;align-items:center;gap:var(--s3)}
+.ar-dots{display:flex;gap:5px}
+.ar-dots i{width:22px;height:14px;border-radius:4px;border:1.5px solid #C3CCFF;background:transparent}
+.ar-dots i.on{background:#2440FF;border-color:#2440FF;animation:arFill 7s infinite both;animation-delay:var(--d)}
+@keyframes arFill{0%{background:transparent;border-color:#C3CCFF}5%,85%{background:#2440FF;border-color:#2440FF}92%,100%{background:transparent;border-color:#C3CCFF}}
+@media (max-width:760px){.jy-row{grid-template-columns:1fr;gap:6px}.jy-s{min-height:0;grid-template-columns:28px 1fr;align-items:center}.jy-s b{font-size:20px}.jy-loop{display:none}.ar{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.jy-s,.jy-loop path,.ar-dots i.on{animation:none!important}}
