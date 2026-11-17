@@ -5,6 +5,10 @@ import base64
 _raw = open(os.path.join(D, "photo.txt")).read().strip()
 open(os.path.join(OUT, "foto.jpg"), "wb").write(base64.b64decode(_raw.split(",", 1)[1]))
 PHOTO = "foto.jpg"
+import hashlib
+def v(path):
+    """Añade ?v=<huella> para que el navegador no muestre una versión guardada al cambiar el archivo."""
+    return path + "?v=" + hashlib.md5(open(os.path.join(OUT, path), "rb").read()).hexdigest()[:8]
 
 def ul(items): return '<ul class="list">' + "".join(f"<li>{i}</li>" for i in items) + "</ul>"
 def ol(items): return '<ol class="ol">' + "".join(f"<li><div>{i}</div></li>" for i in items) + "</ol>"
@@ -210,7 +214,7 @@ dict(
 ),
 ]
 
-FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@500&display=swap"><link rel="stylesheet" href="styles.css">'
+FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@500&display=swap"><link rel="stylesheet" href="' + v("styles.css") + '">'
 
 # Línea ondulada de las cabeceras de caso (trazo con degradado amanecer, nunca relleno)
 WAVE = '''<svg class="wave" viewBox="0 0 1440 600" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="amanecer" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#78BAE6"/><stop offset="1" stop-color="#A99BE8"/></linearGradient></defs><path d="M-20 40 C 400 6, 700 10, 900 130 S 1200 540, 1460 470" fill="none" stroke="url(#amanecer)" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>'''
@@ -237,7 +241,7 @@ ICONS = {
 def card(c, wide=False):
     facts = "".join(f"<span>{f}</span>" for f in c["facts"])
     return f'''<a class="case{' wide' if wide else ''}" href="{c['slug']}.html">
-  <img class="thumb" src="img/{c['slug']}.jpg" alt="" width="72" height="72" loading="lazy">
+  <img class="thumb" src="{v('img/' + c['slug'] + '.jpg')}" alt="" width="72" height="72" loading="lazy">
   <span class="tag">{c['tag']}</span>
   <div><h3>{c['card']}</h3><p class="lede">{c['card_lede']}</p></div>
   <div class="facts">{facts}</div>
@@ -286,7 +290,7 @@ def case_page(i, c):
       <p class="lede">{c['lede']}</p>
       <div class="pills">{pills}</div>
     </div>
-    <figure class="hero-photo"><img src="img/{c['slug']}.jpg" alt="" width="800" height="800"><span class="dot" aria-hidden="true"></span></figure>
+    <figure class="hero-photo"><img src="{v('img/' + c['slug'] + '.jpg')}" alt="" width="800" height="800"><span class="dot" aria-hidden="true"></span></figure>
   </div>
   <div class="sheet">{sheet}</div>
 </div></section>
@@ -351,7 +355,7 @@ INDEX = f'''<!doctype html>
 
 <section class="band" id="sobre-mi"><div class="inner">
   <div class="about">
-    <div class="photo"><img src="{PHOTO}" alt="Retrato de Gema Díez sonriendo" width="400" height="400"></div>
+    <div class="photo"><img src="{v(PHOTO)}" alt="Retrato de Gema Díez sonriendo" width="400" height="400"></div>
     <div class="bio">
       <span class="label">Sobre mí</span>
       <p class="lead">Soy Gema Díez, Service Designer estratégica con más de 8 años trabajando en servicios complejos.</p>
