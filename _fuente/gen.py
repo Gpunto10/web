@@ -351,10 +351,10 @@ INDEX = f'''<!doctype html>
 <div class="inner">
   <span class="chip chip-sky">Service Designer estratégica</span>
   <h1 class="bigtype" aria-label="Entiendo el sistema. Uno las piezas. Pienso en las personas y en el negocio.">
-    <span class="row" style="--d:0ms" aria-hidden="true"><span>Entiendo el sistema.</span><img class="ph float" style="--f:7s" src="{v('img/caso-energia.jpg')}" alt=""></span>
-    <span class="row indent" style="--d:120ms" aria-hidden="true"><img class="ph float" style="--f:8s" src="{v('img/caso-ong.jpg')}" alt=""><span class="accent">Uno las piezas.</span><span class="note n-hero">lo que mejor<br>se me da{ARROW}</span></span>
+    <span class="row" style="--d:0ms" aria-hidden="true"><span>Entiendo el sistema.</span></span>
+    <span class="row" style="--d:120ms" aria-hidden="true"><span class="accent">Uno las piezas.</span><span class="note n-hero">lo que mejor<br>se me da{ARROW}</span></span>
     <span class="row" style="--d:240ms" aria-hidden="true"><span>Pienso en las personas</span></span>
-    <span class="row" style="--d:360ms" aria-hidden="true"><span>y en el negocio.</span><img class="ph wide float" style="--f:9s" src="{v('img/caso-farma.jpg')}" alt=""></span>
+    <span class="row" style="--d:360ms" aria-hidden="true"><span>y en el negocio.</span></span>
   </h1>
   <p class="sub">Hago que lo fragmentado funcione como un solo servicio.</p>
   <div class="ctas"><a class="btn btn-primary" href="#contacto">Cuéntame tu proyecto</a><a class="btn btn-secondary" href="#casos">Ver casos</a></div>

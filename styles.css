@@ -377,3 +377,4 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 @media (max-width:720px){.hero .bigtype{font-size:clamp(34px,10.4vw,52px)}.bigtype .row > span:not(.note){white-space:normal}}
 .bigtype .row{justify-self:start}
 .n-case{left:-2%}
+.n-hero{left:calc(100% + 1.1em)}.n-hero .arrow{left:-74px;top:30px;width:62px}
