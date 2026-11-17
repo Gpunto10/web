@@ -5,7 +5,7 @@ body,body::before{background:var(--paper)}
 .band.white,.statement-wrap,[data-view="como-trabajo"] .solo-back{background:var(--paper)}
 .band{border-top:0}
 .finding{background:var(--white)}
-.case.ln-left::before,.case.ln-right::before,.case.ln-bottom::before{display:none}
+.case::before{display:none}
 .mark{background:none}
 .chip-sky,.chip-lav{background:var(--chip-bg);color:var(--chip-fg)}
 .bignum,.qmark,.mentor-score b{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:var(--acc)}
