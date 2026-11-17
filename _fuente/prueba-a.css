@@ -1,0 +1,6 @@
+/* A · Crema y calma: crema único, acentos cobalto y violeta más vivos, tipografía más tranquila */
+:root{--acc:#2F4FD8;--acc2:#B9A8FF;--chip-bg:#E3E8FF;--chip-fg:#2F4FD8;--sky:#4F7BF0;--lav:#8D6CF0;--sky-text:#2F4FD8;--lav-text:#6A45E0;--acc-light:#B9A8FF}
+h1,h2,h3{font-weight:500}
+.sec-head h2,.findings-head h2{letter-spacing:-.04em}
+.bio .lead,.quote p,.statement p,.pull blockquote p{font-weight:500}
+.case .thumb{filter:none}

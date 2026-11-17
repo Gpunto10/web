@@ -1,0 +1,14 @@
+/* B · Color por secciones: bloques de color saturado que se alternan con el crema */
+:root{--acc:#2F4FD8;--acc2:#FFD84D;--chip-bg:#fff;--chip-fg:#161616;--sky:#4F7BF0;--lav:#8D6CF0;--sky-text:#2F4FD8;--lav-text:#6A45E0;--acc-light:#FFD84D}
+#como-trabajo{background:#2F4FD8;color:#fff}
+#como-trabajo .sec-head p{color:rgba(255,255,255,.82)}
+#como-trabajo .hand-u .scribble{color:#FFD84D}
+#como-trabajo .pillar{color:var(--ink)}
+#como-trabajo .statement{background:#161616}
+#hallazgos{background:#C9BDFF}
+#hallazgos .findings-head p{color:#2B2350}
+#hallazgos .hand-o .loop,#hallazgos .doodle{color:#2F4FD8}
+#contacto{background:#FFD84D}
+#contacto .sec-head h2{color:#161616}
+[data-view="como-trabajo"] .solo-back{background:#2F4FD8}
+.case .thumb{filter:none}

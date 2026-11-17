@@ -1,0 +1,16 @@
+/* Base común de las pruebas: un solo fondo, menos degradados, etiquetas iguales */
+:root{--paper:#F5EFE4}
+body,body::before{background:var(--paper)}
+.nav{background:rgba(245,239,228,.92)}
+.band.white,.statement-wrap,[data-view="como-trabajo"] .solo-back{background:var(--paper)}
+.band{border-top:0}
+.finding{background:var(--white)}
+.case.ln-left::before,.case.ln-right::before,.case.ln-bottom::before{display:none}
+.mark{background:none}
+.chip-sky,.chip-lav{background:var(--chip-bg);color:var(--chip-fg)}
+.bignum,.qmark,.mentor-score b{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:var(--acc)}
+.glow{background:none;color:var(--acc2)}
+.pv-bar{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:50;display:flex;gap:14px;align-items:center;flex-wrap:wrap;justify-content:center;max-width:calc(100vw - 32px);padding:8px 14px;border-radius:999px;background:#161616;color:#fff;font:500 13px/1.2 var(--sans);box-shadow:0 6px 24px rgba(0,0,0,.18)}
+.pv-bar nav{display:flex;gap:10px}
+.pv-bar a{color:#fff;opacity:.7;text-decoration:none}.pv-bar a:hover{opacity:1}
+.pv-bar b{color:var(--acc-light,#fff);text-decoration:underline;text-underline-offset:3px}
