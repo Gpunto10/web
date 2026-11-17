@@ -359,7 +359,7 @@ INDEX = f'''<!doctype html>
   </h1>
   <p class="sub">Hago que lo fragmentado funcione como un solo servicio.</p>
   <div class="ctas"><a class="btn btn-secondary" href="#contacto">Cuéntame tu proyecto</a><a class="btn btn-primary" href="#casos">Ver casos</a></div>
-  <p class="proof"><span class="dot" aria-hidden="true"></span><span>En 2025 y 2026, <b>todos mis clientes han vuelto a contar conmigo</b> para nuevas fases y proyectos.</span>{WINK}</p>
+  <p class="proof"><span class="dot" aria-hidden="true"></span><span>En 2025 y 2026, <b>todos mis clientes han vuelto a contar conmigo</b> para nuevas fases y proyectos. {WINK}</span></p>
 </div></section>
 
 <section class="band white" id="como-trabajo"><div class="inner">
@@ -371,9 +371,11 @@ INDEX = f'''<!doctype html>
   </div>
 </div></section>
 
-<section class="statement" aria-label="Mi enfoque"><span class="roam r1" aria-hidden="true"></span><span class="roam r2" aria-hidden="true"></span><div class="inner">
-  <span class="dot" aria-hidden="true"></span>
-  <p class="reveal">No diseño píxeles.<br>Diseño lo que hace que <span class="glow">esos píxeles tengan sentido.</span></p>
+<section class="statement-wrap" aria-label="Mi enfoque"><div class="inner">
+  <div class="statement reveal"><span class="roam r1" aria-hidden="true"></span><span class="roam r2" aria-hidden="true"></span>
+    <span class="dot" aria-hidden="true"></span>
+    <p>No diseño píxeles.<br>Diseño lo que hace que esos píxeles <span class="hand-u light">tengan sentido.{SCRIBBLE}</span></p>
+  </div>
 </div></section>
 
 <section class="band" id="casos"><div class="inner">
