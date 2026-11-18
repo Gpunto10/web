@@ -101,7 +101,8 @@ dict(
    "El menú pasó de secciones por departamento a tres bloques: quién somos, qué hacemos y cómo colaborar.",
    "Los fallos de la auditoría se convirtieron en reglas para los wireframes.",
    "Nuevas vías de colaboración para quien tiene poco dinero y mucho compromiso.",
-   "El cliente amplió el proyecto."]),
+   "El comité interno aprobó el nuevo menú y la web nueva sale en 2027.",
+   "Sigo trabajando en el proyecto: el cliente ha contratado nuevas fases."]),
  extra=None,
 ),
 dict(
@@ -139,6 +140,7 @@ dict(
  traduccion=key("En los dos equipos salió una hoja de prioridades sobre la que construir.") + ul([
    "<strong>Fintech:</strong> prioridades ordenadas por impacto, un documento de adopción y nuevas fases contratadas.",
    "<strong>Equipo comercial:</strong> la demo a medida parte de los escenarios que votó el propio equipo.",
+   "<strong>En marcha:</strong> ya se están construyendo soluciones a medida.",
    "<strong>Un método repetible</strong> para pasar de «tenemos IA» a «sabemos qué resolver primero»."]),
  extra=None,
 ),
@@ -409,13 +411,13 @@ IMPACT = {
    ("Decisiones de negocio", "Negocio priorizó qué construir a partir de las oportunidades: onboarding digital, atención remota para pymes y un CRM más sencillo."),
    ("Del papel al diseño", "Los hallazgos alimentaron el portal único de cliente y las mejoras del CRM para los equipos."),
    ("Dos ampliaciones", "El cliente amplió el proyecto dos veces, hasta llevar su nueva marca a cada canal de atención.")]),
- "caso-ong": ("Toda la organización empujando en la misma dirección.", [
-   ("Una sola definición de éxito", "Áreas con objetivos muy distintos acordaron qué debía conseguir la nueva web."),
-   ("Del organigrama al donante", "El nuevo menú se validó con las áreas y llegó al comité interno de la organización."),
-   ("Más encargos", "El diagnóstico llevó al workshop, y el workshop a nuevas fases y encargos.")]),
+ "caso-ong": ("El nuevo menú, aprobado. La web nueva, en 2027.", [
+   ("Menú aprobado", "El comité interno aprobó el nuevo menú, pensado para el donante y no para el organigrama."),
+   ("Web nueva en 2027", "La organización lanza su nueva web en 2027."),
+   ("Sigo en el proyecto", "El diagnóstico llevó a nuevas fases, y sigo trabajando mano a mano con la responsable del proyecto.")]),
  "caso-ia": ("De «tenemos IA» a «sabemos qué construir primero».", [
    ("Prioridades claras", "La fintech salió con sus prioridades ordenadas por impacto y un documento de adopción."),
-   ("Una demo que nace del equipo", "La demo a medida del equipo comercial se construye sobre los escenarios que votaron ellos mismos."),
+   ("Soluciones en construcción", "Ya se están construyendo soluciones a medida a partir de lo que salió en los workshops."),
    ("Nuevas fases", "La fintech contrató nuevas fases a partir del workshop.")]),
  "caso-farma": ("Mejoras para hoy y una hoja de ruta para mañana.", [
    ("Mejoras listas para aplicar", "Cambios de diseño concretos para cada sección de la app."),
