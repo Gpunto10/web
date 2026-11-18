@@ -478,6 +478,7 @@ def case_page(i, c):
 <title>{html.escape(c['card'])} · Gema Díez</title>
 <meta name="description" content="{html.escape(c['lede'])}">
 {FONTS}
+<script data-goatcounter="https://gemadiez.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
 <div class="progress" aria-hidden="true"><span id="progress"></span></div>
@@ -518,6 +519,7 @@ INDEX = f'''<!doctype html>
 <title>Gema Díez · Service Designer</title>
 <meta name="description" content="Gema Díez, Service Designer estratégica. Hago que lo fragmentado funcione como un solo servicio.">
 {FONTS}
+<script data-goatcounter="https://gemadiez.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
 {nav('')}
