@@ -620,8 +620,8 @@ INDEX = f'''<!doctype html>
     <div class="door">
       <span class="label">Para empresas</span>
       <h3>Ver mi trayectoria</h3>
-      <p>Si buscas una Service Designer senior que piense en negocio y lidere proyectos de principio a fin, aquí tienes mi recorrido.</p>
-      <div class="ctas"><a class="btn btn-secondary" href="https://www.linkedin.com/in/gema-d%C3%ADez-gonz%C3%A1lez-74157943/" target="_blank" rel="noopener">LinkedIn</a><a class="btn btn-secondary" href="https://www.sngular.com/" target="_blank" rel="noopener">Sngular</a><span class="soon">CV en PDF, próximamente</span></div>
+      <p>Si buscas una Researcher &amp; Service Designer Senior que piense en las personas y en el negocio y lidere proyectos de principio a fin, aquí tienes mi recorrido y dónde trabajo.</p>
+      <div class="ctas"><a class="btn btn-secondary" href="https://www.linkedin.com/in/gema-d%C3%ADez-gonz%C3%A1lez-74157943/" target="_blank" rel="noopener">Mi LinkedIn</a><a class="btn btn-secondary" href="https://www.sngular.com/" target="_blank" rel="noopener">Web de Sngular</a><span class="soon">CV en PDF, próximamente</span></div>
     </div>
   </div>
 </div></section>
