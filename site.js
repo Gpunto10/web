@@ -162,3 +162,12 @@
     });
   }
 })();
+
+/* Botón de atrás de la navegación: vuelve a la página anterior de la web; si se llegó de fuera, va a los casos */
+(function(){
+  var b=document.getElementById('nav-back'); if(!b) return;
+  b.addEventListener('click',function(e){
+    var r=document.referrer;
+    if(r && r.indexOf(location.origin)===0 && history.length>1){ e.preventDefault(); history.back(); }
+  });
+})();
