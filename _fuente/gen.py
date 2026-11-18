@@ -179,7 +179,7 @@ dict(
  slug="caso-diabetes", tag="Salud digital · Diabetes",
  card="Validar una app de diabetes antes de lanzarla",
  card_lede="Un test con usuarias de un prototipo: qué funcionaba y qué ajustar antes del lanzamiento.",
- facts=["1 necesidad sin cubrir, validada", "5 ajustes antes de lanzar", "2024"],
+ facts=["Test con 5 pacientes", "5 ajustes antes de lanzar", "2024"],
  h1="Startup de salud digital: validar una app de diabetes antes de lanzarla",
  lede="El test confirmó que la app resolvía una necesidad que nadie cubría y señaló los ajustes de lenguaje, flujo y accesibilidad antes de lanzarla.",
  sheet=[("Cliente","Startup de salud digital"),("Producto","App y dispositivo para pacientes insulinodependientes"),("Año","2024"),("Equipo","Yo, de principio a fin")],
@@ -271,7 +271,7 @@ STATS = {
  "caso-ong": [("32 → 3", "secciones del menú"), ("5", "áreas alineadas"), ("2", "territorios de conquista")],
  "caso-ia": [("5", "bloques del formato"), ("6", "prioridades por impacto"), ("2", "equipos, un método")],
  "caso-farma": [("5", "etapas del journey"), ("4", "arquetipos de paciente"), ("2", "horizontes de mejora")],
- "caso-diabetes": [("1", "necesidad validada"), ("2", "momentos de uso"), ("5", "ajustes antes de lanzar")],
+ "caso-diabetes": [("5", "pacientes en el test"), ("0 de 5", "reconoció su sensor por la sigla"), ("5", "ajustes antes de lanzar")],
 }
 
 # Trazos "dibujados a mano" (SVG). Se dibujan solos al entrar en pantalla (.draw)

@@ -753,3 +753,5 @@ h1,h2,h3{font-weight:500}
 .crow:hover .crow-img img{transform:scale(1.04)}
 .crow:hover .crow-img{transform:none}
 
+/* Cifras: número siempre arriba aunque la etiqueta ocupe varias líneas (18 nov 2026) */
+.stats div{justify-content:flex-end}
