@@ -744,3 +744,7 @@ h1,h2,h3{font-weight:500}
   .crow-go{display:none}
   .crow-lede{-webkit-line-clamp:2}
 }
+/* PRUEBA (18 nov 2026): filtro ocre (monocromo cálido) en las fotos de la lista de casos de la home, color al pasar el ratón.
+   Para quitarla, borra estas dos líneas. Dentro de cada caso las fotos siguen a color. */
+.crow-img{filter:grayscale(1) sepia(.16) contrast(1.06) brightness(1.01);transition:filter .5s ease,transform .35s cubic-bezier(.2,.7,.2,1)}
+.crow:hover .crow-img,.crow:focus-visible .crow-img{filter:none}
