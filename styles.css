@@ -691,3 +691,17 @@ h1,h2,h3{font-weight:500}
 @media (max-width:520px){.chat-fab span{display:none}.chat-fab{padding:4px}.chat-fab img{width:46px;height:46px}.chat-fab::after{left:38px}.chat-row{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.chat-panel,.bub,.bub.typing i{animation:none!important}}
 .chat-send{background:#2440FF;border-color:#2440FF;color:#fff}.chat-send:hover{background:var(--ink);border-color:var(--ink)}.chat-send:disabled{opacity:.6}
+
+/* v8 (18 nov 2026): textos más cortos, idea clave arriba, numeración de casos y nota de Sngular */
+.key{font-size:clamp(21px,2.3vw,26px);font-weight:500;letter-spacing:-.025em;line-height:1.25;color:var(--ink);max-width:30ch}
+.step.dark .key{color:var(--white)}
+.prose .key + .list,.prose .key + .ol{margin-top:var(--s2)}
+.step-hallazgos .key{font-size:clamp(24px,2.8vw,32px)}
+.card-top{display:flex;align-items:center;gap:var(--s3);flex-wrap:wrap}
+.cnum{font-family:var(--mono);font-weight:500;font-size:13px;color:#2440FF;letter-spacing:.02em}
+.card-foot{display:flex;align-items:center;justify-content:space-between;gap:var(--s3);flex-wrap:wrap}
+.owner{font-size:12px;color:var(--soft)}
+.owner-note{display:flex;align-items:center;gap:var(--s2);font-size:13px;color:var(--soft);max-width:none}
+.owner-note .dot{width:7px;height:7px}
+@media (max-width:520px){.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.stats div{padding-right:var(--s3);margin-right:var(--s3)}.stats dd{font-size:26px}.stats dt{font-size:12px}}
+.owner-note{align-items:baseline}
