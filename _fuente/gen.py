@@ -89,7 +89,7 @@ dict(
  quote=("La web refleja cómo estamos organizados, no lo que el usuario necesita.", "Persona de la organización"),
  entregables=ul([
    "Diagnóstico, evaluación heurística y benchmark.",
-   "Arquetipos de donante y su journey.",
+   "Territorios de conquista y su journey.",
    "Nueva arquitectura del menú y de la home.",
    "Requisitos y primeros wireframes.",
    "Presentación al comité interno."]) + "@@ONG@@",
@@ -223,7 +223,7 @@ WAVE = '''<svg class="wave" viewBox="0 0 1440 600" preserveAspectRatio="none" ar
 
 def nav(prefix):
     return f'''<header class="nav"><div class="inner">
-  <div class="nav-left">{'<a class="nav-back" id="nav-back" href="index.html#casos" aria-label="Volver atrás" title="Volver atrás"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></a>' if prefix else ''}
+  <div class="nav-left">{'<a class="nav-back" id="nav-back" href="index.html#casos">← Atrás</a>' if prefix else ''}
   <a class="brand" href="{prefix or '#inicio'}" aria-label="Gema Díez, inicio"><span class="dot" aria-hidden="true"></span>Gema Díez</a></div>
   <nav aria-label="Principal"><ul>
     <li class="hide-s"><a href="{prefix}#como-trabajo">Cómo trabajo</a></li>
@@ -269,7 +269,7 @@ ICONS = {
 # Cifras de la cabecera de cada caso: dato grande + etiqueta, sin caja (no deben parecer botones)
 STATS = {
  "caso-energia": [("+60", "oportunidades priorizadas"), ("3", "perfiles de cliente"), ("3", "decálogos por canal")],
- "caso-ong": [("32 → 3", "secciones del menú"), ("5", "áreas alineadas"), ("2", "arquetipos de donante")],
+ "caso-ong": [("32 → 3", "secciones del menú"), ("5", "áreas alineadas"), ("2", "territorios de conquista")],
  "caso-ia": [("5", "bloques del formato"), ("6", "prioridades por impacto"), ("2", "equipos, un método")],
  "caso-farma": [("5", "etapas del journey"), ("4", "arquetipos de paciente"), ("2", "horizontes de mejora")],
  "caso-diabetes": [("1", "necesidad validada"), ("2", "momentos de uso"), ("5", "ajustes antes de lanzar")],
@@ -413,7 +413,7 @@ IMPACT = {
  "caso-ia": ("De «tenemos IA» a «sabemos qué construir primero».", [
    ("Prioridades claras", "Ya se están construyendo soluciones a medida a partir de lo que salió en los workshops."),
    ("Un formato que crece", "Del workshop de la fintech salió el del equipo comercial, y pudimos contarlo a más clientes en el webinar «Agentes de IA, sí. Pero ¿por dónde empiezo?»."),
-   ("Un método repetible", "Construí un método para pasar de «tenemos IA» a «sabemos qué resolver primero».")]),
+   ("Un método repetible", "Construcción de un método para pasar de «tenemos IA» a «sabemos qué resolver primero».")]),
  "caso-farma": ("Mejoras para hoy y una hoja de ruta para mañana.", [
    ("Mejoras listas para aplicar", "Cambios de diseño concretos para cada sección de la app."),
    ("Una hoja de ruta de producto", "Nuevas funcionalidades por etapa del journey y por tipo de paciente."),
