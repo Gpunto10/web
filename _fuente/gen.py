@@ -142,6 +142,7 @@ dict(
    "<strong>Fintech:</strong> prioridades ordenadas por impacto y un documento de adopción.",
    "<strong>Equipo comercial:</strong> la demo a medida parte de los escenarios que votó el propio equipo.",
    "<strong>En marcha:</strong> ya se están construyendo soluciones a medida.",
+   "<strong>Más alcance:</strong> el formato se va a ofrecer a más clientes y di un webinar sobre la importancia del discovery.",
    "<strong>Un método repetible</strong> para pasar de «tenemos IA» a «sabemos qué resolver primero»."]),
  extra=None,
 ),
@@ -419,7 +420,7 @@ IMPACT = {
  "caso-ia": ("De «tenemos IA» a «sabemos qué construir primero».", [
    ("Prioridades claras", "La fintech salió con sus prioridades ordenadas por impacto y un documento de adopción."),
    ("Soluciones en construcción", "Ya se están construyendo soluciones a medida a partir de lo que salió en los workshops."),
-   ("Un punto de partida", "Es un formato inicial: en una sola sesión, el equipo pasa de usos sueltos a saber qué resolver primero.")]),
+   ("Un formato que crece", "Del workshop de la fintech salió el del equipo comercial. Ahora se va a ofrecer a más clientes y lo conté en un webinar sobre la importancia del discovery.")]),
  "caso-farma": ("Mejoras para hoy y una hoja de ruta para mañana.", [
    ("Mejoras listas para aplicar", "Cambios de diseño concretos para cada sección de la app."),
    ("Una hoja de ruta de producto", "Nuevas funcionalidades por etapa del journey y por tipo de paciente."),
