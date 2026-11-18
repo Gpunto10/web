@@ -112,14 +112,15 @@ dict(
  facts=["5 bloques de trabajo", "6 prioridades por impacto", "2 equipos"],
  h1="Workshop de adopción de IA: un formato, dos contextos",
  lede="Diseñé un formato de workshop que empieza por el trabajo real, no por la tecnología. Lo aplicamos con dos equipos muy distintos y en los dos salió una lista de prioridades.",
- sheet=[("Contexto 1","Equipo de compras de una fintech internacional"),("Contexto 2","Equipo comercial que vende una suite de IA"),("Formato","Sesiones de 90 minutos a 2 horas"),("Equipo","Una Senior UX Designer y yo")],
+ sheet=[("Contexto 1","Equipo de compras de una fintech internacional"),("Contexto 2","Equipo comercial que vende una suite de IA"),("Formato","Sesiones de 90 minutos a 2 horas"),("Equipo","Yo: diseño, moderación y síntesis")],
  reto=key("Las empresas tienen IA, pero la usan para cosas sueltas.") + ul([
    "Redactar correos o resumir textos no cambia el trabajo.",
    "Había que encontrar dónde aporta valor real y qué resolver primero."]) +
    '<p class="premise">«Hoy no venimos a ver otra demo: venimos a construir la vuestra.»</p>',
- rol=key("Diseñé el formato y lo facilité junto a una UX Designer.") + ul([
+ rol=key("Diseñé el formato y moderé las sesiones yo sola.") + ul([
    "Dinámicas y materiales.",
-   "Facilitación.",
+   "Tablero de trabajo generado con la IA de Miro y adaptado después por mí.",
+   "Moderación de las sesiones.",
    "Síntesis y presentación de resultados."]),
  enfoque=key("Cinco bloques que van del día a día a la prioridad.") + ol([
    "<strong>Su día a día:</strong> las tareas que más tiempo roban.",
@@ -135,7 +136,7 @@ dict(
  quote=("Se inventa algo antes de admitir que no sabe.", "Persona del equipo comercial"),
  entregables=ul([
    "Formato de workshop reutilizable: agenda, dinámicas y plantillas.",
-   "Tableros de trabajo de cada sesión.",
+   "Tableros de trabajo de cada sesión, creados con la IA de Miro y adaptados a cada equipo.",
    "Informe de discovery con dolores, usos actuales y prioridades."]),
  traduccion=key("En los dos equipos salió una hoja de prioridades sobre la que construir.") + ul([
    "<strong>Fintech:</strong> prioridades ordenadas por impacto y un documento de adopción.",
