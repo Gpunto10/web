@@ -555,7 +555,7 @@ INDEX = f'''<!doctype html>
 <section class="band" id="casos"><div class="inner">
   <div class="sec-head"><span class="chip chip-sky">Casos · 2024 a 2026</span><h2>Qué descubrimos y en qué se tradujo</h2><p>Cinco proyectos de Service Design y Research que hice en Sngular. Los cuento por sector, sin marcas ni datos internos.</p></div>
   <div class="case-list">{cards}</div>
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><filter id="duo" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values=".2126 .7152 .0722 0 0 .2126 .7152 .0722 0 0 .2126 .7152 .0722 0 0 0 0 0 1 0"/><feComponentTransfer><feFuncR type="table" tableValues="0 .06 .22 .5 .78 .94 1"/><feFuncG type="table" tableValues="0 .06 .22 .5 .78 .94 1"/><feFuncB type="table" tableValues="0 .06 .22 .5 .78 .94 1"/></feComponentTransfer><feComponentTransfer><feFuncR type="table" tableValues=".078 .961"/><feFuncG type="table" tableValues=".094 .937"/><feFuncB type="table" tableValues=".22 .894"/></feComponentTransfer></filter></svg>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><filter id="duo" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values=".2126 .7152 .0722 0 0 .2126 .7152 .0722 0 0 .2126 .7152 .0722 0 0 0 0 0 1 0"/><feComponentTransfer><feFuncR type="table" tableValues=".086 .961"/><feFuncG type="table" tableValues=".086 .937"/><feFuncB type="table" tableValues=".086 .894"/></feComponentTransfer></filter></svg>
 </div></section>
 
 <section class="band white" id="hallazgos"><div class="inner">
