@@ -744,6 +744,6 @@ h1,h2,h3{font-weight:500}
   .crow-go{display:none}
   .crow-lede{-webkit-line-clamp:2}
 }
-/* PRUEBA (18 nov 2026): fotos de la lista de casos de la home en duotono con los colores de la web (tinta #161616 → crema #F5EFE4),
+/* PRUEBA (18 nov 2026): fotos de la lista de casos de la home en duotono con los colores de la web (sombras en tinta azulada #141838, luces en crema #F5EFE4, con algo más de contraste),
    sin color al pasar el ratón. El filtro SVG #duo está en index.html (gen.py, DUO). Para quitarlo, borra esta línea. */
 .crow-img,.crow:hover .crow-img{filter:url(#duo)}
