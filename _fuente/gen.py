@@ -475,7 +475,6 @@ def case_page(i, c):
 <section class="case-hero">{WAVE}<div class="inner">
   <div class="hero-grid">
     <div class="hero-text">
-      <a class="back" href="index.html#casos">← Todos los casos</a>
       <span class="tag">{c['tag']}</span>
       <h1>{c['h1']}</h1>
       <p class="lede">{c['lede']}</p>
