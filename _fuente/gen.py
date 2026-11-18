@@ -458,7 +458,8 @@ def case_page(i, c):
 </div></section>
 {body}
 <section class="band next"><div class="inner">
-  <a class="next-link" href="{nxt['slug']}.html"><span class="next-txt"><span class="next-k">Siguiente caso →</span><span class="next-t">{nxt['card']}</span></span><span class="next-arrow" aria-hidden="true">→</span></a>
+  <a class="next-case" href="{nxt['slug']}.html"><span class="label">Siguiente caso</span><h3>{nxt['card']}</h3></a>
+  <a class="btn btn-primary" href="{nxt['slug']}.html">Siguiente →</a>
 </div></section>
 </main>
 {FOOT}
