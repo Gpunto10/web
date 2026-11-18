@@ -210,8 +210,7 @@ dict(
    "Permitir varias respuestas sobre el tratamiento.",
    "Hablar con palabras del paciente.",
    "Aclarar qué se puede editar y qué no.",
-   "Mejorar la accesibilidad."]) + "<h3>Para la hoja de ruta</h3>" + ul([
-   "Contenido médico fiable, conexión con el especialista y un canal de ayuda."]),
+   "Mejorar la accesibilidad."]),
  extra=None,
 ),
 ]
@@ -433,7 +432,7 @@ IMPACT = {
  "caso-diabetes": ("Luz verde para seguir desarrollando.", [
    ("Propuesta de valor validada", "La app resolvía una necesidad que ninguna otra cubría."),
    ("Ajustes antes de lanzar", "Cinco cambios concretos de lenguaje, flujo y accesibilidad."),
-   ("Nuevas fases", "La startup contrató más fases de las previstas.")]),
+   ("Una hoja de ruta", "Ideas para que la app crezca: contenido médico fiable, conexión con el especialista y un canal de ayuda.")]),
 }
 
 STEP_KIND = {"El reto": "reto", "Mi rol": "rol", "Enfoque": "enfoque", "Hallazgos clave": "hallazgos", "Entregables": "entregables", "En qué se tradujo": "tradujo"}
