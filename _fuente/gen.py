@@ -21,9 +21,9 @@ dict(
  card="De vender productos a vender una relación",
  card_lede="Research con clientes, comerciales y canal para convertir una estrategia en decisiones de negocio.",
  facts=["+60 oportunidades priorizadas", "3 decálogos por canal", "2024–25"],
- h1="Energética líder en España: de vender productos a vender una relación",
+ h1="Empresa energética: de vender productos a vender una relación",
  lede="Convertimos una estrategia de negocio en un backlog priorizado, un customer journey con KPIs y principios de experiencia para cada canal.",
- sheet=[("Cliente","Energética líder en España"),("Sector","Energía B2B y B2C"),("Cuándo","De septiembre de 2024 a mayo de 2025, en tres fases"),("Equipo","Otra Service Designer y yo, con apoyo de UX")],
+ sheet=[("Cliente","Empresa energética"),("Sector","Energía B2B y B2C"),("Cuándo","De septiembre de 2024 a mayo de 2025, en tres fases"),("Equipo","Otra Service Designer y yo, con apoyo de UX")],
  reto=key("Pasar de vender productos sueltos a ofrecer una solución energética integral, sin más fuerza comercial.") + ul([
    "Cada línea de negocio tenía su flujo, su gestor y su canal.",
    "Un mismo cliente podía tener varios gestores.",
