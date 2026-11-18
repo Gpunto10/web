@@ -402,6 +402,31 @@ def ong_demo():
             '<figcaption>Las cuatro fichas que guiaron el workshop de co-creación. Recreación con textos resumidos.</figcaption></figure>')
     return evalx + deck
 
+
+# Impacto de cada caso: solo resultados reales que constan en los documentos de Gema (nada supuesto)
+IMPACT = {
+ "caso-energia": ("El research se convirtió en la hoja de ruta del negocio.", [
+   ("Decisiones de negocio", "Negocio priorizó qué construir a partir de las oportunidades: onboarding digital, atención remota para pymes y un CRM más sencillo."),
+   ("Del papel al diseño", "Los hallazgos alimentaron el portal único de cliente y las mejoras del CRM para los equipos."),
+   ("Dos ampliaciones", "El cliente amplió el proyecto dos veces, hasta llevar su nueva marca a cada canal de atención.")]),
+ "caso-ong": ("Toda la organización empujando en la misma dirección.", [
+   ("Una sola definición de éxito", "Áreas con objetivos muy distintos acordaron qué debía conseguir la nueva web."),
+   ("Del organigrama al donante", "El nuevo menú se validó con las áreas y llegó al comité interno de la organización."),
+   ("Más encargos", "El diagnóstico llevó al workshop, y el workshop a nuevas fases y encargos.")]),
+ "caso-ia": ("De «tenemos IA» a «sabemos qué construir primero».", [
+   ("Prioridades claras", "La fintech salió con sus prioridades ordenadas por impacto y un documento de adopción."),
+   ("Una demo que nace del equipo", "La demo a medida del equipo comercial se construye sobre los escenarios que votaron ellos mismos."),
+   ("Nuevas fases", "La fintech contrató nuevas fases a partir del workshop.")]),
+ "caso-farma": ("Mejoras para hoy y una hoja de ruta para mañana.", [
+   ("Mejoras listas para aplicar", "Cambios de diseño concretos para cada sección de la app."),
+   ("Una hoja de ruta de producto", "Nuevas funcionalidades por etapa del journey y por tipo de paciente."),
+   ("Una segunda fase", "El cliente contrató una nueva fase para evaluar también su web.")]),
+ "caso-diabetes": ("Luz verde para seguir desarrollando.", [
+   ("Propuesta de valor validada", "La app resolvía una necesidad que ninguna otra cubría."),
+   ("Ajustes antes de lanzar", "Cinco cambios concretos de lenguaje, flujo y accesibilidad."),
+   ("Nuevas fases", "La startup contrató más fases de las previstas.")]),
+}
+
 STEP_KIND = {"El reto": "reto", "Mi rol": "rol", "Enfoque": "enfoque", "Hallazgos clave": "hallazgos", "Entregables": "entregables", "En qué se tradujo": "tradujo"}
 
 def step(n, title, body, white):
@@ -411,6 +436,14 @@ def step(n, title, body, white):
     return f'''<section class="band step step-{kind}{tone}" id="{kind}"><div class="inner">
   <div class="step-head reveal"><span class="bignum" aria-hidden="true">{n:02d}</span><span class="chip {chip}">Paso {n:02d} de 06</span><h2>{title}</h2></div>
   <div class="prose">{body}</div>
+</div></section>'''
+
+def impact_html(c):
+    head, items = IMPACT[c["slug"]]
+    li = "".join(f'<li class="reveal" style="--d:{k*100}ms"><span class="imp-n">{k+1:02d}</span><b>{t}</b><span>{d}</span></li>' for k, (t, d) in enumerate(items))
+    return f'''<section class="band impact" id="impacto"><div class="inner">
+  <div class="imp-head"><span class="chip chip-sky">Impacto</span><h2>{head}</h2></div>
+  <ul class="imp-list">{li}</ul>
 </div></section>'''
 
 def case_page(i, c):
@@ -456,6 +489,7 @@ def case_page(i, c):
   <div class="sheet">{sheet}</div>
   <p class="owner-note"><span class="dot" aria-hidden="true"></span>Proyecto realizado como Senior Researcher y Service Designer en Sngular. El trabajo y sus entregables son propiedad de Sngular.</p>
 </div></section>
+{impact_html(c)}
 {body}
 <section class="band next"><div class="inner">
   <a class="next-case" href="{nxt['slug']}.html"><span class="label">Siguiente caso</span><h3>{nxt['card']}</h3></a>
