@@ -81,7 +81,7 @@ dict(
    "Diagnóstico emocional y de storytelling."]) +
    "<h3>Fase 2 · Co-crear</h3>" + ul([
    "Workshop con las áreas para construir arquetipos y journey.",
-   "Dos arquetipos de donante: <em>el continuista</em> y <em>la concienciada</em>.",
+   "Dos territorios de conquista: el ying y el yang, lo racional y lo emocional.",
    "Nueva arquitectura del menú, validada con las áreas y testada después con card sorting."]),
  hallazgos=key("La web reflejaba cómo estaba organizada la ONG, no lo que necesitaba quien quería colaborar.") + ul([
    "Cada parte parecía una web distinta.",
