@@ -138,7 +138,7 @@ dict(
    "Tableros de trabajo de cada sesión.",
    "Informe de discovery con dolores, usos actuales y prioridades."]),
  traduccion=key("En los dos equipos salió una hoja de prioridades sobre la que construir.") + ul([
-   "<strong>Fintech:</strong> prioridades ordenadas por impacto, un documento de adopción y nuevas fases contratadas.",
+   "<strong>Fintech:</strong> prioridades ordenadas por impacto y un documento de adopción.",
    "<strong>Equipo comercial:</strong> la demo a medida parte de los escenarios que votó el propio equipo.",
    "<strong>En marcha:</strong> ya se están construyendo soluciones a medida.",
    "<strong>Un método repetible</strong> para pasar de «tenemos IA» a «sabemos qué resolver primero»."]),
@@ -418,7 +418,7 @@ IMPACT = {
  "caso-ia": ("De «tenemos IA» a «sabemos qué construir primero».", [
    ("Prioridades claras", "La fintech salió con sus prioridades ordenadas por impacto y un documento de adopción."),
    ("Soluciones en construcción", "Ya se están construyendo soluciones a medida a partir de lo que salió en los workshops."),
-   ("Nuevas fases", "La fintech contrató nuevas fases a partir del workshop.")]),
+   ("Un punto de partida", "Es un formato inicial: en una sola sesión, el equipo pasa de usos sueltos a saber qué resolver primero.")]),
  "caso-farma": ("Mejoras para hoy y una hoja de ruta para mañana.", [
    ("Mejoras listas para aplicar", "Cambios de diseño concretos para cada sección de la app."),
    ("Una hoja de ruta de producto", "Nuevas funcionalidades por etapa del journey y por tipo de paciente."),
