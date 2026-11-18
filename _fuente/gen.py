@@ -293,7 +293,7 @@ def row(c, k=0):
     """Fila de la lista de casos de la home (sustituye a las tarjetas, 18 nov 2026)."""
     meta = f'{c["tag"].split(" · ")[0]} · {YEARS[c["slug"]]} · {c["facts"][0]}'
     return f'''<a class="crow reveal" style="--d:{k*80}ms" href="{c['slug']}.html">
-  <img class="crow-img" src="{v('img/' + c['slug'] + '.jpg')}" alt="" width="800" height="800" loading="lazy">
+  <span class="crow-img"><img src="{v('img/' + c['slug'] + '.jpg')}" alt="" width="800" height="800" loading="lazy"><img class="duo" src="{v('img/' + c['slug'] + '.jpg')}" alt="" width="800" height="800" loading="lazy"></span>
   <span class="crow-num" aria-hidden="true">{k+1:02d}</span>
   <span class="crow-text"><span class="crow-title">{c['card']}</span><span class="crow-meta">{meta}</span><span class="crow-lede">{c['card_lede']}</span><span class="owner">Proyecto de Sngular</span></span>
   <span class="crow-go" aria-hidden="true">→</span>

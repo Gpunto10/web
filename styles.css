@@ -745,5 +745,11 @@ h1,h2,h3{font-weight:500}
   .crow-lede{-webkit-line-clamp:2}
 }
 /* PRUEBA (18 nov 2026): fotos de la lista de casos de la home en duotono con los colores de la web (sombras en tinta azulada #141838, luces en crema #F5EFE4, con algo más de contraste),
-   sin color al pasar el ratón. El filtro SVG #duo está en index.html (gen.py, DUO). Para quitarlo, borra esta línea. */
-.crow-img,.crow:hover .crow-img{filter:url(#duo)}
+   al pasar el ratón recupera el color con un fundido. El filtro SVG #duo está en index.html (gen.py, DUO). Para quitarlo, borra esta línea. */
+.crow-img{position:relative;display:block;overflow:hidden}
+.crow-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .35s cubic-bezier(.2,.7,.2,1),opacity .5s ease}
+.crow-img .duo{filter:url(#duo)}
+.crow:hover .crow-img .duo,.crow:focus-visible .crow-img .duo{opacity:0}
+.crow:hover .crow-img img{transform:scale(1.04)}
+.crow:hover .crow-img{transform:none}
+
