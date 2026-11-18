@@ -48,11 +48,8 @@ dict(
    "Tres arquetipos de cliente con su propuesta de valor.",
    "Backlog de oportunidades y roadmap estratégico.",
    "Primeras soluciones digitales: mejoras del CRM y wireframes del portal de cliente."]),
- traduccion=key("Las oportunidades se convirtieron en decisiones de negocio y en diseño.") + ul([
-   "Negocio priorizó las oportunidades en un workshop, como un onboarding digital o una atención remota para pymes.",
-   "Los arquetipos sirvieron para diseñar el servicio por tipo de cliente.",
-   "Los hallazgos alimentaron el portal de cliente y las mejoras del CRM.",
-   "El cliente amplió el proyecto dos veces."]),
+ traduccion=key("Del research al servicio, canal a canal.") + ul([
+   "Los arquetipos sirvieron para diseñar el servicio por tipo de cliente: el reto fue llevar a los clientes más dependientes hacia más autonomía."]),
  extra=("Extensión B2C", "Principios de experiencia en cada canal",
    key("Tres workshops con equipos de atención telefónica, estaciones de servicio y oficinas.") + ul([
      "Bajamos los principios de la nueva marca a los momentos clave del journey.",
@@ -96,13 +93,11 @@ dict(
    "Nueva arquitectura del menú y de la home.",
    "Requisitos y primeros wireframes.",
    "Presentación al comité interno."]) + "@@ONG@@",
- traduccion=key("Un acuerdo de toda la casa y un menú pensado para el donante.") + ul([
+ traduccion=key("Un acuerdo de toda la casa.") + ul([
    "Todas las áreas compartieron una definición de éxito: donar con menos pasos, entender qué hace la ONG y publicar sin fricción.",
    "El menú pasó de secciones por departamento a tres bloques: quién somos, qué hacemos y cómo colaborar.",
    "Los fallos de la auditoría se convirtieron en reglas para los wireframes.",
-   "Nuevas vías de colaboración para quien tiene poco dinero y mucho compromiso.",
-   "El comité interno aprobó el nuevo menú y la web nueva sale en 2027.",
-   "Sigo trabajando en el proyecto: el cliente ha contratado nuevas fases."]),
+   "Nuevas vías de colaboración para quien tiene poco dinero y mucho compromiso."]),
  extra=None,
 ),
 dict(
@@ -138,12 +133,9 @@ dict(
    "Formato de workshop reutilizable: agenda, dinámicas y plantillas.",
    "Tableros de trabajo de cada sesión, creados con la IA de Miro y adaptados a cada equipo.",
    "Informe de discovery con dolores, usos actuales y prioridades."]),
- traduccion=key("En los dos equipos salió una hoja de prioridades sobre la que construir.") + ul([
+ traduccion=key("Lo que se llevó cada equipo.") + ul([
    "<strong>Fintech:</strong> prioridades ordenadas por impacto y un documento de adopción.",
-   "<strong>Equipo comercial:</strong> la demo a medida parte de los escenarios que votó el propio equipo.",
-   "<strong>En marcha:</strong> ya se están construyendo soluciones a medida.",
-   "<strong>Más alcance:</strong> lo contamos a más clientes en el webinar «Agentes de IA, sí. Pero ¿por dónde empiezo?».",
-   "<strong>Un método repetible</strong> para pasar de «tenemos IA» a «sabemos qué resolver primero»."]),
+   "<strong>Equipo comercial:</strong> la demo a medida parte de los escenarios que votó el propio equipo."]),
  extra=None,
 ),
 dict(
@@ -177,12 +169,10 @@ dict(
    "Cuatro arquetipos de paciente.",
    "Evaluación de usabilidad por sección.",
    "Oportunidades por etapa y por arquetipo."]) + "@@FARMA@@",
- traduccion=key("Mejoras para aplicar ya y una hoja de ruta para crecer.") + ul([
-   "Cambios de diseño concretos: nombres más claros, un solo camino para los recordatorios y lo emocional en el centro.",
+ traduccion=key("Las mejoras, en concreto.") + ul([
+   "Nombres más claros, un solo camino para los recordatorios y lo emocional en el centro.",
    "Proteger lo que mejor funcionaba.",
-   "Nuevas ideas por etapa, como un «modo brote» con menos avisos y ayuda directa.",
-   "Criterios para adaptar la app a cada tipo de paciente.",
-   "El cliente amplió el proyecto."]),
+   "Ideas nuevas por etapa, como un «modo brote» con menos avisos y ayuda directa."]),
  extra=None,
 ),
 dict(
@@ -215,11 +205,13 @@ dict(
    "Informe con evaluación pantalla a pantalla.",
    "Oportunidades y recomendaciones.",
    "Análisis de la arquitectura de la información."]) + "@@EVAL@@",
- traduccion=key("Base para seguir desarrollando y una lista clara de ajustes.") + ul([
-   "La propuesta de valor quedó validada.",
-   "Cinco ajustes antes del lanzamiento:" + '<ul class="sublist"><li>agrupar el registro en bloques;</li><li>permitir varias respuestas sobre el tratamiento;</li><li>hablar con palabras del paciente;</li><li>aclarar qué se puede editar y qué no;</li><li>mejorar la accesibilidad.</li></ul>',
-   "Ideas para la hoja de ruta: contenido médico fiable, conexión con el especialista y un canal de ayuda.",
-   "La startup amplió el proyecto."]),
+ traduccion=key("Los cinco ajustes, uno a uno.") + ul([
+   "Agrupar el registro en bloques.",
+   "Permitir varias respuestas sobre el tratamiento.",
+   "Hablar con palabras del paciente.",
+   "Aclarar qué se puede editar y qué no.",
+   "Mejorar la accesibilidad."]) + "<h3>Para la hoja de ruta</h3>" + ul([
+   "Contenido médico fiable, conexión con el especialista y un canal de ayuda."]),
  extra=None,
 ),
 ]
