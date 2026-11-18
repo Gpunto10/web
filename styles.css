@@ -722,3 +722,25 @@ h1,h2,h3{font-weight:500}
 .nav-back:hover{color:var(--ink)}
 .brand{white-space:nowrap}
 @media (max-width:420px){.nav-back{padding-right:8px;margin-right:2px}.nav-left{gap:var(--s2)}.nav .brand .dot{display:none}}
+/* Lista de casos en filas (18 nov 2026; la versión con tarjetas está en /anterior/home-tarjetas.html) */
+.case-list{display:grid;border-top:2px solid var(--ink)}
+.crow{display:grid;grid-template-columns:170px 72px minmax(0,1fr) auto;gap:var(--s5);align-items:center;padding:var(--s5) 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink);transition:background .2s}
+.crow-img{width:170px;height:120px;object-fit:cover;border-radius:14px;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.crow-num{font-size:48px;font-weight:500;letter-spacing:-.04em;line-height:1;color:#2440FF;font-variant-numeric:tabular-nums}
+.crow-text{display:grid;gap:4px;min-width:0}
+.crow-title{font-size:clamp(20px,2.2vw,24px);font-weight:600;letter-spacing:-.025em;line-height:1.2}
+.crow-meta{font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--lav-text)}
+.crow-lede{font-size:15px;color:var(--soft);display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+.crow .owner{font-size:12px}
+.crow-go{font-size:22px;color:var(--ink);transition:transform .25s,color .2s;padding-right:var(--s2)}
+.crow:hover .crow-img{transform:scale(1.04)}
+.crow:hover .crow-go{transform:translateX(4px);color:#2440FF}
+.crow:hover .crow-title{text-decoration:underline;text-decoration-color:#2440FF;text-decoration-thickness:2px;text-underline-offset:4px}
+@media (max-width:720px){
+  .crow{grid-template-columns:48px minmax(0,1fr);grid-template-areas:"img img" "num text";gap:var(--s3) var(--s3);padding:var(--s5) 0}
+  .crow-img{grid-area:img;width:100%;height:auto;aspect-ratio:16/10}
+  .crow-num{grid-area:num;font-size:32px;align-self:start}
+  .crow-text{grid-area:text}
+  .crow-go{display:none}
+  .crow-lede{-webkit-line-clamp:2}
+}

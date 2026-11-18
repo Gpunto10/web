@@ -287,6 +287,18 @@ NOTES = {"caso-energia": "de vender productos<br>a vender una relación", "caso-
 
 LINES = ["ln-top", "ln-left", "ln-right", "ln-bottom", "ln-top-r"]  # posición de la línea de color de cada tarjeta
 
+YEARS = {"caso-energia": "2024–25", "caso-ong": "2026", "caso-ia": "2026", "caso-farma": "2025", "caso-diabetes": "2024"}
+
+def row(c, k=0):
+    """Fila de la lista de casos de la home (sustituye a las tarjetas, 18 nov 2026)."""
+    meta = f'{c["tag"].split(" · ")[0]} · {YEARS[c["slug"]]} · {c["facts"][0]}'
+    return f'''<a class="crow reveal" style="--d:{k*80}ms" href="{c['slug']}.html">
+  <img class="crow-img" src="{v('img/' + c['slug'] + '.jpg')}" alt="" width="800" height="800" loading="lazy">
+  <span class="crow-num" aria-hidden="true">{k+1:02d}</span>
+  <span class="crow-text"><span class="crow-title">{c['card']}</span><span class="crow-meta">{meta}</span><span class="crow-lede">{c['card_lede']}</span><span class="owner">Proyecto de Sngular</span></span>
+  <span class="crow-go" aria-hidden="true">→</span>
+</a>'''
+
 def card(c, wide=False, k=0):
     facts = "".join(f"<span>{f}</span>" for f in c["facts"])
     return f'''<a class="case reveal {LINES[k % 5]}{' wide' if wide else ''}" style="--d:{(k % 3)*100}ms" href="{c['slug']}.html">
@@ -497,7 +509,7 @@ def case_page(i, c):
 </html>
 '''
 
-cards = "".join(card(c, wide=(k >= 3), k=k) for k, c in enumerate(CASES))
+cards = "".join(row(c, k=k) for k, c in enumerate(CASES))
 
 INDEX = f'''<!doctype html>
 <html lang="es">
@@ -542,7 +554,7 @@ INDEX = f'''<!doctype html>
 
 <section class="band" id="casos"><div class="inner">
   <div class="sec-head"><span class="chip chip-sky">Casos · 2024 a 2026</span><h2>Qué descubrimos y en qué se tradujo</h2><p>Cinco proyectos de Service Design y Research que hice en Sngular. Los cuento por sector, sin marcas ni datos internos.</p></div>
-  <div class="cases">{cards}</div>
+  <div class="case-list">{cards}</div>
 </div></section>
 
 <section class="band white" id="hallazgos"><div class="inner">
