@@ -876,7 +876,7 @@ h1,h2,h3{font-weight:500}
 .ls-panel{gap:10px;padding:0 0 clamp(18px,2.4vw,26px)}
 .ls-panel > :not(.ls-photo){margin-inline:clamp(18px,2.4vw,26px)}
 .ls-photo{aspect-ratio:16/9;border-radius:0;border-bottom:1.5px solid var(--ink);margin-bottom:8px}
-.ls-panel[data-i="0"] .ls-photo img{object-position:50% 45%}
+.ls-panel[data-i="0"] .ls-photo img{object-position:50% 40%}
 .ls-panel[data-i="4"] .ls-photo img{object-position:0 0}
 .lab-screen:hover .ls-photo .duo{opacity:0}
 .ls-ai{font:500 12px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--lav-text)}
