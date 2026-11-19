@@ -1176,3 +1176,20 @@ figure.eval.is-paused *,figure.eval.is-paused *::before,figure.eval.is-paused *:
   .ow-light img{aspect-ratio:3/4.4}
   .ow-notes{flex-direction:column;align-items:flex-start;gap:12px}
 }
+
+/* Sobre mí plegable (19 nov 2026): enlace de texto con chevron, no botón */
+.more-toggle{display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:6px 0;background:none;border:0;font:inherit;font-weight:600;font-size:17px;color:var(--sky-text);cursor:pointer;text-decoration:underline;text-decoration-color:var(--lav);text-decoration-thickness:2px;text-underline-offset:4px}
+.more-toggle svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transform:rotate(180deg);transition:transform .25s}
+.more-toggle[aria-expanded="false"] svg{transform:none}
+.more-toggle:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:8px}
+.is-folded .about-rest,.is-folded #about-mentor{display:none}
+.about-rest{display:grid;gap:var(--s4)}
+.sobre-page #sobre-mi .inner{padding-bottom:clamp(40px,5vw,64px)}
+.sobre-page .offwork .inner{padding-top:clamp(40px,5vw,64px)}
+.sobre-page #sobre-mi .about{grid-template-columns:280px minmax(0,1fr)}
+.sobre-page #sobre-mi.is-folded .about{align-items:center}
+.sobre-page #sobre-mi .photo{max-width:280px}
+.sobre-page .offwork{padding-top:0}
+@media (max-width:820px){.sobre-page #sobre-mi .about{grid-template-columns:1fr}.sobre-page #sobre-mi .photo{max-width:220px}}
+.sobre-page #sobre-mi{padding-bottom:0}
+@media (prefers-reduced-motion:reduce){.more-toggle svg{transition:none}}

@@ -686,6 +686,9 @@ _home = open(os.path.join(OUT, "index.html"), encoding="utf-8").read()
 _about = _re.search(r'<section class="band" id="sobre-mi">.*?</div></section>', _home, _re.S).group(0)
 _about = _about.replace('\n      <a class="link about-more" href="sobre-mi.html">Más sobre Gema, fuera del trabajo →</a>', '')
 _about = _about.replace('<p class="lead">', '<h1 class="sr-only">Sobre mí</h1><p class="lead">', 1)
+# Plegado (19 nov 2026): visible solo la primera frase + «Leer más», el resto se despliega
+_about = _re.sub(r'(<p class="lead">.*?</p>)', r'\1\n      <button type="button" class="more-toggle" id="more-toggle" aria-expanded="true" aria-controls="about-rest about-mentor" hidden><span class="mt-t">Leer menos</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6 8 10.5 12.5 6"/></svg></button>\n      <div class="about-rest" id="about-rest">', _about, count=1)
+_about = _about.replace('</ul>\n    </div>\n  </div>\n  <div class="mentor reveal">', '</ul>\n      </div>\n    </div>\n  </div>\n  <div class="mentor reveal" id="about-mentor">', 1)
 SOBRE_PAGE = f'''<!doctype html>
 <html lang="es">
 <head>

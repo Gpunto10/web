@@ -283,3 +283,16 @@
   }
   window.addEventListener('scroll', function () { if (!tick) { tick = true; requestAnimationFrame(upd); } }, { passive: true });
 })();
+
+/* Sobre mí: «Leer más» pliega la bio y el bloque docente (19 nov 2026) */
+(function () {
+  var b = document.getElementById('more-toggle'); if (!b) return;
+  var sec = document.getElementById('sobre-mi'), t = b.querySelector('.mt-t');
+  function set(open) {
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+    t.textContent = open ? 'Leer menos' : 'Leer más';
+    sec.classList.toggle('is-folded', !open);
+  }
+  b.hidden = false; set(false);
+  b.addEventListener('click', function () { set(b.getAttribute('aria-expanded') !== 'true'); });
+})();
