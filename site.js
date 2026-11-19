@@ -269,3 +269,17 @@
     fig.insertBefore(btn, fig.firstChild);
   });
 })();
+
+/* Móvil (19 nov 2026): el chat flotante y «volver arriba» se apartan mientras se baja, para no tapar el contenido.
+   Vuelven al subir, al pararse arriba del todo o al llegar al final de la página. */
+(function () {
+  var root = document.documentElement, last = window.pageYOffset, tick = false;
+  function upd() {
+    var y = window.pageYOffset, max = root.scrollHeight - root.clientHeight;
+    if (window.innerWidth > 720 || y < 80 || y > max - 80) root.classList.remove('fab-away');
+    else if (y > last + 6) root.classList.add('fab-away');
+    else if (y < last - 6) root.classList.remove('fab-away');
+    last = y; tick = false;
+  }
+  window.addEventListener('scroll', function () { if (!tick) { tick = true; requestAnimationFrame(upd); } }, { passive: true });
+})();

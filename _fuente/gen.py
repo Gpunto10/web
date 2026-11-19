@@ -472,6 +472,8 @@ def case_page(i, c):
         lab, h, body = c["extra"]; body = body.replace("@@WORKSHOP@@", workshop_demo())
         trad += f'<div class="extra"><span class="label">{lab}</span><h3>{h}</h3>{body}</div>'
     steps = [("El reto", c["reto"]), ("Mi rol", c["rol"]), ("Enfoque", c["enfoque"]), ("Hallazgos clave", hall), ("Entregables", c["entregables"].replace("@@EVAL@@", eval_demo()).replace("@@FARMA@@", farma_demo()).replace("@@ONG@@", ong_demo())), ("En qué se tradujo", trad)]
+    toc = ('<nav class="case-toc" aria-label="En este caso"><span class="label">En este caso</span><ol>'
+           '<li><a href="#impacto">Impacto</a></li>' + "".join(f'<li><a href="#{STEP_KIND[t]}">{t}</a></li>' for t, _ in steps) + '</ol></nav>')
     body = "".join(step(k + 1, t, b, k % 2 == 0) + (pull if t == "Hallazgos clave" else "") for k, (t, b) in enumerate(steps))
     return f'''<!doctype html>
 <html lang="es">
@@ -499,6 +501,7 @@ def case_page(i, c):
     <figure class="hero-photo"><img class="float" style="--f:9s" src="{v('img/' + c['slug'] + '.jpg')}" alt="" width="800" height="800"><span class="dot" aria-hidden="true"></span><figcaption class="note n-case">{ARROW}{NOTES[c['slug']]}</figcaption></figure>
   </div>
   <div class="sheet">{sheet}</div>
+  {toc}
   <p class="owner-note"><span class="dot" aria-hidden="true"></span>Proyecto realizado como Senior Researcher y Service Designer en Sngular. El trabajo y sus entregables son propiedad de Sngular.</p>
 </div></section>
 {impact_html(c)}
@@ -660,9 +663,10 @@ IA_PAGE = f'''<!doctype html>
 <script data-goatcounter="https://gemadiez.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
 <div class="progress" aria-hidden="true"><span id="progress"></span></div>
 {nav('index.html')}
-<main>
+<main id="contenido">
 {LAB}
 </main>
 {FOOT}
