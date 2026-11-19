@@ -228,7 +228,7 @@ def nav(prefix):
   <nav aria-label="Principal"><ul>
     <li class="hide-s"><a href="{prefix}#como-trabajo">Cómo trabajo</a></li>
     <li class="hide-s"><a href="{prefix}#casos">Casos</a></li>
-    <li class="hide-s"><a href="{prefix}#laboratorio">Con IA</a></li>
+    <li class="hide-s"><a href="ia.html">Con IA</a></li>
     <li class="hide-s"><a href="{prefix}#sobre-mi">Sobre mí</a></li>
     <li><a class="btn btn-primary btn-small" href="{prefix}#contacto">Hablemos</a></li>
     <li class="show-s"><button class="menu-btn" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Abrir menú"><span></span><span></span></button></li>
@@ -237,7 +237,7 @@ def nav(prefix):
 <nav class="mnav" id="mnav" aria-label="Menú móvil"><ul>
   <li><a href="{prefix}#como-trabajo">Cómo trabajo</a></li>
   <li><a href="{prefix}#casos">Casos</a></li>
-  <li><a href="{prefix}#laboratorio">Con IA</a></li>
+  <li><a href="ia.html">Con IA</a></li>
   <li><a href="{prefix}#sobre-mi">Sobre mí</a></li>
 </ul></nav>
 </header>'''
@@ -579,7 +579,6 @@ INDEX = f'''<!doctype html>
   </div>
 </div></section>
 
-{LAB}
 <section class="band" id="sobre-mi"><div class="inner">
   <div class="about">
     <div class="photo"><img src="{v(PHOTO)}" alt="Retrato de Gema Díez sonriendo" width="400" height="400"><span class="note n-about">¡hola, soy yo!{ARROW_DOWN}</span></div>
@@ -647,6 +646,29 @@ INDEX = f'''<!doctype html>
 '''
 
 open(os.path.join(OUT, "index.html"), "w").write(INDEX)
+
+# Página propia «Con IA» (19 nov 2026): el Laboratorio sale de la home a ia.html
+IA_PAGE = f'''<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Con IA · Gema Díez</title>
+<meta name="description" content="Diseño con IA de principio a fin: investigo, sintetizo, facilito y construyo.">
+{FONTS}
+<script data-goatcounter="https://gemadiez.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</head>
+<body>
+<div class="progress" aria-hidden="true"><span id="progress"></span></div>
+{nav('index.html')}
+<main>
+{LAB}
+</main>
+{FOOT}
+</body>
+</html>
+'''
+open(os.path.join(OUT, "ia.html"), "w").write(IA_PAGE)
 for i, c in enumerate(CASES):
     open(os.path.join(OUT, c["slug"] + ".html"), "w").write(case_page(i, c))
 print("ok")
