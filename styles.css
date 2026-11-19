@@ -1229,3 +1229,26 @@ figure.eval.is-paused *,figure.eval.is-paused *::before,figure.eval.is-paused *:
 /* Letra a mano más pequeña en Sobre mí (19 nov 2026) */
 .sobre-page .ow-cap{font-size:clamp(19px,1.6vw,22px)}
 .sobre-page .ow-roots{font-size:clamp(21px,1.9vw,26px)}
+/* Museo + luz y cielo (19 nov 2026) */
+.ow-expo img{aspect-ratio:4/5;object-position:50% 50%}
+.ow-cats{margin-top:clamp(90px,12vw,170px)}
+.ow-stack{display:grid;gap:clamp(10px,1.4vw,16px)}
+.ow-stack img:first-child{aspect-ratio:3/4}
+.ow-stack img:last-child{aspect-ratio:16/10}
+@media (max-width:820px){
+  .ow-expo{grid-column:1/-1;grid-row:1;width:68%}
+  .ow-expo img{aspect-ratio:4/5}
+  .ow-cats{grid-column:1/-1;grid-row:2;margin:-48px 0 0 30%}
+  .ow-light{grid-column:1/-1;grid-row:3;margin-top:8px}
+  .ow-stack{grid-template-columns:1fr 1.3fr;align-items:end}
+  .ow-stack img:first-child,.ow-light .ow-stack img:first-child{aspect-ratio:3/4}
+  .ow-stack img:last-child{aspect-ratio:auto;height:100%;object-fit:cover}
+}
+/* Oliver y Benita superpuestos, en color (19 nov 2026) */
+.ow-pair{grid-template-columns:1fr 1fr;gap:0}
+.ow-pair .ow-frame{box-shadow:0 0 0 5px var(--bg,#F5EFE4)}
+.ow-pair .ow-frame:first-child{z-index:1}
+.ow-pair .ow-frame:last-child{z-index:2;margin:clamp(28px,4vw,48px) 0 0 clamp(-56px,-4vw,-24px)}
+.ow-pair{display:flex;align-items:flex-start}
+.ow-pair .ow-frame{flex:0 0 56%}
+.ow-pair .ow-frame:last-child{margin:clamp(28px,4vw,48px) 0 0 -12%}
