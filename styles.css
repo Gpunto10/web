@@ -1125,3 +1125,7 @@ figure.eval.is-paused *,figure.eval.is-paused *::before,figure.eval.is-paused *:
 .ls-panel:focus-visible{outline:2px solid var(--acc);outline-offset:-2px}
 /* El titular de temores no acompaña al scroll (19 nov 2026) */
 .fears-head{position:static !important}
+/* Chat: asterisco discreto en los campos obligatorios (19 nov 2026). Para el lector de pantalla basta con «required». */
+.chat-l .req{color:#2440FF;font-weight:600;margin-left:1px}
+.chat-req{margin:0 0 -2px;font-size:12px;color:var(--soft);text-align:right}
+.chat-req .req{color:#2440FF;font-weight:600}
