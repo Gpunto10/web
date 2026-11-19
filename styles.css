@@ -1094,3 +1094,6 @@ figure.eval.is-paused *,figure.eval.is-paused *::before,figure.eval.is-paused *:
 /* Tachado de los miedos con el rojo del pañuelo de la foto del piano (19 nov 2026) */
 .fb-item.in .fb-q s{text-decoration-color:#F0262F;text-decoration-thickness:4px}
 @media (prefers-reduced-motion:reduce){.fb-q s{text-decoration-color:#F0262F;text-decoration-thickness:4px}}
+/* Ejemplos sin caja: texto con barra lateral crema (19 nov 2026) */
+.fb-eg{background:none;border-radius:0;padding:0 0 0 12px !important;border-left:2px solid #F5EFE4 !important;font:400 15px/1.45 var(--sans) !important;color:#DCE2FF !important;justify-self:stretch;margin-top:6px !important}
+.fb-eg::before{content:none}
