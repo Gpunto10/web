@@ -172,17 +172,21 @@
   });
 })();
 
-// Laboratorio · Hecho con IA (19 nov 2026): pasos que avanzan solos cada 2,8 s y se pueden pulsar.
+// Laboratorio · Hecho con IA (19 nov 2026). Recorrido que avanza solo cada 2,8 s, con control del usuario:
+// botón de pausa/reanudar, pestañas accesibles (flechas, Inicio, Fin) y respeto a «reducir movimiento».
 (function () {
   var lab = document.getElementById('lab');
   if (!lab) return;
   var T = 2800;
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var pills = lab.querySelectorAll('.lab-pill');
+  var pills = Array.prototype.slice.call(lab.querySelectorAll('.lab-pill'));
   var panels = lab.querySelectorAll('.ls-panel');
   var notes = lab.querySelectorAll('.lab-note[data-done]');
   var row = lab.querySelector('.lab-steps');
+  var play = document.getElementById('lab-play');
+  var playT = play && play.querySelector('.lab-play-t');
   var cur = 0, timer = null, visible = false, hover = false;
+  var userPaused = reduce; // con movimiento reducido empieza parado; se puede activar a mano
   lab.style.setProperty('--lab-t', T + 'ms');
   function show(i) {
     cur = i;
@@ -190,33 +194,59 @@
     pills.forEach(function (p, k) {
       var on = k === i;
       p.classList.toggle('on', on);
-      p.setAttribute('aria-pressed', on ? 'true' : 'false');
+      p.setAttribute('aria-selected', on ? 'true' : 'false');
+      p.tabIndex = on ? 0 : -1;
       var bar = p.querySelector('.lp-bar');
       if (on && bar) { bar.style.animation = 'none'; void bar.offsetWidth; bar.style.animation = ''; }
     });
-    panels.forEach(function (p, k) { p.classList.toggle('on', k === i); });
+    panels.forEach(function (p, k) { p.classList.toggle('on', k === i); p.hidden = false; p.setAttribute('aria-hidden', k === i ? 'false' : 'true'); });
     notes.forEach(function (n) { n.classList.toggle('done', i >= +n.getAttribute('data-done')); });
     var a = pills[i];
     if (row && row.scrollWidth > row.clientWidth) {
       row.scrollTo({ left: a.offsetLeft - (row.clientWidth - a.offsetWidth) / 2, behavior: reduce ? 'auto' : 'smooth' });
     }
   }
-  function stop() { clearTimeout(timer); timer = null; }
+  function syncBtn() {
+    if (!play) return;
+    play.setAttribute('aria-pressed', userPaused ? 'true' : 'false');
+    play.setAttribute('aria-label', userPaused ? 'Reanudar el recorrido automático' : 'Pausar el recorrido automático');
+    play.classList.toggle('is-paused', userPaused);
+    if (playT) playT.textContent = userPaused ? 'Reanudar' : 'Pausar';
+  }
   function run() {
-    stop();
-    var go = !reduce && visible && !hover && !document.hidden;
+    clearTimeout(timer); timer = null;
+    var go = !userPaused && visible && !hover && !document.hidden;
     lab.classList.toggle('playing', go);
     lab.classList.toggle('paused', !go);
+    lab.classList.toggle('user-paused', userPaused);
+    syncBtn();
     if (go) timer = setTimeout(function () { show((cur + 1) % pills.length); run(); }, T);
   }
-  pills.forEach(function (p, k) { p.addEventListener('click', function () { show(k); run(); }); });
-  lab.addEventListener('mouseenter', function () { hover = true; run(); });
-  lab.addEventListener('mouseleave', function () { hover = false; show(cur); run(); });
-  lab.addEventListener('focusin', function () { hover = true; run(); });
-  lab.addEventListener('focusout', function (e) { if (!lab.contains(e.relatedTarget)) { hover = false; run(); } });
+  function pick(k, focus) { userPaused = true; show(k); if (focus) pills[k].focus(); run(); }
+  pills.forEach(function (p, k) {
+    p.addEventListener('click', function () { pick(k, false); });
+    p.addEventListener('keydown', function (e) {
+      var n = pills.length, t = null;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') t = (k + 1) % n;
+      else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') t = (k - 1 + n) % n;
+      else if (e.key === 'Home') t = 0;
+      else if (e.key === 'End') t = n - 1;
+      if (t !== null) { e.preventDefault(); pick(t, true); }
+    });
+  });
+  if (play) play.addEventListener('click', function () {
+    userPaused = !userPaused;
+    if (!userPaused) show(cur); // reinicia la barra del paso actual
+    run();
+  });
+  var stage = lab.querySelector('.lab-stage');
+  if (stage) {
+    stage.addEventListener('mouseenter', function () { hover = true; run(); });
+    stage.addEventListener('mouseleave', function () { hover = false; if (!userPaused) show(cur); run(); });
+  }
   document.addEventListener('visibilitychange', run);
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(function (es) { visible = es[0].isIntersecting; run(); }, { threshold: 0.35 }).observe(lab);
   } else { visible = true; run(); }
-  show(0);
+  show(0); run();
 })();
