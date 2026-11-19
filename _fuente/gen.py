@@ -7,6 +7,7 @@ open(os.path.join(OUT, "foto.jpg"), "wb").write(base64.b64decode(_raw.split(",",
 PHOTO = "foto.jpg"
 import hashlib
 SOBRE = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "sobre.html"), encoding="utf-8").read()  # bloque personal (19 nov 2026)
+MAPA = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "mapa.html"), encoding="utf-8").read()  # mapa de alcance en nodos (prueba 19 nov 2026)
 LAB = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "lab.html"), encoding="utf-8").read()  # sección Laboratorio · Hecho con IA (19 nov 2026)
 def v(path):
     """Añade ?v=<huella> para que el navegador no muestre una versión guardada al cambiar el archivo."""
@@ -560,7 +561,7 @@ INDEX = f'''<!doctype html>
   </div>
 </div></section>
 
-
+{MAPA}
 
 <section class="band" id="casos"><div class="inner">
   <div class="sec-head"><span class="chip chip-sky">Casos · 2024 a 2026</span><h2>Qué descubrimos y en qué se tradujo</h2><p>Cinco proyectos de Service Design y Research que hice en Sngular. Los cuento por sector, sin marcas ni datos internos.</p></div>
