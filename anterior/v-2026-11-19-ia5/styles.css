@@ -1033,3 +1033,38 @@ figure.eval{position:relative}
 .demo-play:hover{background:var(--ink);color:var(--white)}
 .demo-play:focus-visible{outline:2px solid #2440FF;outline-offset:3px}
 figure.eval.is-paused *,figure.eval.is-paused *::before,figure.eval.is-paused *::after{animation-play-state:paused!important}
+
+/* ===== Con IA, dirección A+C (19 nov 2026): banda cobalto para los temores, resultados en filas, detalles sin caja ===== */
+.fears-band{position:relative;margin-top:var(--s8);padding-block:clamp(48px,7vw,88px);background:#2440FF;color:#fff;box-shadow:0 0 0 100vmax #2440FF;clip-path:inset(0 -100vmax)}
+.fb-head{display:grid;gap:var(--s3);max-width:760px;margin-bottom:var(--s7)}
+.fb-label{font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#DCE2FF}
+.fb-head h2{font-size:clamp(36px,5.2vw,60px);letter-spacing:-.045em;line-height:1.02;margin:0;color:#fff}
+.fb-head h2 span{color:#DCE2FF;font-style:normal}
+.fb-head p{margin:0;color:#fff;font-size:17px;max-width:56ch}
+.fb-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s6)}
+.fb-item{display:grid;gap:10px;align-content:start;padding-top:var(--s4);border-top:1.5px solid rgba(255,255,255,.55)}
+.fb-q{margin:0 0 4px}
+.fb-q s{font-family:var(--hand);font-weight:600;font-size:26px;line-height:1.05;color:#DCE2FF;text-decoration:line-through 2.5px transparent;text-decoration-skip-ink:none;transition:text-decoration-color .6s ease .35s}
+.fb-item.in .fb-q s{text-decoration-color:#fff}
+.fb-item h3{margin:0;font-size:22px;letter-spacing:-.025em;line-height:1.15;color:#fff}
+.fb-item p{margin:0;color:#fff}
+.fb-eg{font-size:14px;color:#DCE2FF !important;padding-left:10px;border-left:2px solid #DCE2FF}
+.fears-band ::selection{background:#fff;color:#2440FF}
+@media (max-width:820px){.fb-list{grid-template-columns:1fr;gap:var(--s5)}}
+@media (prefers-reduced-motion:reduce){.fb-q s{text-decoration-color:#fff;transition:none}}
+.lab-intro{margin-top:var(--s8)}
+/* Detalles de esta web: sin caja */
+.web-details{border:0;background:none;padding:0;border-radius:0}
+.wd-list li{border-top-color:rgba(22,22,22,.25)}
+/* Resultados en filas, como los casos de la home */
+.res-list{list-style:none;margin:var(--s4) 0 0;padding:0;border-top:1.5px solid var(--ink)}
+.res-row{display:grid;grid-template-columns:72px 220px minmax(0,1fr) auto;gap:var(--s5);align-items:center;padding:var(--s5) 0;border-bottom:1.5px solid var(--ink)}
+.res-n{font-size:clamp(36px,4vw,48px);font-weight:500;letter-spacing:-.04em;line-height:1;color:var(--acc)}
+.res-img{display:block;width:220px;aspect-ratio:16/10;border-radius:8px;overflow:hidden;border:1.5px solid var(--ink)}
+.res-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.res-row:hover .res-img img{transform:scale(1.04)}
+.res-t h3{margin:0 0 4px;font-size:clamp(20px,2.2vw,26px);letter-spacing:-.03em;line-height:1.15}
+.res-t p{margin:0;color:var(--soft)}
+.res-stamp{font:500 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--lav-text);border:1.5px solid var(--lav-text);border-radius:8px;padding:7px 10px;white-space:nowrap}
+@media (max-width:720px){.res-row{grid-template-columns:auto minmax(0,1fr);grid-template-areas:"img img" "n t" "n s";row-gap:var(--s3);column-gap:var(--s4)}.res-img{grid-area:img;width:100%}.res-n{grid-area:n;align-self:start}.res-t{grid-area:t}.res-stamp{grid-area:s;justify-self:start}}
+@media (prefers-reduced-motion:reduce){.res-img img{transition:none}}
