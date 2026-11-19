@@ -1097,3 +1097,17 @@ figure.eval.is-paused *,figure.eval.is-paused *::before,figure.eval.is-paused *:
 /* Ejemplos sin caja: texto con barra lateral crema (19 nov 2026) */
 .fb-eg{background:none;border-radius:0;padding:0 0 0 12px !important;border-left:2px solid #F5EFE4 !important;font:400 15px/1.45 var(--sans) !important;color:#DCE2FF !important;justify-self:stretch;margin-top:6px !important}
 .fb-eg::before{content:none}
+/* Banda de temores en NEGRO, como las franjas de la home y los casos; color en las letras (19 nov 2026) */
+.fears-band{background:#161616;box-shadow:0 0 0 100vmax #161616}
+.fb-label{color:#C3B2FF}
+.fb-head h2{color:#F5EFE4}
+.fb-head h2 span{color:#8FA2FF}
+.fb-head p{color:#F5EFE4}
+.fb-item{border-top-color:rgba(245,239,228,.3)}
+.fb-q s{color:#C3B2FF}
+.fb-item.in .fb-q s{text-decoration-color:#5C76FF;text-decoration-thickness:4px}
+@media (prefers-reduced-motion:reduce){.fb-q s{text-decoration-color:#5C76FF}}
+.fb-item h3{color:#8FA2FF}
+.fb-item p{color:#F5EFE4}
+.fb-eg{color:#CFC9BE !important;border-left-color:#C3B2FF !important}
+.fears-band ::selection{background:#8FA2FF;color:#161616}
