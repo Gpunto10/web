@@ -223,14 +223,14 @@ WAVE = '''<svg class="wave" viewBox="0 0 1440 600" preserveAspectRatio="none" ar
 
 def nav(prefix):
     return f'''<header class="nav"><div class="inner">
-  <div class="nav-left">{'<a class="nav-back" id="nav-back" href="index.html">← Atrás</a>' if prefix else '<a class="nav-back home-back" id="home-back" href="index.html">← Atrás</a>'}
+  <div class="nav-left">{'<a class="nav-back" id="nav-back" href="index.html">← Atrás</a>' if prefix else ''}
   <a class="brand" href="{prefix or '#inicio'}" aria-label="Gema Díez, inicio"><span class="dot" aria-hidden="true"></span>Gema Díez</a></div>
   <nav aria-label="Principal"><ul>
     <li class="hide-s"><a href="{prefix}#como-trabajo">Cómo trabajo</a></li>
     <li class="hide-s"><a href="{prefix}#casos">Casos</a></li>
     <li class="hide-s"><a href="ia.html">Con IA</a></li>
     <li class="hide-s"><a href="{prefix}#sobre-mi">Sobre mí</a></li>
-    <li><a class="btn btn-primary btn-small" href="{prefix}#contacto">Hablemos</a></li>
+    <li><a class="btn btn-primary btn-small" href="{prefix}#contacto">Contacto</a></li>
     <li class="show-s"><button class="menu-btn" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Abrir menú"><span></span><span></span></button></li>
   </ul></nav>
 </div>
