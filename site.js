@@ -25,6 +25,7 @@
   function setMenu(open) {
     if (!mbtn) return;
     hdr.classList.toggle('open', open);
+    document.documentElement.classList.toggle('menu-open', open);
     mbtn.setAttribute('aria-expanded', open ? 'true' : 'false');
     mbtn.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
   }
