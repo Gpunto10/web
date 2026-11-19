@@ -171,3 +171,52 @@
     if(r && r.indexOf(location.origin)===0 && history.length>1){ e.preventDefault(); history.back(); }
   });
 })();
+
+// Laboratorio · Hecho con IA (19 nov 2026): pasos que avanzan solos cada 2,8 s y se pueden pulsar.
+(function () {
+  var lab = document.getElementById('lab');
+  if (!lab) return;
+  var T = 2800;
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var pills = lab.querySelectorAll('.lab-pill');
+  var panels = lab.querySelectorAll('.ls-panel');
+  var notes = lab.querySelectorAll('.lab-note[data-done]');
+  var row = lab.querySelector('.lab-steps');
+  var cur = 0, timer = null, visible = false, hover = false;
+  lab.style.setProperty('--lab-t', T + 'ms');
+  function show(i) {
+    cur = i;
+    lab.setAttribute('data-step', i);
+    pills.forEach(function (p, k) {
+      var on = k === i;
+      p.classList.toggle('on', on);
+      p.setAttribute('aria-pressed', on ? 'true' : 'false');
+      var bar = p.querySelector('.lp-bar');
+      if (on && bar) { bar.style.animation = 'none'; void bar.offsetWidth; bar.style.animation = ''; }
+    });
+    panels.forEach(function (p, k) { p.classList.toggle('on', k === i); });
+    notes.forEach(function (n) { n.classList.toggle('done', i >= +n.getAttribute('data-done')); });
+    var a = pills[i];
+    if (row && row.scrollWidth > row.clientWidth) {
+      row.scrollTo({ left: a.offsetLeft - (row.clientWidth - a.offsetWidth) / 2, behavior: reduce ? 'auto' : 'smooth' });
+    }
+  }
+  function stop() { clearTimeout(timer); timer = null; }
+  function run() {
+    stop();
+    var go = !reduce && visible && !hover && !document.hidden;
+    lab.classList.toggle('playing', go);
+    lab.classList.toggle('paused', !go);
+    if (go) timer = setTimeout(function () { show((cur + 1) % pills.length); run(); }, T);
+  }
+  pills.forEach(function (p, k) { p.addEventListener('click', function () { show(k); run(); }); });
+  lab.addEventListener('mouseenter', function () { hover = true; run(); });
+  lab.addEventListener('mouseleave', function () { hover = false; show(cur); run(); });
+  lab.addEventListener('focusin', function () { hover = true; run(); });
+  lab.addEventListener('focusout', function (e) { if (!lab.contains(e.relatedTarget)) { hover = false; run(); } });
+  document.addEventListener('visibilitychange', run);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) { visible = es[0].isIntersecting; run(); }, { threshold: 0.35 }).observe(lab);
+  } else { visible = true; run(); }
+  show(0);
+})();

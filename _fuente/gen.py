@@ -6,6 +6,7 @@ _raw = open(os.path.join(D, "photo.txt")).read().strip()
 open(os.path.join(OUT, "foto.jpg"), "wb").write(base64.b64decode(_raw.split(",", 1)[1]))
 PHOTO = "foto.jpg"
 import hashlib
+LAB = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "lab.html"), encoding="utf-8").read()  # sección Laboratorio · Hecho con IA (19 nov 2026)
 def v(path):
     """Añade ?v=<huella> para que el navegador no muestre una versión guardada al cambiar el archivo."""
     return path + "?v=" + hashlib.md5(open(os.path.join(OUT, path), "rb").read()).hexdigest()[:8]
@@ -227,6 +228,7 @@ def nav(prefix):
   <nav aria-label="Principal"><ul>
     <li class="hide-s"><a href="{prefix}#como-trabajo">Cómo trabajo</a></li>
     <li class="hide-s"><a href="{prefix}#casos">Casos</a></li>
+    <li class="hide-s"><a href="{prefix}#laboratorio">Con IA</a></li>
     <li class="hide-s"><a href="{prefix}#sobre-mi">Sobre mí</a></li>
     <li><a class="btn btn-primary btn-small" href="{prefix}#contacto">Hablemos</a></li>
     <li class="show-s"><button class="menu-btn" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Abrir menú"><span></span><span></span></button></li>
@@ -235,6 +237,7 @@ def nav(prefix):
 <nav class="mnav" id="mnav" aria-label="Menú móvil"><ul>
   <li><a href="{prefix}#como-trabajo">Cómo trabajo</a></li>
   <li><a href="{prefix}#casos">Casos</a></li>
+  <li><a href="{prefix}#laboratorio">Con IA</a></li>
   <li><a href="{prefix}#sobre-mi">Sobre mí</a></li>
 </ul></nav>
 </header>'''
@@ -576,6 +579,7 @@ INDEX = f'''<!doctype html>
   </div>
 </div></section>
 
+{LAB}
 <section class="band" id="sobre-mi"><div class="inner">
   <div class="about">
     <div class="photo"><img src="{v(PHOTO)}" alt="Retrato de Gema Díez sonriendo" width="400" height="400"><span class="note n-about">¡hola, soy yo!{ARROW_DOWN}</span></div>
