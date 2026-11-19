@@ -637,7 +637,7 @@ INDEX = f'''<!doctype html>
     </div>
     <div class="door door-chat">
       <span class="label">Para algo rápido</span>
-      <h3>Escríbeme por el chat</h3>
+      <h3>Escríbeme por el chat {WINK.replace('role="img" aria-label="guiño"', 'aria-hidden="true" focusable="false"')}</h3>
       <p>Lo que escribas llega directamente a mi email.</p>
       <div class="ctas"><button class="btn btn-secondary" id="open-chat" type="button">Abrir el chat</button></div>
 </div>

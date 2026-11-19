@@ -1329,3 +1329,5 @@ figure.eval.is-paused *,figure.eval.is-paused *::before,figure.eval.is-paused *:
   #contacto .door-chat{grid-template-columns:1fr}
   .contact-in .totop,.contact-in .chat:not(.open) .chat-fab{opacity:0!important;visibility:hidden;pointer-events:none}
 }
+#contacto .door-chat h3 .wink{display:inline-block;vertical-align:-.3em;width:1.4em;height:1.4em;margin-left:.2em;color:var(--sky-text);transform:rotate(-8deg)}
+#contacto .door-chat h3 .wink path{stroke-width:2.6}
