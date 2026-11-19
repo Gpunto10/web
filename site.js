@@ -234,6 +234,10 @@
       if (t !== null) { e.preventDefault(); pick(t, true); }
     });
   });
+  // Flechas también con el foco en el botón de pausa (además de en los pasos)
+  if (play) play.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); var n = pills.length; pick(e.key === 'ArrowRight' ? (cur + 1) % n : (cur - 1 + n) % n, true); }
+  });
   if (play) play.addEventListener('click', function () {
     userPaused = !userPaused;
     if (!userPaused) show(cur); // reinicia la barra del paso actual
