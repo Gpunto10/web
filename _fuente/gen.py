@@ -675,9 +675,9 @@ IA_PAGE = f'''<!doctype html>
 </body>
 </html>
 '''
-open(os.path.join(OUT, "ia.html"), "w").write(IA_PAGE)
+open(os.path.join(OUT, "ia.html"), "w").write(IA_PAGE.replace('<a href="ia.html">Con IA</a>', '<a href="ia.html" class="active" aria-current="page">Con IA</a>'))
 for i, c in enumerate(CASES):
-    open(os.path.join(OUT, c["slug"] + ".html"), "w").write(case_page(i, c))
+    open(os.path.join(OUT, c["slug"] + ".html"), "w").write(case_page(i, c).replace('<a href="index.html#casos">Casos</a>', '<a href="index.html#casos" class="active">Casos</a>'))
 print("ok")
 
 # Página «Sobre mí» (19 nov 2026): la sección de la home + bloque personal «Fuera del trabajo»
@@ -711,4 +711,4 @@ SOBRE_PAGE = f'''<!doctype html>
 </body>
 </html>
 '''
-open(os.path.join(OUT, "sobre-mi.html"), "w").write(SOBRE_PAGE)
+open(os.path.join(OUT, "sobre-mi.html"), "w").write(SOBRE_PAGE.replace('<a href="sobre-mi.html">Sobre mí</a>', '<a href="sobre-mi.html" class="active" aria-current="page">Sobre mí</a>'))
