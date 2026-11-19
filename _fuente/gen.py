@@ -6,6 +6,7 @@ _raw = open(os.path.join(D, "photo.txt")).read().strip()
 open(os.path.join(OUT, "foto.jpg"), "wb").write(base64.b64decode(_raw.split(",", 1)[1]))
 PHOTO = "foto.jpg"
 import hashlib
+SOBRE = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "sobre.html"), encoding="utf-8").read()  # bloque personal (19 nov 2026)
 LAB = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "lab.html"), encoding="utf-8").read()  # sección Laboratorio · Hecho con IA (19 nov 2026)
 def v(path):
     """Añade ?v=<huella> para que el navegador no muestre una versión guardada al cambiar el archivo."""
@@ -229,7 +230,7 @@ def nav(prefix):
     <li class="hide-s"><a href="{prefix}#como-trabajo">Cómo trabajo</a></li>
     <li class="hide-s"><a href="{prefix}#casos">Casos</a></li>
     <li class="hide-s"><a href="ia.html">Con IA</a></li>
-    <li class="hide-s"><a href="{prefix}#sobre-mi">Sobre mí</a></li>
+    <li class="hide-s"><a href="sobre-mi.html">Sobre mí</a></li>
     <li><a class="btn btn-primary btn-small" href="{prefix}#contacto">Contacto</a></li>
     <li class="show-s"><button class="menu-btn" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Abrir menú"><span></span><span></span></button></li>
   </ul></nav>
@@ -238,7 +239,7 @@ def nav(prefix):
   <li><a href="{prefix}#como-trabajo">Cómo trabajo</a></li>
   <li><a href="{prefix}#casos">Casos</a></li>
   <li><a href="ia.html">Con IA</a></li>
-  <li><a href="{prefix}#sobre-mi">Sobre mí</a></li>
+  <li><a href="sobre-mi.html">Sobre mí</a></li>
 </ul></nav>
 </header>'''
 
@@ -598,6 +599,7 @@ INDEX = f'''<!doctype html>
         <li><b>4 países europeos</b><span>Investigación internacional con equipos y usuarios en varios mercados</span></li>
         <li><b>Ciencias Políticas</b><span>De ahí viene mi forma de pensar en sistemas</span></li>
       </ul>
+      <a class="link about-more" href="sobre-mi.html">Más sobre Gema, fuera del trabajo →</a>
     </div>
   </div>
   <div class="mentor reveal">
@@ -677,3 +679,33 @@ open(os.path.join(OUT, "ia.html"), "w").write(IA_PAGE)
 for i, c in enumerate(CASES):
     open(os.path.join(OUT, c["slug"] + ".html"), "w").write(case_page(i, c))
 print("ok")
+
+# Página «Sobre mí» (19 nov 2026): la sección de la home + bloque personal «Fuera del trabajo»
+import re as _re
+_home = open(os.path.join(OUT, "index.html"), encoding="utf-8").read()
+_about = _re.search(r'<section class="band" id="sobre-mi">.*?</div></section>', _home, _re.S).group(0)
+_about = _about.replace('\n      <a class="link about-more" href="sobre-mi.html">Más sobre Gema, fuera del trabajo →</a>', '')
+_about = _about.replace('<p class="lead">', '<h1 class="sr-only">Sobre mí</h1><p class="lead">', 1)
+SOBRE_PAGE = f'''<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sobre mí · Gema Díez</title>
+<meta name="description" content="Gema Díez, Service Designer estratégica. Y fuera del trabajo: cine, música electrónica, libros, exposiciones y dos gatos.">
+{FONTS}
+<script data-goatcounter="https://gemadiez.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</head>
+<body class="sobre-page">
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<div class="progress" aria-hidden="true"><span id="progress"></span></div>
+{nav('index.html')}
+<main id="contenido">
+{_about}
+{SOBRE}
+</main>
+{FOOT}
+</body>
+</html>
+'''
+open(os.path.join(OUT, "sobre-mi.html"), "w").write(SOBRE_PAGE)
