@@ -1111,3 +1111,12 @@ figure.eval.is-paused *,figure.eval.is-paused *::before,figure.eval.is-paused *:
 .fb-item p{color:#F5EFE4}
 .fb-eg{color:#CFC9BE !important;border-left-color:#C3B2FF !important}
 .fears-band ::selection{background:#8FA2FF;color:#161616}
+/* Temores: versión inicial invertida, cajas negras sobre el crema (19 nov 2026) */
+.fears-dark .fear{background:#161616;border-color:#161616}
+.fears-dark .fear-q span{color:#CFC9BE}
+.fears-dark .fear.in .fear-q span{text-decoration-color:#A08BFF;text-decoration-thickness:3px}
+@media (prefers-reduced-motion:reduce){.fears-dark .fear-q span{text-decoration-color:#A08BFF}}
+.fears-dark .fear-a h3{color:#F5EFE4}
+.fears-dark .fear-a p{color:#CFC9BE}
+.fears-dark .fear-eg{color:#F5EFE4;border-left-color:#8FA2FF}
+.fears-dark .fear ::selection{background:#8FA2FF;color:#161616}
