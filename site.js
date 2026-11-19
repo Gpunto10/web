@@ -36,7 +36,7 @@
 
   // Menú: "Cómo trabajo", "Casos" y "Sobre mí" se abren como una vista aparte (solo esa sección, sin poder seguir bajando).
   // El logo, "Hablemos" o el botón de volver devuelven la web completa.
-  var SOLO = ['como-trabajo', 'casos', 'sobre-mi'], root = document.documentElement;
+  var SOLO = ['como-trabajo', 'casos', 'sobre-mi'], root = document.documentElement, pushed = false;
   function show(id) {
     var main = document.querySelector('main');
     if (!main) return;
@@ -63,7 +63,7 @@
       var id = a.getAttribute('href').split('#')[1] || '';
       e.preventDefault();
       if (SOLO.indexOf(id) > -1) {
-        history.pushState({ view: id }, '', '#' + id);
+        history.pushState({ view: id }, '', '#' + id); pushed = true;
         show(id);
       } else {
         history.pushState({ view: '' }, '', id && id !== 'inicio' ? '#' + id : location.pathname);
@@ -72,6 +72,14 @@
         window.scrollTo({ top: t ? t.getBoundingClientRect().top + window.pageYOffset - 64 : 0, behavior: 'instant' });
       }
     });
+  });
+  // «← Atrás» en las vistas de sección de la home: vuelve a lo anterior (otra vista o la página de la que vienes); si no hay, a la web completa
+  var hb = document.getElementById('home-back');
+  if (hb) hb.addEventListener('click', function (e) {
+    e.preventDefault();
+    var ref = document.referrer && document.referrer.indexOf(location.origin) === 0;
+    if (history.state && history.state.view && (pushed || ref) && history.length > 1) { history.back(); return; }
+    history.pushState({ view: '' }, '', location.pathname); show(''); window.scrollTo({ top: 0, behavior: 'instant' });
   });
   window.addEventListener('popstate', function (e) {
     show(e.state && e.state.view ? e.state.view : '');

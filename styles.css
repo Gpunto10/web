@@ -986,3 +986,6 @@ h1,h2,h3{font-weight:500}
 .lab-piece-link:hover{background:#F3F5FF}
 .lab-piece-link:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
 .lpc-go{margin-top:6px;font-size:14px;font-weight:500;color:var(--acc)}
+/* «← Atrás» en la home solo cuando se ve una sección suelta (19 nov 2026) */
+.home-back{display:none}
+.solo .home-back{display:inline-block}
