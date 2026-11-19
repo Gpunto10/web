@@ -989,3 +989,11 @@ h1,h2,h3{font-weight:500}
 /* «← Atrás» en la home solo cuando se ve una sección suelta (19 nov 2026) */
 .home-back{display:none}
 .solo .home-back{display:inline-block}
+/* Recorrido sin caja blanca: todo sobre el crema; solo la pantalla en blanco, como un dispositivo (19 nov 2026) */
+.lab{background:none;border:0;border-radius:0;padding:0}
+.lab-screen{background:var(--white)}
+.lab-pill{background:var(--white)}
+.lab-pill:hover{background:#E3E8FF}
+.lab-pill.on{background:var(--acc)}
+.lab-note{border-color:rgba(22,22,22,.28)}
+@media (max-width:520px){.lab{padding:0}.lab-steps{margin-inline:calc(-1*var(--s4));padding-inline:var(--s4)}}
