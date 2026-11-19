@@ -961,3 +961,10 @@ h1,h2,h3{font-weight:500}
 .fear.in .fear-q span{text-decoration-color:var(--lav-text)}
 @media (prefers-reduced-motion:reduce){.fear-q span{text-decoration-color:var(--lav-text);transition:none}}
 @media (hover:none){.kb-only{display:none}}
+/* Pausar/Reanudar con el mismo estilo discreto que «← Atrás» (19 nov 2026) */
+.lab-play,.lab-play.is-paused,.lab-play:hover{background:none;border:0;border-radius:6px;padding:6px 4px;color:var(--soft);font:400 14px/1 var(--sans);gap:6px}
+.lab-play:hover,.lab-play.is-paused:hover{color:var(--ink)}
+.lab-play svg{width:12px;height:12px}
+.lab-ctrl{column-gap:var(--s4)}
+.lab-cover-wrap:hover .lab-cover .duo{opacity:0}
+.ls-panel[data-i="4"] .ls-photo img{object-position:0 0}

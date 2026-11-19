@@ -163,7 +163,7 @@
   }
 })();
 
-/* Botón de atrás de la navegación: vuelve a la página anterior de la web; si se llegó de fuera, va a los casos */
+/* Botón de atrás: vuelve a la página anterior de la web; si se llegó de fuera o no hay historial, va a la home */
 (function(){
   var b=document.getElementById('nav-back'); if(!b) return;
   b.addEventListener('click',function(e){
