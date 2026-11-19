@@ -304,3 +304,12 @@
   if (!b) return; if (!fab) { b.hidden = true; return; }
   b.addEventListener('click', function () { fab.click(); });
 })();
+
+/* Móvil: en Contacto se apartan los botones flotantes para no tapar el chat del cuadro (19 nov 2026) */
+(function () {
+  var c = document.getElementById('contacto');
+  if (!c || !('IntersectionObserver' in window)) return;
+  new IntersectionObserver(function (es) {
+    document.documentElement.classList.toggle('contact-in', es[0].isIntersecting);
+  }, { threshold: 0.35 }).observe(c);
+})();

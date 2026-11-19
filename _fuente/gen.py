@@ -626,15 +626,21 @@ INDEX = f'''<!doctype html>
       <span class="label">Para proyectos</span>
       <h3>Cuéntame tu proyecto</h3>
       <p>Escríbeme con el reto que tienes entre manos. Te respondo con una primera idea de por dónde empezaría.</p>
-      <div class="mail"><code id="email">gd.glez@gmail.com</code><button class="btn btn-primary" id="copy-email" type="button">Copiar email</button><button class="btn btn-secondary" id="open-chat" type="button">Escribir por el chat</button></div>
+      <div class="mail"><code id="email">gd.glez@gmail.com</code><button class="btn btn-primary" id="copy-email" type="button">Copiar email</button></div>
       <p class="copy-status" id="copy-status" aria-live="polite"></p>
     </div>
     <div class="door">
       <span class="label">Para empresas</span>
       <h3>Ver mi trayectoria</h3>
-      <p>Si buscas una Researcher y Service Designer estratégica que piense en las personas y en el negocio y lidere proyectos de principio a fin, aquí tienes mi recorrido y dónde trabajo.</p>
+      <p>Mi recorrido y dónde trabajo.</p>
       <div class="ctas"><a class="btn btn-secondary" href="https://www.linkedin.com/in/gema-d%C3%ADez-gonz%C3%A1lez-74157943/" target="_blank" rel="noopener">Mi LinkedIn</a><a class="btn btn-secondary" href="https://www.sngular.com/" target="_blank" rel="noopener">Web de Sngular</a><span class="soon">CV en PDF, próximamente</span></div>
     </div>
+    <div class="door door-chat">
+      <span class="label">Para algo rápido</span>
+      <h3>Escríbeme por el chat</h3>
+      <p>Lo que escribas llega directamente a mi email.</p>
+      <div class="ctas"><button class="btn btn-secondary" id="open-chat" type="button">Abrir el chat</button></div>
+</div>
   </div>
 </div></section>
 </main>
