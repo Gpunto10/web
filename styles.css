@@ -857,3 +857,43 @@ h1,h2,h3{font-weight:500}
 .shot-ph{aspect-ratio:4/3;border:1.5px dashed rgba(22,22,22,.35);border-radius:14px;background:repeating-linear-gradient(135deg,transparent 0 10px,rgba(22,22,22,.04) 10px 11px)}
 .lab-shot figcaption{font:500 12px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--soft)}
 @media (max-width:820px){.lab-shots{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* Fotos de la página «Con IA»: duotono crema como la home, color al pasar el ratón (19 nov 2026) */
+.lab-top{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:var(--s7);align-items:center;margin-bottom:var(--s7)}
+.lab-top .sec-head{margin-bottom:0}
+.duo-wrap{position:relative;overflow:hidden;border-radius:20px;margin:0}
+.duo-wrap img{display:block;width:100%;height:100%;object-fit:cover;transition:opacity .5s ease,transform .5s cubic-bezier(.2,.7,.2,1)}
+.duo-wrap .duo{position:absolute;inset:0;filter:url(#duo)}
+.duo-wrap:hover .duo,.lab-shot:hover .duo,.lab-shot:focus-visible .duo{opacity:0}
+.lab-shot:hover .shot img{transform:scale(1.03)}
+.lab-cover{aspect-ratio:4/5;max-height:520px;justify-self:end;width:100%;max-width:420px;border:1.5px solid var(--ink)}
+.lab-shot{outline:none}
+.lab-shot .shot{aspect-ratio:4/3;border-radius:14px;border:1.5px solid var(--ink)}
+.lab-shot:focus-visible .shot{outline:2px solid var(--acc);outline-offset:3px}
+.lab-shot:first-child .shot img{object-position:50% 62%}
+@media (max-width:820px){.lab-top{grid-template-columns:1fr}.lab-cover{justify-self:start;max-width:none;aspect-ratio:16/10}.lab-cover img{object-position:50% 35%}}
+/* Más foto, menos dibujo (19 nov 2026): foto en cada paso; letra a mano solo en las notas de stakeholders */
+.ls-body{padding:0}
+.ls-panel{gap:10px;padding:0 0 clamp(18px,2.4vw,26px)}
+.ls-panel > :not(.ls-photo){margin-inline:clamp(18px,2.4vw,26px)}
+.ls-photo{aspect-ratio:16/9;border-radius:0;border-bottom:1.5px solid var(--ink);margin-bottom:8px}
+.ls-panel[data-i="0"] .ls-photo img{object-position:50% 45%}
+.ls-panel[data-i="4"] .ls-photo img{object-position:0 0}
+.lab-screen:hover .ls-photo .duo{opacity:0}
+.ls-ai{font:500 12px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--lav-text)}
+.ls-ai::before{font-size:12px}
+.lab-stamp{font:500 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;border-width:1.5px;padding:7px 10px;transform:none}
+.lab-piece h3{padding-right:96px}
+/* Cabecera con piano + nota a mano; Construir: de bocetos a la web (19 nov 2026) */
+.lab-cover-wrap{position:relative;margin:0;justify-self:end;width:100%;max-width:440px}
+.lab-cover-wrap .lab-cover{max-width:none;aspect-ratio:4/5}
+.lab-cover-wrap .lab-cover img{object-position:50% 50%}
+.lab-cover-note{position:absolute;left:-28px;bottom:-34px;font-family:var(--hand);font-weight:600;font-size:28px;line-height:1;color:var(--lav-text);transform:rotate(-4deg);display:flex;align-items:flex-end;gap:4px;flex-direction:row-reverse}
+.lab-cover-note svg{width:44px;height:36px;fill:none;stroke:var(--lav-text);stroke-width:2.2;stroke-linecap:round;transform:scaleX(-1) rotate(-30deg)}
+.ls-morph .m-web{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:0 0}
+.ls-morph .m-sketch{position:absolute;inset:0;transition:opacity .6s ease}
+.ls-morph .m-sketch img{position:absolute;inset:0}
+.ls-panel.on .ls-morph .m-sketch{animation:sketch2web 2.6s ease forwards}
+@keyframes sketch2web{0%,40%{opacity:1}75%,100%{opacity:0}}
+@media (max-width:820px){.lab-cover-wrap{justify-self:start;max-width:none}.lab-cover-wrap .lab-cover{aspect-ratio:3/2}.lab-cover-note{left:auto;right:8px;bottom:-30px}}
+@media (prefers-reduced-motion:reduce){.ls-panel.on .ls-morph .m-sketch{animation:none;opacity:0}}
+.ls-photo{margin-bottom:10px}
