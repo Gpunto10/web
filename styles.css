@@ -1007,3 +1007,29 @@ h1,h2,h3{font-weight:500}
   .fear:nth-child(2){grid-column:2;grid-row:2}
   .fear:nth-child(3){grid-column:2;grid-row:3}
 }
+
+/* Accesibilidad (19 nov 2026): arreglos de la auditoría WCAG 2.1 AA. Versión anterior en /anterior/v-2026-11-19-antes-accesibilidad/ */
+/* Saltar al contenido: invisible hasta que llega el foco del teclado */
+.skip{position:absolute;left:16px;top:-60px;z-index:60;padding:10px 16px;border-radius:8px;background:#2440FF;color:#fff;font:500 15px/1 var(--sans);text-decoration:none;transition:top .15s}
+.skip:focus{top:12px}
+/* Chat: etiquetas visibles, bordes con 3:1, texto de ejemplo con 4,5:1 y campo con error marcado */
+.chat-l{display:block;margin:0 0 4px;font-size:13px;font-weight:500;color:var(--ink)}
+.chat-row > div{min-width:0}
+.chat-form textarea,.chat-form input{border-color:#86817A}
+.chat-form textarea::placeholder,.chat-form input::placeholder{color:#6B6B66;opacity:1}
+.chat-form [aria-invalid="true"]{border-color:#B3261E;border-width:1.5px}
+/* Caso ONG: los puntos no activos de la evaluación pasan a gris legible (antes, opacidad .38 = 2,4:1) */
+.ex-notes li{opacity:1;color:var(--soft);animation-name:exNoteA11y}
+@keyframes exNoteA11y{0%,18%{color:var(--ink);background:#F3F5FF}22%,100%{color:var(--soft);background:transparent}}
+/* Caso ONG con «reducir movimiento»: la cuarta ficha queda detrás y ya no se sale por la derecha */
+@media (prefers-reduced-motion:reduce){.fc.c4{transform:translateX(-50%) rotate(-2deg);z-index:1}.fc.c2,.fc.c3{z-index:2}}
+/* Home en móvil: la nota «¡hola, soy yo!» no se sale de la pantalla */
+@media (max-width:520px){.n-about{left:auto;right:0}}
+/* Movimiento (2.2.2): el decorativo se queda quieto a los 5 s; las demos tienen botón de pausa */
+.still .orbit,.still .float,.still .roam,.still .statement .dot{animation-play-state:paused}
+figure.eval{position:relative}
+.demo-play{position:absolute;top:12px;right:12px;z-index:6;display:inline-flex;align-items:center;gap:6px;font:500 13px/1 var(--sans);color:var(--ink);background:var(--white);border:1.5px solid var(--ink);border-radius:8px;padding:7px 10px 7px 8px;cursor:pointer}
+.demo-play svg{width:12px;height:12px;fill:currentColor}
+.demo-play:hover{background:var(--ink);color:var(--white)}
+.demo-play:focus-visible{outline:2px solid #2440FF;outline-offset:3px}
+figure.eval.is-paused *,figure.eval.is-paused *::before,figure.eval.is-paused *::after{animation-play-state:paused!important}

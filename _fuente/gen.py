@@ -247,20 +247,20 @@ def nav(prefix):
 # Mientras esté vacía, el chat abre el programa de correo con el mensaje ya escrito.
 CHAT_KEY = "846b664b-7e4f-4e66-84b3-b6f36242411f"
 CHAT = ('<div class="chat" id="chat" data-key="' + CHAT_KEY + '" data-mail="gd.glez@gmail.com">'
-  '<button class="chat-fab" type="button" aria-expanded="false" aria-controls="chat-panel"><img src="' + v(PHOTO) + '" alt=""><span>Hablemos</span></button>'
+  '<button class="chat-fab" type="button" aria-label="Hablemos: abrir el chat" aria-expanded="false" aria-controls="chat-panel"><img src="' + v(PHOTO) + '" alt=""><span>Hablemos</span></button>'
   '<section class="chat-panel" id="chat-panel" role="dialog" aria-label="Escríbeme" hidden>'
   '<header class="chat-head"><img src="' + v(PHOTO) + '" alt=""><div><b>Gema Díez</b><span>Te respondo por email</span></div>'
   '<button class="chat-x" type="button" aria-label="Cerrar chat">✕</button></header>'
   '<div class="chat-log" aria-live="polite"><p class="bub them">¡Hola! Soy Gema 👋</p><p class="bub them">Cuéntame tu proyecto, tu reto o tu duda y te contesto por email.</p></div>'
   '<form class="chat-form" novalidate>'
-  '<textarea name="message" rows="3" placeholder="Escribe tu mensaje…" required aria-label="Mensaje"></textarea>'
-  '<div class="chat-row"><input name="name" placeholder="Tu nombre" autocomplete="name" required aria-label="Nombre"><input name="email" type="email" placeholder="Tu email" autocomplete="email" required aria-label="Email"></div>'
+  '<label class="chat-l" for="chat-msg">Mensaje</label><textarea id="chat-msg" name="message" rows="3" placeholder="Escribe tu mensaje…" required aria-describedby="chat-err"></textarea>'
+  '<div class="chat-row"><div><label class="chat-l" for="chat-name">Nombre</label><input id="chat-name" name="name" placeholder="Tu nombre" autocomplete="name" required aria-describedby="chat-err"></div><div><label class="chat-l" for="chat-mail">Email</label><input id="chat-mail" name="email" type="email" placeholder="Tu email" autocomplete="email" required aria-describedby="chat-err"></div></div>'
   '<input type="checkbox" name="botcheck" class="chat-hp" tabindex="-1" autocomplete="off" aria-hidden="true">'
-  '<p class="chat-err" role="alert"></p>'
+  '<p class="chat-err" id="chat-err" role="alert"></p>'
   '<button class="btn btn-primary chat-send" type="submit">Enviar</button></form>'
   '</section></div>')
 
-FOOT = '<footer class="band foot"><div class="inner"><span>© 2026 Gema Díez · Madrid</span><span>Service Designer estratégica</span></div></footer>\n<a class="totop" id="totop" href="#" aria-label="Volver arriba" title="Volver arriba"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></a>\n' + CHAT + '\n<script src="' + v('site.js') + '" defer></script>'
+FOOT = '<footer class="band foot"><div class="inner"><span>© 2026 Gema Díez · Madrid</span><span>Service Designer estratégica</span></div>\n<a class="totop" id="totop" href="#" aria-label="Volver arriba" title="Volver arriba"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></a></footer>\n' + CHAT + '\n<script src="' + v('site.js') + '" defer></script>'
 
 ICONS = {
  "sistema": '<svg viewBox="0 0 48 48" width="44" height="44" fill="none" stroke-width="1.5" aria-hidden="true"><path d="M24 8 A16 16 0 0 0 24 40" stroke="#161616"/><path d="M26 8 A16 16 0 0 1 26 40" stroke="#A99BE8" stroke-width="2"/></svg>',
@@ -376,7 +376,7 @@ def farma_demo():
             '<path pathLength="1" d="M70 106 L 68 120 C 40 124, 26 140, 22 158 M 98 106 L 100 120 C 128 124, 140 140, 144 158"/>'
             '</svg>')
     arch = ('<figure class="eval ar" aria-label="Ficha de arquetipo de paciente">'
-            '<div class="ar-id">' + face + '<span class="ev-k">Arquetipo</span><h4>La perfeccionista</h4>'
+            '<div class="ar-id">' + face + '<span class="ev-k">Arquetipo</span><h3>La perfeccionista</h3>'
             '<p>Conoce su enfermedad al detalle, contrasta lo que lee y quiere tenerlo todo bajo control. Cuando algo se le escapa, lo vive con culpa.</p></div>'
             '<div class="ar-body"><div class="ar-q"><span class="ar-k">Quiere</span><p>Una herramienta seria, fiable y exacta.</p></div>'
             '<div class="ar-q"><span class="ar-k">Necesita</span><p>Sentir que tiene el control y confirmar que lo está haciendo bien.</p></div>'
@@ -407,7 +407,7 @@ def ong_demo():
              ("Actividad 2", "Happy path", "Dibujar el recorrido ideal, desde que descubre la causa hasta que colabora."),
              ("Actividad 3", "Arquitectura", "Ordenar los contenidos del menú pensando en esa persona, no en los departamentos."),
              ("Cierre", "Puesta en común", "Cada grupo comparte lo suyo y se acuerdan los siguientes pasos.")]
-    cs = "".join(f'<div class="fc c{i}"><span class="fc-k">{k}</span><h4>{t}</h4><p>{d}</p><span class="fc-m">Materiales</span><i class="sk w80"></i><i class="sk w60"></i></div>' for i, (k, t, d) in enumerate(cards, 1))
+    cs = "".join(f'<div class="fc c{i}"><span class="fc-k">{k}</span><h3>{t}</h3><p>{d}</p><span class="fc-m">Materiales</span><i class="sk w80"></i><i class="sk w60"></i></div>' for i, (k, t, d) in enumerate(cards, 1))
     deck = ('<figure class="eval fcs" aria-label="Fichas de las actividades del workshop">'
             '<span class="ev-k">Fichas del workshop</span><div class="fc-deck">' + cs + '</div>'
             '<figcaption>Las cuatro fichas que guiaron el workshop de co-creación. Recreación con textos resumidos.</figcaption></figure>')
@@ -484,9 +484,10 @@ def case_page(i, c):
 <script data-goatcounter="https://gemadiez.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
 <div class="progress" aria-hidden="true"><span id="progress"></span></div>
 {nav('index.html')}
-<main>
+<main id="contenido">
 <section class="case-hero">{WAVE}<div class="inner">
   <div class="hero-grid">
     <div class="hero-text">
@@ -525,8 +526,9 @@ INDEX = f'''<!doctype html>
 <script data-goatcounter="https://gemadiez.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
 {nav('')}
-<main>
+<main id="contenido">
 <section class="hero" id="inicio">
 <div class="orbits" aria-hidden="true"><span class="orbit o1"></span><span class="orbit o2"></span></div>
 <div class="inner">

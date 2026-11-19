@@ -129,7 +129,19 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var msg = form.message.value.trim(), name = form.name.value.trim(), mail = form.email.value.trim();
-      if (!msg || !name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) { err.textContent = 'Necesito tu mensaje, tu nombre y un email válido para poder responderte.'; return; }
+      // Errores por campo: se marca cada campo que falla, el mensaje dice cuál y el foco va al primero
+      var bad = [];
+      if (!msg) bad.push([form.message, 'tu mensaje']);
+      if (!name) bad.push([form.name, 'tu nombre']);
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) bad.push([form.email, mail ? 'un email válido (revisa que tenga @ y dominio)' : 'tu email']);
+      [form.message, form.name, form.email].forEach(function (f) { f.removeAttribute('aria-invalid'); });
+      if (bad.length) {
+        bad.forEach(function (b) { b[0].setAttribute('aria-invalid', 'true'); });
+        var parts = bad.map(function (b) { return b[1]; });
+        err.textContent = 'Para responderte me falta ' + (parts.length > 1 ? parts.slice(0, -1).join(', ') + ' y ' + parts[parts.length - 1] : parts[0]) + '.';
+        bad[0][0].focus();
+        return;
+      }
       if (form.botcheck.checked) return;
       err.textContent = '';
       var btn = form.querySelector('.chat-send'); btn.disabled = true; btn.textContent = 'Enviando…';
@@ -261,4 +273,29 @@
     new IntersectionObserver(function (es) { visible = es[0].isIntersecting; run(); }, { threshold: 0.35 }).observe(lab);
   } else { visible = true; run(); }
   show(0); run();
+})();
+
+/* Accesibilidad (19 nov 2026, WCAG 2.2.2): el movimiento que dura más de 5 s se puede parar.
+   - Las demos animadas de los casos llevan un botón «Pausar» propio.
+   - El movimiento decorativo (órbitas, fotos que flotan, puntos que laten) se queda quieto a los 5 s.
+   Con «reducir movimiento» no hay animación, así que no se añade nada. */
+(function () {
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  setTimeout(function () { document.documentElement.classList.add('still'); }, 5000);
+  var figs = document.querySelectorAll('figure.eval');
+  Array.prototype.forEach.call(figs, function (fig) {
+    var btn = document.createElement('button');
+    btn.type = 'button'; btn.className = 'demo-play';
+    var set = function (paused) {
+      fig.classList.toggle('is-paused', paused);
+      btn.setAttribute('aria-pressed', paused ? 'true' : 'false');
+      btn.setAttribute('aria-label', paused ? 'Reanudar la animación' : 'Pausar la animación');
+      btn.innerHTML = (paused
+        ? '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.2v9.6a.6.6 0 0 0 .9.5l7.6-4.8a.6.6 0 0 0 0-1L5.9 2.7a.6.6 0 0 0-.9.5z"/></svg>Reanudar'
+        : '<svg viewBox="0 0 16 16" aria-hidden="true"><rect x="3.5" y="3" width="3" height="10" rx="1"/><rect x="9.5" y="3" width="3" height="10" rx="1"/></svg>Pausar');
+    };
+    set(false);
+    btn.addEventListener('click', function () { set(!fig.classList.contains('is-paused')); });
+    fig.insertBefore(btn, fig.firstChild);
+  });
 })();
