@@ -172,7 +172,7 @@
   var row = lab.querySelector('.lab-steps');
   var play = document.getElementById('lab-play');
   var playT = play && play.querySelector('.lab-play-t');
-  var cur = 0, timer = null, visible = false, hover = false;
+  var cur = 0, timer = null, visible = false, hover = false, focused = false;
   var userPaused = reduce; // con movimiento reducido empieza parado; se puede activar a mano
   lab.style.setProperty('--lab-t', T + 'ms');
   function show(i) {
@@ -186,7 +186,7 @@
       var bar = p.querySelector('.lp-bar');
       if (on && bar) { bar.style.animation = 'none'; void bar.offsetWidth; bar.style.animation = ''; }
     });
-    panels.forEach(function (p, k) { p.classList.toggle('on', k === i); p.hidden = false; p.setAttribute('aria-hidden', k === i ? 'false' : 'true'); });
+    panels.forEach(function (p, k) { p.classList.toggle('on', k === i); p.hidden = false; p.removeAttribute('aria-hidden'); });
     notes.forEach(function (n) { n.classList.toggle('done', i >= +n.getAttribute('data-done')); });
     var a = pills[i];
     if (row && row.scrollWidth > row.clientWidth) {
@@ -202,7 +202,7 @@
   }
   function run() {
     clearTimeout(timer); timer = null;
-    var go = !userPaused && visible && !hover && !document.hidden;
+    var go = !userPaused && visible && !hover && !focused && !document.hidden;
     lab.classList.toggle('playing', go);
     lab.classList.toggle('paused', !go);
     lab.classList.toggle('user-paused', userPaused);
@@ -235,6 +235,9 @@
     stage.addEventListener('mouseenter', function () { hover = true; run(); });
     stage.addEventListener('mouseleave', function () { hover = false; if (!userPaused) show(cur); run(); });
   }
+  // Con el foco del teclado en los pasos o en la pantalla, el recorrido se detiene (se reanuda al salir)
+  lab.addEventListener('focusin', function (e) { focused = e.target !== play; run(); });
+  lab.addEventListener('focusout', function (e) { if (!lab.contains(e.relatedTarget)) { focused = false; run(); } });
   document.addEventListener('visibilitychange', run);
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(function (es) { visible = es[0].isIntersecting; run(); }, { threshold: 0.35 }).observe(lab);

@@ -1120,3 +1120,8 @@ figure.eval.is-paused *,figure.eval.is-paused *::before,figure.eval.is-paused *:
 .fears-dark .fear-a p{color:#CFC9BE}
 .fears-dark .fear-eg{color:#F5EFE4;border-left-color:#8FA2FF}
 .fears-dark .fear ::selection{background:#8FA2FF;color:#161616}
+/* Accesibilidad ia.html (19 nov 2026): etiquetas de notas con contraste AA; foco visible en la pantalla del recorrido */
+.lab-note b{color:#5C5C57}
+.ls-panel:focus-visible{outline:2px solid var(--acc);outline-offset:-2px}
+/* El titular de temores no acompaña al scroll (19 nov 2026) */
+.fears-head{position:static !important}
