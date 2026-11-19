@@ -1298,3 +1298,15 @@ figure.eval.is-paused *,figure.eval.is-paused *::before,figure.eval.is-paused *:
 @media (max-width:820px) and (max-height:600px){
   .mnav a{padding:10px 0;font-size:19px}
 }
+
+/* Contacto compacto en móvil (19 nov 2026) */
+@media (max-width:720px){
+  #contacto .doors{gap:14px}
+  #contacto .door{padding:20px 18px;gap:10px}
+  #contacto .door h3{font-size:20px}
+  #contacto .door p{font-size:15px;line-height:1.5}
+  #contacto .mail{gap:8px}
+  #contacto .mail code{font-size:13px;padding:8px 10px;flex:1 1 100%}
+  #contacto .btn{font-size:15px;padding:10px 14px;min-height:44px}
+  #contacto .ctas{gap:8px}
+}

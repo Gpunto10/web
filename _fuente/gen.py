@@ -626,7 +626,7 @@ INDEX = f'''<!doctype html>
       <span class="label">Para proyectos</span>
       <h3>Cuéntame tu proyecto</h3>
       <p>Escríbeme con el reto que tienes entre manos. Te respondo con una primera idea de por dónde empezaría.</p>
-      <div class="mail"><code id="email">gd.glez@gmail.com</code><button class="btn btn-primary" id="copy-email" type="button">Copiar email</button></div>
+      <div class="mail"><code id="email">gd.glez@gmail.com</code><button class="btn btn-primary" id="copy-email" type="button">Copiar email</button><button class="btn btn-secondary" id="open-chat" type="button">Escribir por el chat</button></div>
       <p class="copy-status" id="copy-status" aria-live="polite"></p>
     </div>
     <div class="door">

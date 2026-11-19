@@ -297,3 +297,10 @@
   b.hidden = false; set(false);
   b.addEventListener('click', function () { set(b.getAttribute('aria-expanded') !== 'true'); });
 })();
+
+/* Contacto: «Escribir por el chat» abre el chat flotante (19 nov 2026) */
+(function () {
+  var b = document.getElementById('open-chat'), fab = document.querySelector('#chat .chat-fab');
+  if (!b) return; if (!fab) { b.hidden = true; return; }
+  b.addEventListener('click', function () { fab.click(); });
+})();
