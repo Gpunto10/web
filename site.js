@@ -350,9 +350,9 @@
       var i = (y * cols + x) * 4, a = Math.random() * Math.PI * 2, r = (0.3 + Math.random() * 0.7) * W * 0.6;
       tiles.push({ x: x * t, y: y * t, sx: x * t + Math.cos(a) * r, sy: y * t + Math.sin(a) * r,
         c: 'rgb(' + data[i] + ',' + data[i + 1] + ',' + data[i + 2] + ')',
-        d: (Math.hypot(x - cx, y - cy) / maxd) * 700 + Math.random() * 350 });
+        d: (Math.hypot(x - cx, y - cy) / maxd) * 1000 + Math.random() * 500 });
     }
-    var DUR = 900, t0 = performance.now(), gap = Math.max(1, t * 0.12);
+    var DUR = 1300, t0 = performance.now(), gap = Math.max(1, t * 0.12);
     function frame(now) {
       var el = now - t0, done = true;
       ctx.clearRect(0, 0, W, H);
