@@ -561,8 +561,6 @@ INDEX = f'''<!doctype html>
   </div>
 </div></section>
 
-{MAPA}
-
 <section class="band" id="casos"><div class="inner">
   <div class="sec-head"><span class="chip chip-sky">Casos · 2024 a 2026</span><h2>Qué descubrimos y en qué se tradujo</h2><p>Cinco proyectos de Service Design y Research que hice en Sngular. Los cuento por sector, sin marcas ni datos internos.</p></div>
   <div class="case-list">{cards}</div>
