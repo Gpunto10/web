@@ -1503,3 +1503,23 @@ figure.eval.is-paused *,figure.eval.is-paused *::before,figure.eval.is-paused *:
   #como-trabajo .statement-px{min-height:min(78svh,600px);align-content:center;margin-top:28px}
   #como-trabajo .statement-px p{font-size:clamp(28px,8.2vw,36px);line-height:1.15}
 }
+/* 20 nov 2026: banner de píxeles con más color, texto crema sobre velo cobalto */
+#como-trabajo .statement-px::after{background:radial-gradient(ellipse 70% 62% at 50% 50%,rgba(22,30,130,.62),rgba(22,30,130,.28) 65%,rgba(22,30,130,.08) 100%)}
+#como-trabajo .statement-px p{color:#FBF8F1;text-shadow:0 1px 14px rgba(15,20,90,.45)}
+#como-trabajo .statement-px .hand-u .scribble{color:#C9D2FF}
+/* hallazgos compactos en móvil */
+@media (max-width:700px){
+  #hallazgos .finding{padding:16px 16px 18px;gap:10px}
+  #hallazgos .finding h3{font-size:18px;line-height:1.25;margin:6px 0 4px}
+  #hallazgos .finding p{font-size:14.5px;line-height:1.45;margin:0}
+  #hallazgos .finding .fnum{display:none}
+  #hallazgos .findings-list,#hallazgos .findings{gap:10px}
+}
+@media (max-width:700px){
+  #hallazgos a.finding{grid-template-columns:1fr;padding:14px 16px 16px 18px;gap:0}
+  #hallazgos a.finding>div{display:grid;gap:6px}
+  #hallazgos a.finding h3{font-size:17px;margin:2px 0 0}
+  #hallazgos a.finding br{display:none}
+  #hallazgos .findings{gap:10px}
+}
+@media (max-width:700px){#hallazgos .findings-wrap a.finding{padding:14px 16px 16px 20px!important}}
