@@ -231,7 +231,7 @@ def nav(prefix):
   <a class="brand" href="{prefix or '#inicio'}" aria-label="Gema Díez, inicio"><span class="dot" aria-hidden="true"></span>Gema Díez</a></div>
   <nav aria-label="Principal"><ul>
     <li class="hide-s"><a href="{prefix}#como-trabajo">Cómo trabajo</a></li>
-    <li class="hide-s"><a href="{prefix}#casos">Casos</a></li>
+    <li class="hide-s"><a href="casos.html">Casos</a></li>
     <li class="hide-s"><a href="ia.html">Con IA</a></li>
     <li class="hide-s"><a href="sobre-mi.html">Sobre mí</a></li>
     <li><a class="btn btn-primary btn-small" href="{prefix}#contacto">Contacto</a></li>
@@ -240,7 +240,7 @@ def nav(prefix):
 </div>
 <nav class="mnav" id="mnav" aria-label="Menú móvil"><ul>
   <li><a href="{prefix}#como-trabajo">Cómo trabajo</a></li>
-  <li><a href="{prefix}#casos">Casos</a></li>
+  <li><a href="casos.html">Casos</a></li>
   <li><a href="ia.html">Con IA</a></li>
   <li><a href="sobre-mi.html">Sobre mí</a></li>
 </ul></nav>
@@ -297,7 +297,7 @@ YEARS = {"caso-energia": "2024–25", "caso-ong": "2026", "caso-ia": "2026", "ca
 
 def row(c, k=0):
     """Fila de la lista de casos de la home (sustituye a las tarjetas, 18 nov 2026)."""
-    meta = f'{c["tag"].split(" · ")[0]} · {YEARS[c["slug"]]} · {c["facts"][0]}'
+    meta = f'{c["tag"].split(" · ")[0]} · {YEARS[c["slug"]]}'  # 20 nov 2026: sin cifras en el listado (siguen dentro de cada caso)
     return f'''<a class="crow reveal" style="--d:{k*80}ms" href="{c['slug']}.html">
   <span class="crow-img"><img src="{v('img/' + c['slug'] + '.jpg')}" alt="" width="800" height="800" loading="lazy"><img class="duo" src="{v('img/' + c['slug'] + '.jpg')}" alt="" width="800" height="800" loading="lazy"></span>
   <span class="crow-num" aria-hidden="true">{k+1:02d}</span>
@@ -546,7 +546,7 @@ INDEX = f'''<!doctype html>
     <span class="hp hp-3" style="--d:1800ms">Hago que lo fragmentado funcione como un solo servicio.</span>
   </h1>
   <p class="proof"><span class="dot" aria-hidden="true"></span><span>En 2025 y 2026, <b>todos mis clientes han vuelto a contar conmigo</b> para nuevas fases y proyectos. {WINK}</span></p>
-  <a class="scroll-hint" href="#casos"><span class="note">mira los casos</span><svg viewBox="0 0 30 60" aria-hidden="true"><path d="M15 4 C 9 20, 21 34, 15 54"/><path d="M6 45 L15 55 L24 45"/></svg></a>
+  <a class="scroll-hint" href="casos.html"><span class="note">mira los casos</span><svg class="sh-right" viewBox="0 0 60 30" aria-hidden="true"><path d="M4 18 C 18 10, 34 22, 54 14"/><path d="M45 7 L55 14 L46 22"/></svg></a>
   <figure class="hero-cut"><div class="hc-block"><a class="hc-more" href="sobre-mi.html">Más sobre mí →</a></div><img class="hc-photo" src="img/gema-recorte.webp" alt="Retrato de Gema Díez sonriendo" width="800" height="769"><span class="note hc-note" aria-hidden="true">esta soy yo{ARROW_DOWN}</span></figure>
 </div></section>
 
@@ -563,12 +563,6 @@ INDEX = f'''<!doctype html>
   </div>
 </div></section>
 
-<section class="band" id="casos"><div class="inner">
-  <div class="sec-head"><span class="chip chip-sky">Casos · 2024 a 2026</span><h2>Qué descubrimos y en qué se tradujo</h2><p>Cinco proyectos de Service Design y Research que hice en Sngular. Los cuento por sector, sin marcas ni datos internos.</p></div>
-  <div class="case-list">{cards}</div>
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><filter id="duo" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values=".2126 .7152 .0722 0 0 .2126 .7152 .0722 0 0 .2126 .7152 .0722 0 0 0 0 0 1 0"/><feComponentTransfer><feFuncR type="table" tableValues=".086 .961"/><feFuncG type="table" tableValues=".086 .937"/><feFuncB type="table" tableValues=".086 .894"/></feComponentTransfer></filter></svg>
-</div></section>
-
 <section class="band white" id="hallazgos"><div class="inner">
   <div class="findings-wrap">
     <div class="findings-head">
@@ -577,11 +571,11 @@ INDEX = f'''<!doctype html>
       <p>Cinco cosas que solo aparecieron al escuchar a las personas que usan y sostienen el servicio, y lo que cambiaron.</p>
     </div>
     <div class="findings">
-      <a class="finding reveal acc-sky" href="caso-energia.html"><span class="fnum">01</span><div><span class="chip chip-sky">Energía</span><h3>La confianza pesa más que el precio.</h3><p>Los clientes valoraban sentirse acompañados más que pagar menos. La relación pasó al centro de la estrategia.</p><span class="go">Ver el caso</span></div></a>
-      <a class="finding reveal acc-lav" href="caso-ong.html"><span class="fnum">02</span><div><span class="chip chip-lav">Tercer sector</span><h3>La web estaba ordenada como la organización, no como piensa quien quiere colaborar.</h3><p>Reordenamos los contenidos en tres bloques que cualquiera entiende.</p><span class="go">Ver el caso</span></div></a>
-      <a class="finding reveal acc-sky" href="caso-farma.html"><span class="fnum">03</span><div><span class="chip chip-sky">Salud</span><h3>Un paciente crónico no quiere superar la enfermedad. Quiere llevar una vida normal.</h3><p>Lo emocional pesa tanto como lo físico, y la app tenía que reflejarlo.</p><span class="go">Ver el caso</span></div></a>
-      <a class="finding reveal acc-lav" href="caso-diabetes.html"><span class="fnum">04</span><div><span class="chip chip-lav">Salud digital</span><h3>El lenguaje técnico no significa nada para quien acaba de recibir un diagnóstico.</h3><p>Hablar con las palabras del paciente fue uno de los ajustes clave antes de lanzar.</p><span class="go">Ver el caso</span></div></a>
-      <a class="finding reveal acc-sky" href="caso-ia.html"><span class="fnum">05</span><div><span class="chip chip-sky">Adopción de IA</span><h3>Para decidir qué IA construir, primero hay que ver en qué se va el tiempo.</h3><p>Las prioridades salieron de tareas reales del equipo, no de la tecnología disponible.</p><span class="go">Ver el caso</span></div></a>
+      <a class="finding reveal acc-sky" href="caso-energia.html"><span class="fnum">01</span><div><span class="chip chip-sky">Energía</span><h3>La confianza pesa más que el precio.</h3><p>Los clientes valoraban sentirse acompañados más que pagar menos. La relación pasó al centro de la estrategia.</p></div></a>
+      <a class="finding reveal acc-lav" href="caso-ong.html"><span class="fnum">02</span><div><span class="chip chip-lav">Tercer sector</span><h3>La web estaba ordenada como la organización, no como piensa quien quiere colaborar.</h3><p>Reordenamos los contenidos en tres bloques que cualquiera entiende.</p></div></a>
+      <a class="finding reveal acc-sky" href="caso-farma.html"><span class="fnum">03</span><div><span class="chip chip-sky">Salud</span><h3>Un paciente crónico no quiere superar la enfermedad. Quiere llevar una vida normal.</h3><p>Lo emocional pesa tanto como lo físico, y la app tenía que reflejarlo.</p></div></a>
+      <a class="finding reveal acc-lav" href="caso-diabetes.html"><span class="fnum">04</span><div><span class="chip chip-lav">Salud digital</span><h3>El lenguaje técnico no significa nada para quien acaba de recibir un diagnóstico.</h3><p>Hablar con las palabras del paciente fue uno de los ajustes clave antes de lanzar.</p></div></a>
+      <a class="finding reveal acc-sky" href="caso-ia.html"><span class="fnum">05</span><div><span class="chip chip-sky">Adopción de IA</span><h3>Para decidir qué IA construir, primero hay que ver en qué se va el tiempo.</h3><p>Las prioridades salieron de tareas reales del equipo, no de la tecnología disponible.</p></div></a>
     </div>
   </div>
 </div></section>
@@ -658,7 +652,9 @@ INDEX = f'''<!doctype html>
 </html>
 '''
 
-open(os.path.join(OUT, "index.html"), "w").write(INDEX)
+# 20 nov 2026: la sección «Sobre mí» ya no sale en la home (sigue generándose para sobre-mi.html)
+import re as _re0
+open(os.path.join(OUT, "index.html"), "w").write(_re0.sub(r'\n?<section class="band" id="sobre-mi">.*?</div></section>\n?', '\n', INDEX, count=1, flags=_re0.S))
 
 # Página propia «Con IA» (19 nov 2026): el Laboratorio sale de la home a ia.html
 IA_PAGE = f'''<!doctype html>
@@ -684,12 +680,12 @@ IA_PAGE = f'''<!doctype html>
 '''
 open(os.path.join(OUT, "ia.html"), "w").write(IA_PAGE.replace('<a href="ia.html">Con IA</a>', '<a href="ia.html" class="active" aria-current="page">Con IA</a>'))
 for i, c in enumerate(CASES):
-    open(os.path.join(OUT, c["slug"] + ".html"), "w").write(case_page(i, c).replace('<a href="index.html#casos">Casos</a>', '<a href="index.html#casos" class="active">Casos</a>'))
+    open(os.path.join(OUT, c["slug"] + ".html"), "w").write(case_page(i, c).replace('<a href="casos.html">Casos</a>', '<a href="casos.html" class="active">Casos</a>'))
 print("ok")
 
 # Página «Sobre mí» (19 nov 2026): la sección de la home + bloque personal «Fuera del trabajo»
 import re as _re
-_home = open(os.path.join(OUT, "index.html"), encoding="utf-8").read()
+_home = INDEX
 _about = _re.search(r'<section class="band" id="sobre-mi">.*?</div></section>', _home, _re.S).group(0)
 _about = _about.replace('\n      <a class="link about-more" href="sobre-mi.html">Más sobre Gema, fuera del trabajo →</a>', '')
 _about = _about.replace('<p class="lead">', '<h1 class="sr-only">Sobre mí</h1><p class="lead">', 1)
@@ -719,3 +715,32 @@ SOBRE_PAGE = f'''<!doctype html>
 </html>
 '''
 open(os.path.join(OUT, "sobre-mi.html"), "w").write(SOBRE_PAGE.replace('<a href="sobre-mi.html">Sobre mí</a>', '<a href="sobre-mi.html" class="active" aria-current="page">Sobre mí</a>'))
+
+# Página propia de casos (20 nov 2026): la sección sale de la home y «Casos» del menú lleva aquí
+CASOS_SECTION = f'''<section class="band" id="casos"><div class="inner">
+  <div class="sec-head"><span class="chip chip-sky">Casos · 2024 a 2026</span><h1 class="h2like">Qué descubrimos y en qué se tradujo</h1><p>Cinco proyectos de Service Design y Research que hice en Sngular. Los cuento por sector, sin marcas ni datos internos.</p></div>
+  <div class="case-list">{cards}</div>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><filter id="duo" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values=".2126 .7152 .0722 0 0 .2126 .7152 .0722 0 0 .2126 .7152 .0722 0 0 0 0 0 1 0"/><feComponentTransfer><feFuncR type="table" tableValues=".086 .961"/><feFuncG type="table" tableValues=".086 .937"/><feFuncB type="table" tableValues=".086 .894"/></feComponentTransfer></filter></svg>
+</div></section>'''
+CASOS_PAGE = f'''<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Casos · Gema Díez</title>
+<meta name="description" content="Cinco proyectos de Service Design y Research hechos en Sngular, contados por sector.">
+{FONTS}
+<script data-goatcounter="https://gemadiez.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</head>
+<body class="casos-page">
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<div class="progress" aria-hidden="true"><span id="progress"></span></div>
+{nav('index.html')}
+<main id="contenido">
+{CASOS_SECTION}
+</main>
+{FOOT}
+</body>
+</html>
+'''
+open(os.path.join(OUT, "casos.html"), "w").write(CASOS_PAGE.replace('<a href="casos.html">Casos</a>', '<a href="casos.html" class="active" aria-current="page">Casos</a>'))

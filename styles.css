@@ -1476,3 +1476,13 @@ figure.eval.is-paused *,figure.eval.is-paused *::before,figure.eval.is-paused *:
 /* subrayador con el azul claro de las etiquetas originales (--chip-bg #E3E8FF, algo más intenso para que se vea sobre crema) */
 .chip,.chip-sky,.chip-lav{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20' preserveAspectRatio='none'%3E%3Cpath d='M4 3 C 50 1, 120 4, 196 2 L 199 17 C 140 19, 70 16, 1 19 Z' fill='%23D6DDFF'/%3E%3C/svg%3E");background-size:100% 70%;background-position:left 95%}
 .hc-note,.hc-note .arrow-down{color:var(--acc)}
+/* 20 nov 2026: menos hueco entre el banner de píxeles y Casos */
+#como-trabajo>.inner{padding-bottom:clamp(32px,4vw,48px)}
+#casos>.inner{padding-top:clamp(40px,5vw,64px)}
+/* 20 nov 2026: página propia de casos */
+.sec-head h1.h2like{font-size:clamp(30px,4.4vw,44px);letter-spacing:-.04em;line-height:1.08;font-weight:500;margin:0}
+.casos-page #casos>.inner{padding-top:clamp(56px,8vw,104px)}
+.scroll-hint svg.sh-right{width:44px;height:22px}
+@keyframes hintSide{0%,100%{transform:none}50%{transform:translateX(6px)}}
+.scroll-hint svg.sh-right{animation-name:hintSide}
+#hallazgos>.inner{padding-top:clamp(40px,5vw,64px)}
