@@ -546,7 +546,7 @@ INDEX = f'''<!doctype html>
     <span class="hp hp-3" style="--d:1800ms">Hago que lo fragmentado funcione como un solo servicio.</span>
   </h1>
   <p class="proof"><span class="dot" aria-hidden="true"></span><span>En 2025 y 2026, <b>todos mis clientes han vuelto a contar conmigo</b> para nuevas fases y proyectos. {WINK}</span></p>
-  <a class="scroll-hint" href="casos.html"><span class="note">mira los casos</span><svg class="sh-right" viewBox="0 0 60 30" aria-hidden="true"><path d="M4 18 C 18 10, 34 22, 54 14"/><path d="M45 7 L55 14 L46 22"/></svg></a>
+  <a class="scroll-hint" href="casos.html"><span class="note">mira los casos de éxito</span><svg class="sh-right" viewBox="0 0 60 30" aria-hidden="true"><path d="M4 18 C 18 10, 34 22, 54 14"/><path d="M45 7 L55 14 L46 22"/></svg></a>
   <figure class="hero-cut"><div class="hc-block"><a class="hc-more" href="sobre-mi.html">Más sobre mí →</a></div><img class="hc-photo" src="img/gema-recorte.webp" alt="Retrato de Gema Díez sonriendo" width="800" height="769"><span class="note hc-note" aria-hidden="true">esta soy yo{ARROW_DOWN}</span></figure>
 </div></section>
 

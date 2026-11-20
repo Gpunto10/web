@@ -1486,3 +1486,7 @@ figure.eval.is-paused *,figure.eval.is-paused *::before,figure.eval.is-paused *:
 @keyframes hintSide{0%,100%{transform:none}50%{transform:translateX(6px)}}
 .scroll-hint svg.sh-right{animation-name:hintSide}
 #hallazgos>.inner{padding-top:clamp(40px,5vw,64px)}
+/* 20 nov 2026: título del hero sin subrayador, «mira los casos» en cobalto */
+.hero .inner>.chip{background:none;padding:0;margin-left:0}
+.scroll-hint{color:var(--acc)}
+.scroll-hint .note{color:var(--acc)}
