@@ -1490,3 +1490,4 @@ figure.eval.is-paused *,figure.eval.is-paused *::before,figure.eval.is-paused *:
 .hero .inner>.chip{background:none;padding:0;margin-left:0}
 .scroll-hint{color:var(--acc)}
 .scroll-hint .note{color:var(--acc)}
+.px-js#statement-px{background-color:#2234C4}

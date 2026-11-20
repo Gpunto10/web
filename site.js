@@ -338,21 +338,17 @@
     cv.width = W * dpr; cv.height = H * dpr;
     var ctx = cv.getContext('2d'); ctx.scale(dpr, dpr);
     var t = Math.max(14, Math.round(W / 46)), cols = Math.ceil(W / t), rows = Math.ceil(H / t);
-    // muestrea la imagen recortada como «cover» a una rejilla de cols × rows
-    var off = document.createElement('canvas'); off.width = cols; off.height = rows;
-    var oc = off.getContext('2d'), s = Math.max(cols / img.width, rows / img.height);
-    var dw = img.width * s, dh = img.height * s;
-    oc.drawImage(img, (cols - dw) / 2, (rows - dh) / 2, dw, dh);
-    var data;
-    try { data = oc.getImageData(0, 0, cols, rows).data; } catch (e) { box.classList.add('px-done'); return; }
+    // 20 nov 2026: cada pieza es un trozo real de la imagen (mismos colores al empezar y al acabar)
+    var S = Math.max(W / img.width, H / img.height), ox = (W - img.width * S) / 2, oy = (H - img.height * S) / 2;
     var tiles = [], cx = cols / 2, cy = rows / 2, maxd = Math.hypot(cx, cy);
     for (var y = 0; y < rows; y++) for (var x = 0; x < cols; x++) {
-      var i = (y * cols + x) * 4, a = Math.random() * Math.PI * 2, r = (0.3 + Math.random() * 0.7) * W * 0.6;
+      var a = Math.random() * Math.PI * 2, r = (0.3 + Math.random() * 0.7) * W * 0.6;
       tiles.push({ x: x * t, y: y * t, sx: x * t + Math.cos(a) * r, sy: y * t + Math.sin(a) * r,
-        c: 'rgb(' + data[i] + ',' + data[i + 1] + ',' + data[i + 2] + ')',
+        ix: (x * t - ox) / S, iy: (y * t - oy) / S,
         d: (Math.hypot(x - cx, y - cy) / maxd) * 1000 + Math.random() * 500 });
     }
-    var DUR = 1300, t0 = performance.now(), gap = Math.max(1, t * 0.12);
+    var iw = t / S;
+    var DUR = 1300, t0 = performance.now();
     function frame(now) {
       var el = now - t0, done = true;
       ctx.clearRect(0, 0, W, H);
@@ -362,8 +358,7 @@
         if (q <= 0) continue;
         var e = 1 - Math.pow(1 - q, 3);
         ctx.globalAlpha = Math.min(1, q * 1.6);
-        ctx.fillStyle = p.c;
-        ctx.fillRect(p.sx + (p.x - p.sx) * e, p.sy + (p.y - p.sy) * e, t - gap, t - gap);
+        ctx.drawImage(img, p.ix, p.iy, iw, iw, p.sx + (p.x - p.sx) * e, p.sy + (p.y - p.sy) * e, t, t);
       }
       ctx.globalAlpha = 1;
       if (!done) requestAnimationFrame(frame); else box.classList.add('px-done');
