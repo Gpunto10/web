@@ -1391,3 +1391,12 @@ figure.eval.is-paused *,figure.eval.is-paused *::before,figure.eval.is-paused *:
 .hi-note{top:-.55em;left:calc(100% - .05em)}
 .hero-inline .bigtype{font-size:clamp(40px,5.8vw,82px)}
 @media (max-width:720px){.hero-inline .bigtype{font-size:clamp(34px,10vw,52px)}.hi-note{top:-.85em}}
+
+/* Hero propuesta 2 (20 nov 2026): foto inclinada con trazo a mano desfasado */
+.hero-with-me .hm-photo img{transform:rotate(-3deg);position:relative;z-index:1}
+.hm-frame{position:absolute;inset:-4%;width:108%;height:108%;transform:translate(14px,12px) rotate(2.5deg);fill:none;stroke:var(--lav-text);stroke-width:1.6;stroke-linecap:round;vector-effect:non-scaling-stroke;z-index:0;pointer-events:none}
+.hm-frame path{vector-effect:non-scaling-stroke}
+.hero-with-me .hm-note{z-index:2}
+.hero-with-me .hm-more{display:inline-block;margin-top:30px}
+@media (max-width:860px){.hero-with-me .hm-more{margin-top:0}}
+@media (max-width:860px){.hm-frame{transform:translate(7px,6px) rotate(3deg)}}
