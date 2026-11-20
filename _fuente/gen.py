@@ -264,7 +264,7 @@ CHAT = ('<div class="chat" id="chat" data-key="' + CHAT_KEY + '" data-mail="gd.g
   '<button class="btn btn-primary chat-send" type="submit">Enviar</button></form>'
   '</section></div>')
 
-FOOT = '<footer class="band foot"><div class="inner"><span>© 2026 Gema Díez · Madrid</span><span>Researcher y Service Designer estratégica</span></div>\n<a class="totop" id="totop" href="#" aria-label="Volver arriba" title="Volver arriba"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></a></footer>\n' + CHAT + '\n<script src="' + v('site.js') + '" defer></script>'
+FOOT = '<footer class="band foot"><div class="inner"><span>© 2026 Gema Díez · Madrid</span><span>Researcher y Service Design Strategist</span></div>\n<a class="totop" id="totop" href="#" aria-label="Volver arriba" title="Volver arriba"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></a></footer>\n' + CHAT + '\n<script src="' + v('site.js') + '" defer></script>'
 
 ICONS = {
  "sistema": '<svg viewBox="0 0 48 48" width="44" height="44" fill="none" stroke-width="1.5" aria-hidden="true"><path d="M24 8 A16 16 0 0 0 24 40" stroke="#161616"/><path d="M26 8 A16 16 0 0 1 26 40" stroke="#A99BE8" stroke-width="2"/></svg>',
@@ -528,7 +528,7 @@ INDEX = f'''<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Gema Díez · Researcher y Service Designer</title>
-<meta name="description" content="Gema Díez, Researcher y Service Designer estratégica. Hago que lo fragmentado funcione como un solo servicio.">
+<meta name="description" content="Gema Díez, Researcher y Service Design Strategist. Hago que lo fragmentado funcione como un solo servicio.">
 {FONTS}
 <script data-goatcounter="https://gemadiez.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
@@ -539,16 +539,14 @@ INDEX = f'''<!doctype html>
 <section class="hero hero-big" id="inicio">
 <div class="orbits" aria-hidden="true"><span class="orbit o1"></span><span class="orbit o2"></span></div>
 <div class="inner">
-  <span class="chip chip-sky">Researcher y Service Designer estratégica</span>
-  <h1 class="bigtype" aria-label="Entiendo el sistema. Uno las piezas. Pienso en las personas y en el negocio.">
-    <span class="row" style="--d:0ms" aria-hidden="true"><span>Entiendo el sistema.</span></span>
-    <span class="row" style="--d:120ms" aria-hidden="true"><span class="accent">Uno las piezas.</span><span class="note n-hero">lo que mejor<br>se me da{ARROW}</span></span>
-    <span class="row" style="--d:240ms" aria-hidden="true"><span>Pienso en las personas</span></span>
-    <span class="row" style="--d:360ms" aria-hidden="true"><span>y en el negocio.</span></span>
+  <span class="chip chip-sky">Researcher y Service Design Strategist</span>
+  <h1 class="hero-phrases">
+    <span class="hp" style="--d:0ms">Entiendo el sistema. <span class="accent">Uno las piezas.</span></span>
+    <span class="hp" style="--d:900ms">Pienso en las personas y en el negocio.</span>
+    <span class="hp hp-3" style="--d:1800ms">Hago que lo fragmentado funcione como un solo servicio.</span>
   </h1>
-  <p class="sub">Hago que lo fragmentado funcione como un solo servicio.</p>
-  <div class="ctas"><a class="btn btn-secondary" href="#contacto">Cuéntame tu proyecto</a><a class="btn btn-primary" href="#casos">Ver casos</a></div>
   <p class="proof"><span class="dot" aria-hidden="true"></span><span>En 2025 y 2026, <b>todos mis clientes han vuelto a contar conmigo</b> para nuevas fases y proyectos. {WINK}</span></p>
+  <a class="scroll-hint" href="#casos"><span class="note">mira los casos</span><svg viewBox="0 0 30 60" aria-hidden="true"><path d="M15 4 C 9 20, 21 34, 15 54"/><path d="M6 45 L15 55 L24 45"/></svg></a>
   <figure class="hero-cut"><div class="hc-block"><a class="hc-more" href="sobre-mi.html">Más sobre mí →</a></div><img class="hc-photo" src="img/gema-recorte.webp" alt="Retrato de Gema Díez sonriendo" width="800" height="769"><span class="note hc-note" aria-hidden="true">esta soy yo{ARROW_DOWN}</span></figure>
 </div></section>
 
@@ -593,7 +591,7 @@ INDEX = f'''<!doctype html>
     <div class="photo"><img src="{v(PHOTO)}" alt="Retrato de Gema Díez sonriendo" width="400" height="400"><span class="note n-about">¡hola, soy yo!{ARROW_DOWN}</span></div>
     <div class="bio">
       <span class="chip chip-lav">Sobre mí</span>
-      <p class="lead">Soy Gema Díez, Researcher y Service Designer estratégica con más de 8 años trabajando en servicios complejos.</p>
+      <p class="lead">Soy Gema Díez, Researcher y Service Design Strategist con más de 8 años trabajando en servicios complejos.</p>
       <p>He trabajado en energía, banca, salud, seguros, retail y tercer sector. Mi trabajo empieza donde las cosas están fragmentadas, con plataformas que no se hablan, equipos con visiones distintas y mensajes que no llegan, y termina cuando funcionan como un solo servicio.</p>
       <p>Mapeo cómo son las cosas de verdad, escuchando a las personas y leyendo los datos, decido qué no puede fallar y ayudo a que todo el equipo empuje en la misma dirección.</p>
       <ul class="facts-list">
@@ -704,7 +702,7 @@ SOBRE_PAGE = f'''<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Sobre mí · Gema Díez</title>
-<meta name="description" content="Gema Díez, Researcher y Service Designer estratégica. Y fuera del trabajo: cine, música electrónica, libros, exposiciones y dos gatos.">
+<meta name="description" content="Gema Díez, Researcher y Service Design Strategist. Y fuera del trabajo: cine, música electrónica, libros, exposiciones y dos gatos.">
 {FONTS}
 <script data-goatcounter="https://gemadiez.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>

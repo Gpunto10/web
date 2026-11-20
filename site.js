@@ -294,7 +294,7 @@
     t.textContent = open ? 'Leer menos' : 'Leer más';
     sec.classList.toggle('is-folded', !open);
   }
-  b.hidden = false; set(false);
+  return; // 20 nov 2026: Gema prefiere la bio desplegada siempre (el botón queda oculto)
   b.addEventListener('click', function () { set(b.getAttribute('aria-expanded') !== 'true'); });
 })();
 

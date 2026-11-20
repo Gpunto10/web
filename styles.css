@@ -1434,3 +1434,31 @@ figure.eval.is-paused *,figure.eval.is-paused *::before,figure.eval.is-paused *:
   .hc-block{width:68%}
   .hc-note{left:2%;top:16%}
 }
+
+/* Hero: tres frases que aparecen una tras otra y se quedan (20 nov 2026) */
+.hero-phrases{display:grid;gap:.35em;font-size:clamp(32px,4.1vw,56px);font-weight:400;letter-spacing:-.04em;line-height:1.05;max-width:16ch;margin:0}
+.hero-phrases .accent{color:var(--acc);font-weight:500}
+.hero-phrases .hp{display:block}
+.hero-phrases .hp-3{color:var(--soft)}
+.anim .hero-phrases .hp{opacity:0;transform:translateY(18px);animation:hpIn .8s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:var(--d,0ms)}
+@keyframes hpIn{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.anim .hero-phrases .hp{opacity:1;transform:none;animation:none}}
+@media (max-width:860px){.hero-phrases{font-size:clamp(30px,8.6vw,44px);max-width:none}}
+.hero .hero-phrases{font-size:clamp(32px,3.9vw,54px);max-width:20ch;letter-spacing:-.04em;line-height:1.05}
+.hero .hero-phrases .hp-3{font-size:.6em;letter-spacing:-.02em;line-height:1.2;max-width:26ch;margin-top:.3em}
+@media (max-width:860px){.hero-big .hero-phrases{order:-2}.hero .hero-phrases{font-size:clamp(30px,8.4vw,42px);max-width:none}}
+/* 20 nov 2026: sin CTA en el hero, pista de scroll a mano */
+.scroll-hint{display:inline-flex;align-items:center;gap:8px;margin-top:28px;color:var(--lav,#6b4fd8);text-decoration:none;width:max-content;border-radius:8px}
+.scroll-hint .note{font-size:22px}
+.scroll-hint svg{width:22px;height:44px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;animation:hintBob 2.4s ease-in-out infinite}
+.scroll-hint:hover .note{text-decoration:underline}
+.scroll-hint:focus-visible{outline:2px solid var(--acc);outline-offset:4px}
+@keyframes hintBob{0%,100%{transform:none}50%{transform:translateY(6px)}}
+@media (prefers-reduced-motion:reduce){.scroll-hint svg{animation:none}}
+
+/* 20 nov 2026: etiquetas sin cápsula, nota a mano con subrayado dibujado */
+.chip,.chip-sky,.chip-lav{background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 10' preserveAspectRatio='none'%3E%3Cpath d='M2 6 C 40 2, 80 9, 120 5 S 180 3, 198 6' fill='none' stroke='%236A45E0' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat left bottom/100% 8px;padding:0 2px 9px;border-radius:0;font-family:var(--hand);font-weight:600;font-size:clamp(22px,2vw,26px);line-height:1.05;letter-spacing:0;text-transform:none;color:var(--lav-text);transform:rotate(-2deg);transform-origin:left center}
+.chip::before{content:none;display:none}
+.step.dark .chip-sky,.step.dark .chip-lav{background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 10' preserveAspectRatio='none'%3E%3Cpath d='M2 6 C 40 2, 80 9, 120 5 S 180 3, 198 6' fill='none' stroke='%23C3CCFF' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat left bottom/100% 8px;color:#C3CCFF}
+.label{font-family:inherit;font-weight:600;font-size:14px;letter-spacing:0;text-transform:none;color:var(--soft)}
+.scroll-hint .note{position:static;transform:rotate(-3deg)}
