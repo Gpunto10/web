@@ -9,7 +9,7 @@ import hashlib
 SOBRE = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "sobre.html"), encoding="utf-8").read()  # bloque personal (19 nov 2026)
 MAPA = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "mapa.html"), encoding="utf-8").read()  # mapa de alcance en nodos (prueba 19 nov 2026)
 # Imagen del banner «No diseño píxeles». Rosa: img/nubes-pixeles.jpg · Azul: img/nubes-azules.jpg (prueba 20 nov 2026)
-PX_IMG = "img/nubes-azules.jpg"
+PX_IMG = "img/nubes-cobalto.jpg"  # antes img/nubes-azules.jpg (turquesa)
 LAB = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "lab.html"), encoding="utf-8").read()  # sección Laboratorio · Hecho con IA (19 nov 2026)
 def v(path):
     """Añade ?v=<huella> para que el navegador no muestre una versión guardada al cambiar el archivo."""
