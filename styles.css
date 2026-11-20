@@ -1472,3 +1472,6 @@ figure.eval.is-paused *,figure.eval.is-paused *::before,figure.eval.is-paused *:
 
 .chip,.chip-sky,.chip-lav{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20' preserveAspectRatio='none'%3E%3Cpath d='M4 3 C 50 1, 120 4, 196 2 L 199 17 C 140 19, 70 16, 1 19 Z' fill='rgba(141,108,240,.42)'/%3E%3C/svg%3E");background-size:100% 62%;background-position:left 92%;padding:2px 6px;margin-left:-6px;font-size:16px}
 .step.dark .chip-sky,.step.dark .chip-lav{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20' preserveAspectRatio='none'%3E%3Cpath d='M4 3 C 50 1, 120 4, 196 2 L 199 17 C 140 19, 70 16, 1 19 Z' fill='rgba(195,204,255,.38)'/%3E%3C/svg%3E");background-size:100% 62%;background-position:left 92%}
+
+/* subrayador con el azul claro de las etiquetas originales (--chip-bg #E3E8FF, algo más intenso para que se vea sobre crema) */
+.chip,.chip-sky,.chip-lav{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20' preserveAspectRatio='none'%3E%3Cpath d='M4 3 C 50 1, 120 4, 196 2 L 199 17 C 140 19, 70 16, 1 19 Z' fill='%23D6DDFF'/%3E%3C/svg%3E");background-size:100% 70%;background-position:left 95%}
