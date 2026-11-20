@@ -1462,3 +1462,5 @@ figure.eval.is-paused *,figure.eval.is-paused *::before,figure.eval.is-paused *:
 .step.dark .chip-sky,.step.dark .chip-lav{background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 10' preserveAspectRatio='none'%3E%3Cpath d='M2 6 C 40 2, 80 9, 120 5 S 180 3, 198 6' fill='none' stroke='%23C3CCFF' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat left bottom/100% 8px;color:#C3CCFF}
 .label{font-family:inherit;font-weight:600;font-size:14px;letter-spacing:0;text-transform:none;color:var(--soft)}
 .scroll-hint .note{position:static;transform:rotate(-3deg)}
+/* 20 nov 2026: bloque del hero en cobalto profundo (el eléctrico queda para lo clicable) */
+.hc-block{background:#1E2A8A}
