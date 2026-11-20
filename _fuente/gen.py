@@ -556,7 +556,8 @@ INDEX = f'''<!doctype html>
     <div class="pillar reveal" style="--d:120ms"><div class="pillar-top">{ICONS['piezas']}<span class="pnum">02</span></div><h3>Uno las piezas</h3><p>Decido qué importa y qué no puede fallar en cada flujo y punto de contacto, para que todo funcione como un solo servicio.</p></div>
     <div class="pillar reveal" style="--d:240ms"><div class="pillar-top">{ICONS['personas']}<span class="pnum">03</span></div><h3>Pienso en las personas y en el negocio</h3><p>Alineo a los equipos en torno a los mensajes que hay que transmitir, para que lo bueno para las personas también lo sea para el negocio.</p></div>
   </div>
-  <div class="statement reveal">
+  <div class="statement statement-px reveal" id="statement-px" data-img="img/nubes-pixeles.jpg">
+    <canvas class="px-canvas" aria-hidden="true"></canvas>
     <p>No diseño píxeles.<br>Diseño lo que hace que esos píxeles <span class="hand-u light">tengan sentido.{SCRIBBLE}</span></p>
   </div>
 </div></section>

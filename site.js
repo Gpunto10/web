@@ -313,3 +313,61 @@
     document.documentElement.classList.toggle('contact-in', es[0].isIntersecting);
   }, { threshold: 0.35 }).observe(c);
 })();
+
+/* Banner de píxeles: los píxeles de la foto de nubes vuelan y se unen hasta formar la imagen (20 nov 2026).
+   Con «reducir movimiento» o sin canvas se ve la imagen tal cual. */
+(function () {
+  var box = document.getElementById('statement-px');
+  if (!box) return;
+  var cv = box.querySelector('.px-canvas');
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !cv || !cv.getContext || !('IntersectionObserver' in window)) { if (cv) cv.remove(); return; }
+  box.classList.add('px-js');
+  var img = new Image(), ready = false, seen = false, started = false;
+  img.onload = function () { ready = true; go(); };
+  img.onerror = function () { box.classList.remove('px-js'); cv.remove(); };
+  img.src = box.getAttribute('data-img');
+  new IntersectionObserver(function (es, o) {
+    if (es[0].isIntersecting) { seen = true; o.disconnect(); go(); }
+  }, { threshold: 0.35 }).observe(box);
+
+  function go() {
+    if (!ready || !seen || started) return;
+    started = true;
+    var W = box.clientWidth, H = box.clientHeight, dpr = Math.min(window.devicePixelRatio || 1, 2);
+    cv.width = W * dpr; cv.height = H * dpr;
+    var ctx = cv.getContext('2d'); ctx.scale(dpr, dpr);
+    var t = Math.max(14, Math.round(W / 46)), cols = Math.ceil(W / t), rows = Math.ceil(H / t);
+    // muestrea la imagen recortada como «cover» a una rejilla de cols × rows
+    var off = document.createElement('canvas'); off.width = cols; off.height = rows;
+    var oc = off.getContext('2d'), s = Math.max(cols / img.width, rows / img.height);
+    var dw = img.width * s, dh = img.height * s;
+    oc.drawImage(img, (cols - dw) / 2, (rows - dh) / 2, dw, dh);
+    var data;
+    try { data = oc.getImageData(0, 0, cols, rows).data; } catch (e) { box.classList.add('px-done'); return; }
+    var tiles = [], cx = cols / 2, cy = rows / 2, maxd = Math.hypot(cx, cy);
+    for (var y = 0; y < rows; y++) for (var x = 0; x < cols; x++) {
+      var i = (y * cols + x) * 4, a = Math.random() * Math.PI * 2, r = (0.3 + Math.random() * 0.7) * W * 0.6;
+      tiles.push({ x: x * t, y: y * t, sx: x * t + Math.cos(a) * r, sy: y * t + Math.sin(a) * r,
+        c: 'rgb(' + data[i] + ',' + data[i + 1] + ',' + data[i + 2] + ')',
+        d: (Math.hypot(x - cx, y - cy) / maxd) * 700 + Math.random() * 350 });
+    }
+    var DUR = 900, t0 = performance.now(), gap = Math.max(1, t * 0.12);
+    function frame(now) {
+      var el = now - t0, done = true;
+      ctx.clearRect(0, 0, W, H);
+      for (var k = 0; k < tiles.length; k++) {
+        var p = tiles[k], q = Math.min(1, Math.max(0, (el - p.d) / DUR));
+        if (q < 1) done = false;
+        if (q <= 0) continue;
+        var e = 1 - Math.pow(1 - q, 3);
+        ctx.globalAlpha = Math.min(1, q * 1.6);
+        ctx.fillStyle = p.c;
+        ctx.fillRect(p.sx + (p.x - p.sx) * e, p.sy + (p.y - p.sy) * e, t - gap, t - gap);
+      }
+      ctx.globalAlpha = 1;
+      if (!done) requestAnimationFrame(frame); else box.classList.add('px-done');
+    }
+    requestAnimationFrame(frame);
+  }
+})();
