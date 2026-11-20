@@ -1464,3 +1464,11 @@ figure.eval.is-paused *,figure.eval.is-paused *::before,figure.eval.is-paused *:
 .scroll-hint .note{position:static;transform:rotate(-3deg)}
 /* 20 nov 2026: bloque del hero en cobalto profundo (el eléctrico queda para lo clicable) */
 .hc-block{background:#1E2A8A}
+
+/* 20 nov 2026 (2): etiquetas en texto normal con subrayador fluorescente */
+.chip,.chip-sky,.chip-lav{background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20' preserveAspectRatio='none'%3E%3Cpath d='M3 5 C 50 2, 120 4, 197 3 L 199 16 C 140 18, 70 15, 1 18 Z' fill='%238D6CF0'/%3E%3C/svg%3E") no-repeat left 100%/100% 55%;background-size:100% 55%;padding:0 4px 1px;border-radius:0;font-family:inherit;font-weight:600;font-size:15px;line-height:1.4;letter-spacing:0;text-transform:none;color:var(--ink,#161616);transform:none}
+.chip,.chip-sky,.chip-lav{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20' preserveAspectRatio='none'%3E%3Cpath d='M3 5 C 50 2, 120 4, 197 3 L 199 16 C 140 18, 70 15, 1 18 Z' fill='rgba(141,108,240,.32)'/%3E%3C/svg%3E")}
+.step.dark .chip-sky,.step.dark .chip-lav{background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20' preserveAspectRatio='none'%3E%3Cpath d='M3 5 C 50 2, 120 4, 197 3 L 199 16 C 140 18, 70 15, 1 18 Z' fill='rgba(195,204,255,.35)'/%3E%3C/svg%3E") no-repeat left 100%/100% 55%;color:#fff}
+
+.chip,.chip-sky,.chip-lav{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20' preserveAspectRatio='none'%3E%3Cpath d='M4 3 C 50 1, 120 4, 196 2 L 199 17 C 140 19, 70 16, 1 19 Z' fill='rgba(141,108,240,.42)'/%3E%3C/svg%3E");background-size:100% 62%;background-position:left 92%;padding:2px 6px;margin-left:-6px;font-size:16px}
+.step.dark .chip-sky,.step.dark .chip-lav{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20' preserveAspectRatio='none'%3E%3Cpath d='M4 3 C 50 1, 120 4, 196 2 L 199 17 C 140 19, 70 16, 1 19 Z' fill='rgba(195,204,255,.38)'/%3E%3C/svg%3E");background-size:100% 62%;background-position:left 92%}
