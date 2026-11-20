@@ -1372,3 +1372,22 @@ figure.eval.is-paused *,figure.eval.is-paused *::before,figure.eval.is-paused *:
   .hm-note .arrow-down{left:-30px;top:18px;width:32px;transform:rotate(60deg)}
   .hero-with-me .orbits{left:-260px;bottom:-200px}
 }
+
+/* Hero con la foto dentro del titular, como una palabra más (20 nov 2026, propuesta 3) */
+.hero-inline .n-hero{display:none}
+.hero-inline .orbits{right:auto;left:-220px;top:auto;bottom:-160px;width:460px;height:400px;opacity:.55}
+.hero-inline .orbit{width:280px;height:280px}
+.hero-inline .orbit.o2{left:130px;top:60px}
+.hi-photo{position:relative;display:inline-block;width:.86em;height:.86em;vertical-align:-.08em;margin:0 .06em}
+.hi-photo img{display:block;width:100%;height:100%;object-fit:cover;border-radius:8px;border:2px solid var(--ink);transform:rotate(-5deg);background:var(--line)}
+.hi-note{position:absolute;left:calc(100% + .1em);top:-.62em;font-size:clamp(18px,1.7vw,24px);letter-spacing:0;transform:rotate(4deg);color:var(--lav-text);white-space:nowrap;line-height:1}
+.hi-note .arrow-down{position:absolute;left:-34px;top:10px;width:30px;transform:scaleX(-1) rotate(10deg)}
+.hero .row-me{margin-bottom:.06em}
+.hi-u .scribble{color:var(--lav-text)!important}
+.hi-more{font-weight:600;white-space:nowrap;color:var(--acc)}
+.hero-inline .bigtype .row{overflow:visible}
+@media (max-width:720px){.hi-note{top:-.95em;font-size:17px}.hi-note .arrow-down{left:-26px;width:24px}}
+.hi-note .arrow-down{display:none}
+.hi-note{top:-.55em;left:calc(100% - .05em)}
+.hero-inline .bigtype{font-size:clamp(40px,5.8vw,82px)}
+@media (max-width:720px){.hero-inline .bigtype{font-size:clamp(34px,10vw,52px)}.hi-note{top:-.85em}}

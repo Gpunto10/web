@@ -536,20 +536,20 @@ INDEX = f'''<!doctype html>
 <a class="skip" href="#contenido">Saltar al contenido</a>
 {nav('')}
 <main id="contenido">
-<section class="hero hero-with-me" id="inicio">
+<section class="hero hero-inline" id="inicio">
 <div class="orbits" aria-hidden="true"><span class="orbit o1"></span><span class="orbit o2"></span></div>
 <div class="inner">
   <span class="chip chip-sky">Researcher y Service Designer estratégica</span>
-  <h1 class="bigtype" aria-label="Entiendo el sistema. Uno las piezas. Pienso en las personas y en el negocio.">
-    <span class="row" style="--d:0ms" aria-hidden="true"><span>Entiendo el sistema.</span></span>
+  <h1 class="bigtype" aria-label="Soy Gema. Entiendo el sistema. Uno las piezas. Pienso en las personas y en el negocio.">
+    <span class="row row-me" style="--d:0ms" aria-hidden="true"><span>Soy <span class="hi-photo"><img src="{v(PHOTO)}" alt="" width="400" height="400"><span class="note hi-note">esta soy yo{ARROW_DOWN}</span></span> Gema.</span></span>
+    <span class="row" style="--d:80ms" aria-hidden="true"><span>Entiendo el sistema.</span></span>
     <span class="row" style="--d:120ms" aria-hidden="true"><span class="accent">Uno las piezas.</span><span class="note n-hero">lo que mejor<br>se me da{ARROW}</span></span>
-    <span class="row" style="--d:240ms" aria-hidden="true"><span>Pienso en las personas</span></span>
+    <span class="row" style="--d:240ms" aria-hidden="true"><span>Pienso en las <span class="hand-u hi-u">personas{SCRIBBLE}</span></span></span>
     <span class="row" style="--d:360ms" aria-hidden="true"><span>y en el negocio.</span></span>
   </h1>
-  <p class="sub">Hago que lo fragmentado funcione como un solo servicio.</p>
+  <p class="sub">Hago que lo fragmentado funcione como un solo servicio. <a class="link hi-more" href="sobre-mi.html">Más sobre mí →</a></p>
   <div class="ctas"><a class="btn btn-secondary" href="#contacto">Cuéntame tu proyecto</a><a class="btn btn-primary" href="#casos">Ver casos</a></div>
   <p class="proof"><span class="dot" aria-hidden="true"></span><span>En 2025 y 2026, <b>todos mis clientes han vuelto a contar conmigo</b> para nuevas fases y proyectos. {WINK}</span></p>
-  <figure class="hero-me"><div class="hm-photo"><img src="{v(PHOTO)}" alt="Retrato de Gema Díez sonriendo" width="400" height="400"><span class="note hm-note" aria-hidden="true">esta soy yo{ARROW_DOWN}</span></div><figcaption><a class="link hm-more" href="sobre-mi.html">Más sobre mí →</a></figcaption></figure>
 </div></section>
 
 <section class="band white" id="como-trabajo"><div class="inner">
