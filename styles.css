@@ -1341,3 +1341,8 @@ figure.eval.is-paused *,figure.eval.is-paused *::before,figure.eval.is-paused *:
 .px-js#statement-px{background-image:none}
 .px-js#statement-px.px-done{background-image:url(img/nubes-pixeles.jpg)}
 .px-js#statement-px.px-done .px-canvas{opacity:0}
+/* Imagen del banner por variable (rosa o azul, se elige en gen.py con PX_IMG) */
+#como-trabajo .statement-px{background-image:var(--px-img)}
+.px-js#statement-px{background-image:none}
+.px-js#statement-px.px-done{background-image:var(--px-img)}
+#como-trabajo .statement-px::after{background:radial-gradient(ellipse 62% 72% at 50% 50%,rgba(245,239,228,.82),rgba(245,239,228,.35) 60%,rgba(245,239,228,0) 85%)}
