@@ -536,7 +536,7 @@ INDEX = f'''<!doctype html>
 <a class="skip" href="#contenido">Saltar al contenido</a>
 {nav('')}
 <main id="contenido">
-<section class="hero" id="inicio">
+<section class="hero hero-with-me" id="inicio">
 <div class="orbits" aria-hidden="true"><span class="orbit o1"></span><span class="orbit o2"></span></div>
 <div class="inner">
   <span class="chip chip-sky">Researcher y Service Designer estratégica</span>
@@ -549,6 +549,7 @@ INDEX = f'''<!doctype html>
   <p class="sub">Hago que lo fragmentado funcione como un solo servicio.</p>
   <div class="ctas"><a class="btn btn-secondary" href="#contacto">Cuéntame tu proyecto</a><a class="btn btn-primary" href="#casos">Ver casos</a></div>
   <p class="proof"><span class="dot" aria-hidden="true"></span><span>En 2025 y 2026, <b>todos mis clientes han vuelto a contar conmigo</b> para nuevas fases y proyectos. {WINK}</span></p>
+  <figure class="hero-me"><div class="hm-photo"><img src="{v(PHOTO)}" alt="Retrato de Gema Díez sonriendo" width="400" height="400"><span class="note hm-note" aria-hidden="true">esta soy yo{ARROW_DOWN}</span></div><figcaption><a class="link hm-more" href="sobre-mi.html">Más sobre mí →</a></figcaption></figure>
 </div></section>
 
 <section class="band white" id="como-trabajo"><div class="inner">

@@ -1346,3 +1346,29 @@ figure.eval.is-paused *,figure.eval.is-paused *::before,figure.eval.is-paused *:
 .px-js#statement-px{background-image:none}
 .px-js#statement-px.px-done{background-image:var(--px-img)}
 #como-trabajo .statement-px::after{background:radial-gradient(ellipse 62% 72% at 50% 50%,rgba(245,239,228,.82),rgba(245,239,228,.35) 60%,rgba(245,239,228,0) 85%)}
+
+/* Hero con foto «esta soy yo» a la derecha (20 nov 2026) */
+.hero-with-me .inner{grid-template-columns:minmax(0,1fr) minmax(220px,340px);column-gap:clamp(32px,5vw,72px);align-items:start}
+.hero-with-me .inner>*{grid-column:1}
+.hero-with-me .inner::after{grid-column:1/-1}
+.hero-with-me .hero-me{grid-column:2;grid-row:1/span 5;align-self:center;margin:0;display:grid;gap:14px;justify-items:start}
+.hero-with-me .bigtype{font-size:clamp(40px,5.4vw,78px)}
+.hm-photo{position:relative;width:100%}
+.hm-photo img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:8px;border:1.5px solid var(--ink)}
+.hm-note{position:absolute;right:6px;top:-48px;transform:rotate(5deg);color:var(--lav-text)}
+.hm-note .arrow-down{position:absolute;left:-46px;top:14px;width:44px}
+.hm-more{font-weight:600;font-size:17px}
+.hero-with-me .n-hero{display:none}
+.hero-with-me .orbits{right:auto;left:-220px;top:auto;bottom:-160px;width:460px;height:400px;opacity:.55}
+.hero-with-me .orbit{width:280px;height:280px}
+.hero-with-me .orbit.o2{left:130px;top:60px}
+@media (max-width:860px){
+  .hero-with-me .inner{grid-template-columns:1fr}
+  .hero-with-me .hero-me{grid-column:1;grid-row:auto;order:0;display:flex;align-items:flex-end;gap:16px;margin:22px 0 0;padding:0;align-self:flex-start}
+  .hero-with-me .inner>.chip{order:-3}.hero-with-me .bigtype{order:-2}.hero-with-me .hero-me{order:-1}
+  .hero-with-me .inner{display:flex;flex-direction:column}
+  .hm-photo{width:128px;flex:none}
+  .hm-note{right:auto;left:calc(100% + 10px);top:6px;font-size:20px}
+  .hm-note .arrow-down{left:-30px;top:18px;width:32px;transform:rotate(60deg)}
+  .hero-with-me .orbits{left:-260px;bottom:-200px}
+}
