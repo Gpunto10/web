@@ -1491,3 +1491,15 @@ figure.eval.is-paused *,figure.eval.is-paused *::before,figure.eval.is-paused *:
 .scroll-hint{color:var(--acc)}
 .scroll-hint .note{color:var(--acc)}
 .px-js#statement-px{background-color:#2234C4}
+/* 20 nov 2026: móvil, pilares compactos y banner de píxeles protagonista */
+@media (max-width:700px){
+  #como-trabajo .pillars{gap:10px}
+  #como-trabajo .pillar{display:grid;grid-template-columns:36px 1fr;column-gap:14px;row-gap:4px;padding:16px 16px 18px;min-height:0}
+  #como-trabajo .pillar-top{grid-row:1 / span 2;display:block;margin:0;position:static}
+  #como-trabajo .pillar-top svg{width:32px;height:32px}
+  #como-trabajo .pillar-top .pnum{display:none}
+  #como-trabajo .pillar h3{font-size:17px;line-height:1.25;margin:0}
+  #como-trabajo .pillar p{font-size:14.5px;line-height:1.45;margin:0}
+  #como-trabajo .statement-px{min-height:min(78svh,600px);align-content:center;margin-top:28px}
+  #como-trabajo .statement-px p{font-size:clamp(28px,8.2vw,36px);line-height:1.15}
+}
