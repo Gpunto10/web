@@ -520,7 +520,7 @@ INDEX = f'''<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Gema Díez · Researcher y Service Designer</title>
+<title>Gema Díez · Researcher y Service Design Strategist</title>
 <meta name="description" content="Gema Díez, Researcher y Service Design Strategist. Hago que lo fragmentado funcione como un solo servicio.">
 {FONTS}
 <script data-goatcounter="https://gemadiez.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
