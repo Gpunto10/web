@@ -112,7 +112,7 @@ dict(
  facts=[],
  h1="Workshop de adopción de IA: un formato, dos contextos",
  lede="Diseñé un formato de workshop que empieza por el trabajo real, no por la tecnología. Lo aplicamos con dos equipos muy distintos y en los dos salió una lista de prioridades.",
- sheet=[("Contexto 1","Un equipo de compras"),("Contexto 2","Un equipo comercial"),("Formato","Sesiones de 90 minutos a 2 horas"),("Equipo","Yo: diseño, moderación y síntesis")],
+ sheet=[("Contextos","Un equipo de compras y un equipo comercial"),("Formato","Sesiones de 90 minutos a 2 horas"),("Equipo","Yo: diseño, moderación y síntesis")],
  reto=key("Las empresas tienen IA, pero la usan para cosas sueltas.") + ul([
    "Redactar correos o resumir textos no cambia el trabajo.",
    "Había que encontrar dónde aporta valor real y qué resolver primero."]) +
@@ -286,11 +286,11 @@ NOTES = {"caso-relacion": "de vender productos<br>a vender una relación", "caso
 
 LINES = ["ln-top", "ln-left", "ln-right", "ln-bottom", "ln-top-r"]  # posición de la línea de color de cada tarjeta
 
-YEARS = {"caso-energia": "2024–25", "caso-ong": "2026", "caso-ia": "2026", "caso-farma": "2025", "caso-diabetes": "2024"}
+YEARS = {"caso-relacion": "2024–25", "caso-web": "2026", "caso-ia": "2026", "caso-app": "2025", "caso-prototipo": "2024"}
 
 def row(c, k=0):
     """Fila de la lista de casos de la home (sustituye a las tarjetas, 18 nov 2026)."""
-    meta = c['tag']  # 20 nov 2026: sin cifras en el listado (siguen dentro de cada caso)
+    meta = f"{c['tag']} · {YEARS[c['slug']]}"  # 20 nov 2026: sin cifras en el listado (siguen dentro de cada caso)
     return f'''<a class="crow reveal" style="--d:{k*80}ms" href="{c['slug']}.html">
   <span class="crow-img"><img src="{v('img/' + c['slug'] + '.jpg')}" alt="" width="800" height="800" loading="lazy"><img class="duo" src="{v('img/' + c['slug'] + '.jpg')}" alt="" width="800" height="800" loading="lazy"></span>
   <span class="crow-num" aria-hidden="true">{k+1:02d}</span>
@@ -456,7 +456,7 @@ def impact_html(c):
 
 def case_page(i, c):
     nxt = CASES[(i + 1) % len(CASES)]
-    sheet = "".join(f'<div><span class="label">{k}</span><b>{v}</b></div>' for k, v in c["sheet"])
+    sheet = "".join(f'<div><span class="label">{k}</span><b>{v}</b></div>' for k, v in c["sheet"][:1] + [("Año", YEARS[c["slug"]])] + c["sheet"][1:])
     pills = "".join(f'<div><dt>{l}</dt><dd>{n}</dd></div>' for n, l in STATS[c["slug"]])
     trad = c["traduccion"]
     if c["quote"]:
@@ -711,7 +711,7 @@ open(os.path.join(OUT, "sobre-mi.html"), "w").write(SOBRE_PAGE.replace('<a href=
 
 # Página propia de casos (20 nov 2026): la sección sale de la home y «Casos» del menú lleva aquí
 CASOS_SECTION = f'''<section class="band" id="casos"><div class="inner">
-  <div class="sec-head"><span class="chip chip-sky">Casos</span><h1 class="h2like">Qué descubrimos y en qué se tradujo</h1><p>Cinco proyectos de Service Design y Research que hice en Sngular. Los cuento sin marcas, sectores ni datos de los clientes.</p></div>
+  <div class="sec-head"><span class="chip chip-sky">Casos · 2024 a 2026</span><h1 class="h2like">Qué descubrimos y en qué se tradujo</h1><p>Cinco proyectos de Service Design y Research que hice en Sngular. Los cuento sin marcas, sectores ni datos de los clientes.</p></div>
   <div class="case-list">{cards}</div>
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><filter id="duo" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values=".2126 .7152 .0722 0 0 .2126 .7152 .0722 0 0 .2126 .7152 .0722 0 0 0 0 0 1 0"/><feComponentTransfer><feFuncR type="table" tableValues=".086 .961"/><feFuncG type="table" tableValues=".086 .937"/><feFuncB type="table" tableValues=".086 .894"/></feComponentTransfer></filter></svg>
 </div></section>'''
