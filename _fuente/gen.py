@@ -513,6 +513,9 @@ def case_page(i, c):
 </html>
 '''
 
+# 23 nov 2026: casos en orden cronológico, del más reciente al más antiguo
+_ORDEN = ["caso-web", "caso-ia", "caso-app", "caso-relacion", "caso-prototipo"]
+CASES.sort(key=lambda c: _ORDEN.index(c["slug"]))
 cards = "".join(row(c, k=k) for k, c in enumerate(CASES))
 
 INDEX = f'''<!doctype html>
