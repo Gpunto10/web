@@ -1523,4 +1523,4 @@ figure.eval.is-paused *,figure.eval.is-paused *::before,figure.eval.is-paused *:
   #hallazgos .findings{gap:10px}
 }
 @media (max-width:700px){#hallazgos .findings-wrap a.finding{padding:14px 16px 16px 20px!important}}
-#contacto>.inner{padding-top:clamp(40px,5vw,64px)}
+.ct-page #como-trabajo>.inner{padding-top:clamp(56px,8vw,104px)}

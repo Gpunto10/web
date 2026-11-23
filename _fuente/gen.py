@@ -229,7 +229,7 @@ def nav(prefix):
   <div class="nav-left">{'<a class="nav-back" id="nav-back" href="index.html">← Atrás</a>' if prefix else ''}
   <a class="brand" href="{prefix or '#inicio'}" aria-label="Gema Díez, inicio"><span class="dot" aria-hidden="true"></span>Gema Díez</a></div>
   <nav aria-label="Principal"><ul>
-    <li class="hide-s"><a href="{prefix}#como-trabajo">Cómo trabajo</a></li>
+    <li class="hide-s"><a href="como-trabajo.html">Cómo trabajo</a></li>
     <li class="hide-s"><a href="casos.html">Casos</a></li>
     <li class="hide-s"><a href="ia.html">Con IA</a></li>
     <li class="hide-s"><a href="sobre-mi.html">Sobre mí</a></li>
@@ -238,7 +238,7 @@ def nav(prefix):
   </ul></nav>
 </div>
 <nav class="mnav" id="mnav" aria-label="Menú móvil"><ul>
-  <li><a href="{prefix}#como-trabajo">Cómo trabajo</a></li>
+  <li><a href="como-trabajo.html">Cómo trabajo</a></li>
   <li><a href="casos.html">Casos</a></li>
   <li><a href="ia.html">Con IA</a></li>
   <li><a href="sobre-mi.html">Sobre mí</a></li>
@@ -559,6 +559,23 @@ INDEX = f'''<!doctype html>
   </div>
 </div></section>
 
+<section class="band white" id="hallazgos"><div class="inner">
+  <div class="findings-wrap">
+    <div class="findings-head">
+      <span class="chip chip-lav">Hallazgos</span>
+      <h2>A veces el problema <span class="hand-o">no es{LOOP}</span> el que parece</h2>
+      <p>Cinco cosas que solo aparecieron al escuchar a las personas que usan y sostienen el servicio, y lo que cambiaron.</p>
+    </div>
+    <div class="findings">
+      <a class="finding reveal acc-sky" href="caso-relacion.html"><span class="fnum">01</span><div><span class="chip chip-sky">Estrategia de servicio</span><h3>La confianza pesa más que el precio.</h3><p>Los clientes valoraban sentirse acompañados más que pagar menos. La relación pasó al centro de la estrategia.</p></div></a>
+      <a class="finding reveal acc-lav" href="caso-web.html"><span class="fnum">02</span><div><span class="chip chip-lav">Arquitectura de la información</span><h3>La web estaba ordenada como la organización, no como piensa quien llega a ella.</h3><p>Reordenamos los contenidos en tres bloques que cualquiera entiende.</p></div></a>
+      <a class="finding reveal acc-sky" href="caso-app.html"><span class="fnum">03</span><div><span class="chip chip-sky">Research de producto</span><h3>Nadie quiere gestionar un problema. Quiere llevar una vida normal.</h3><p>Lo emocional pesa tanto como lo práctico, y la app tenía que reflejarlo.</p></div></a>
+      <a class="finding reveal acc-lav" href="caso-prototipo.html"><span class="fnum">04</span><div><span class="chip chip-lav">Test de usabilidad</span><h3>El lenguaje técnico no significa nada para quien empieza.</h3><p>Hablar con las palabras del usuario fue uno de los ajustes clave antes de lanzar.</p></div></a>
+      <a class="finding reveal acc-sky" href="caso-ia.html"><span class="fnum">05</span><div><span class="chip chip-sky">Adopción de IA</span><h3>Para decidir qué IA construir, primero hay que ver en qué se va el tiempo.</h3><p>Las prioridades salieron de tareas reales del equipo, no de la tecnología disponible.</p></div></a>
+    </div>
+  </div>
+</div></section>
+
 <section class="band" id="sobre-mi"><div class="inner">
   <div class="about">
     <div class="photo"><img src="{v(PHOTO)}" alt="Retrato de Gema Díez sonriendo" width="400" height="400"><span class="note n-about">¡hola, soy yo!{ARROW_DOWN}</span></div>
@@ -723,3 +740,29 @@ CASOS_PAGE = f'''<!doctype html>
 </html>
 '''
 open(os.path.join(OUT, "casos.html"), "w").write(CASOS_PAGE.replace('<a href="casos.html">Casos</a>', '<a href="casos.html" class="active" aria-current="page">Casos</a>'))
+
+# Página «Cómo trabajo» (23 nov 2026): desde el menú se ve solo esta sección, sin Hallazgos ni Contacto
+_CT = _re.search(r'<section class="band white" id="como-trabajo">.*?</div></section>', INDEX, _re.S).group(0)
+CT_PAGE = f'''<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cómo trabajo · Gema Díez</title>
+<meta name="description" content="Tres pasos para que un servicio complejo funcione: entender el sistema, unir las piezas y pensar en las personas y en el negocio.">
+{FONTS}
+<script data-goatcounter="https://gemadiez.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</head>
+<body class="ct-page">
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<div class="progress" aria-hidden="true"><span id="progress"></span></div>
+{nav('index.html')}
+<main id="contenido">
+<h1 class="sr-only">Cómo trabajo</h1>
+{_CT}
+</main>
+{FOOT}
+</body>
+</html>
+'''
+open(os.path.join(OUT, "como-trabajo.html"), "w").write(CT_PAGE.replace('<a href="como-trabajo.html">Cómo trabajo</a>', '<a href="como-trabajo.html" class="active" aria-current="page">Cómo trabajo</a>'))
