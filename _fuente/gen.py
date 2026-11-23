@@ -22,21 +22,20 @@ def p(*xs): return "".join(f"<p>{x}</p>" for x in xs)
 
 CASES = [
 dict(
- slug="caso-relacion", tag="Estrategia de servicio · B2B y B2C",
+ slug="caso-relacion", tag="Segmentación y propuesta de valor",
  card="De vender productos a vender una relación",
  card_lede="Research con clientes, equipos comerciales y canal para convertir una estrategia en decisiones de negocio.",
  facts=[],
  h1="De vender productos a vender una relación",
  lede="Convertimos una estrategia de negocio en un backlog priorizado, un customer journey con KPIs y principios de experiencia para cada canal.",
- sheet=[("Cliente","Empresa de servicios para particulares y empresas"),("Duración","Tres fases"),("Equipo","Otra Service Designer y yo, con apoyo de UX")],
+ sheet=[("Cliente","Empresa de servicios para particulares y empresas"),("Duración","Tres fases"),("Equipo","Research y Service Design a partes iguales con otra Service Designer, con apoyo de UX")],
  reto=key("Pasar de vender productos sueltos a ofrecer una solución integral, sin más fuerza comercial.") + ul([
    "Cada línea de negocio tenía su flujo, su gestor y su canal.",
    "Un mismo cliente podía tener varios gestores.",
    "Objetivo: que los clientes contrataran más servicios y captar empresas pequeñas, con más peso de lo digital."]),
- rol=key("Research y Service Design a partes iguales con otra Service Designer.") + ul([
-   "Entrevistas y síntesis.",
-   "Mapa de la experiencia actual del cliente.",
-   "Facilitación de todos los workshops con negocio."]),
+ decidi=ul([
+   "La segmentación por tamaño y tipo de negocio no explicaba cómo se comportaba cada cliente. Propuse segmentar por su relación con el gestor y con lo digital, y construir los arquetipos sobre esa relación.",
+   "Señalé que la empresa no tenía una definición común de su propia oferta. Sin ella, cada canal la contaba a su manera y no había una propuesta de valor coherente."]),
  enfoque=key("Escuchamos a los tres actores del servicio: clientes, equipos internos y canal.") + ul([
    "Entrevistas a clientes empresa de distinto perfil.",
    "Entrevistas a gestores comerciales, canal de distribución y atención al cliente.",
@@ -53,6 +52,7 @@ dict(
    "Arquetipos de cliente con su propuesta de valor.",
    "Backlog de oportunidades y roadmap estratégico.",
    "Primeras soluciones digitales: mejoras del CRM y wireframes del portal de cliente."]),
+ deliv="customer journey con KPIs por fase, arquetipos por relación, backlog de oportunidades y roadmap.",
  traduccion=key("Del research al servicio, canal a canal.") + ul([
    "Los arquetipos sirvieron para diseñar el servicio por tipo de cliente: el reto fue llevar a los clientes más dependientes hacia más autonomía."]),
  extra=("Extensión B2C", "Principios de experiencia en cada canal",
@@ -61,7 +61,7 @@ dict(
      "Resultado: un decálogo de experiencia por canal, con acciones que el propio empleado puede aplicar."]) + "@@WORKSHOP@@"),
 ),
 dict(
- slug="caso-web", tag="Research · Arquitectura de la información",
+ slug="caso-web", tag="Ordenar una web por quien llega",
  card="Una web que deje de reflejar el organigrama",
  card_lede="Diagnóstico y co-creación para que toda la organización compartiera una misma visión de su web.",
  facts=[],
@@ -72,10 +72,9 @@ dict(
    "La web había crecido a base de soluciones puntuales.",
    "Cada departamento tenía su propio espacio en el menú.",
    "La mayoría de visitas llegaban desde el móvil, donde navegar era lo más difícil."]),
- rol=key("Llevé yo todo el research y la estrategia.") + ul([
-   "Entrevistas, auditoría heurística y benchmark.",
-   "Diseño y facilitación del workshop.",
-   "Arquetipos, journeys y nueva arquitectura de la información."]),
+ decidi=ul([
+   "Ante un menú ordenado por departamentos, propuse reorganizar la web en tres bloques que cualquiera entiende: quiénes, qué y cómo.",
+   "Sin criterios comunes, cada área defendía su espacio. Antes de hablar del menú, diseñé un workshop para que todas acordaran una misma definición de éxito."]),
  enfoque="<h3>Fase 1 · Entender</h3>" + ul([
    "Entrevistas con todas las áreas.",
    "Auditoría con las 10 heurísticas de Nielsen.",
@@ -98,6 +97,7 @@ dict(
    "Nueva arquitectura del menú y de la home.",
    "Requisitos y primeros wireframes.",
    "Presentación a la dirección."]) + "@@ONG@@",
+ deliv="diagnóstico, auditoría heurística, nuevo menú, requisitos y primeros wireframes.",
  traduccion=key("Un acuerdo de toda la casa.") + ul([
    "Todas las áreas compartieron una definición de éxito: dar el paso principal con menos fricción, entender qué hace la organización y publicar sin depender de nadie.",
    "El menú pasó de secciones por departamento a tres bloques claros.",
@@ -106,22 +106,20 @@ dict(
  extra=None,
 ),
 dict(
- slug="caso-ia", tag="Adopción de IA · Workshop",
+ slug="caso-ia", tag="Priorizar qué IA construir",
  card="Un formato, dos contextos: decidir qué IA construir primero",
  card_lede="Un workshop que parte del día a día de las personas, no de la tecnología.",
  facts=[],
  h1="Workshop de adopción de IA: un formato, dos contextos",
  lede="Diseñé un formato de workshop que empieza por el trabajo real, no por la tecnología. Lo aplicamos con dos equipos muy distintos y en los dos salió una lista de prioridades.",
- sheet=[("Contextos","Un equipo de compras y un equipo comercial"),("Formato","Sesiones de 90 minutos a 2 horas"),("Equipo","Yo: diseño, moderación y síntesis")],
+ sheet=[("Contextos","Un equipo de compras y un equipo comercial"),("Formato","Sesiones de 90 minutos a 2 horas"),("Equipo","Diseño, moderación y síntesis, de principio a fin")],
  reto=key("Las empresas tienen IA, pero la usan para cosas sueltas.") + ul([
    "Redactar correos o resumir textos no cambia el trabajo.",
    "Había que encontrar dónde aporta valor real y qué resolver primero."]) +
    '<p class="premise">«Hoy no venimos a ver otra demo: venimos a construir la vuestra.»</p>',
- rol=key("Diseñé el formato y moderé las sesiones yo sola.") + ul([
-   "Dinámicas y materiales.",
-   "Tablero de trabajo generado con IA y adaptado después por mí.",
-   "Moderación de las sesiones.",
-   "Síntesis y presentación de resultados."]),
+ decidi=ul([
+   "Ante equipos que esperaban otra demo, decidí empezar por sus tareas reales y no por la tecnología.",
+   "Diseñé el cierre para que cada persona eligiera una prioridad. Así la lista salía de su día a día y no de lo que la IA sabe hacer."]),
  enfoque=key("Cinco bloques que van del día a día a la prioridad.") + ol([
    "<strong>Su día a día:</strong> las tareas que más tiempo roban.",
    "<strong>Fricciones:</strong> lo repetitivo, lo disperso y lo que se pierde entre áreas.",
@@ -138,13 +136,14 @@ dict(
    "Formato de workshop reutilizable: agenda, dinámicas y plantillas.",
    "Tableros de trabajo de cada sesión, creados con IA y adaptados a cada equipo.",
    "Informe de discovery con dolores, usos actuales y prioridades."]),
+ deliv="formato de workshop reutilizable, tableros de cada sesión e informe de discovery.",
  traduccion=key("Lo que se llevó cada equipo.") + ul([
    "<strong>Equipo de compras:</strong> prioridades ordenadas por impacto y un documento de adopción.",
    "<strong>Equipo comercial:</strong> la demo a medida parte de los escenarios que votó el propio equipo."]),
  extra=None,
 ),
 dict(
- slug="caso-app", tag="Research de producto · App",
+ slug="caso-app", tag="Orientar la hoja de ruta de un producto",
  card="Una app que acompañe a la persona, no solo a la tarea",
  card_lede="Entrevistas y test con usuarios reales para mejorar la app hoy y orientar su hoja de ruta.",
  facts=[],
@@ -153,10 +152,9 @@ dict(
  sheet=[("Cliente","Empresa con una app de acompañamiento"),("Producto","App para personas que conviven con una situación de larga duración"),("Equipo","Yo, de principio a fin")],
  reto=key("Saber si la app encajaba con lo que de verdad necesitan sus usuarios.") + ul([
    "Dos objetivos: entender a las personas y probar la app en manos reales."]),
- rol=key("Llevé el proyecto sola, de principio a fin.") + ul([
-   "Diseño del estudio y del reclutamiento.",
-   "Entrevistas y tests.",
-   "Journey, arquetipos y recomendaciones."]),
+ decidi=ul([
+   "Propuse perfilar a las personas por su actitud ante su situación, y no por su diagnóstico. Salieron cuatro perfiles, de quien prefiere no pensar en ello a quien ya lo ha integrado en su vida.",
+   "Con esos perfiles, cada mejora y cada idea nueva de la hoja de ruta dice a quién sirve."]),
  enfoque=key("Entrevistas en profundidad que combinaban la historia de cada persona y el test de la app.") + ul([
    "Una parte para entender su recorrido y la mayor parte para probar la app.",
    "Muestra diversa en perfil, edad y experiencia.",
@@ -173,6 +171,7 @@ dict(
    "Arquetipos de usuario.",
    "Evaluación de usabilidad por sección.",
    "Oportunidades por etapa y por arquetipo."]),
+ deliv="journey en cinco etapas, perfiles, evaluación por sección y oportunidades por etapa y perfil.",
  traduccion=key("Las mejoras, en concreto.") + ul([
    "Nombres más claros, un solo camino para los recordatorios y lo emocional en el centro.",
    "Proteger lo que mejor funcionaba.",
@@ -180,41 +179,67 @@ dict(
  extra=None,
 ),
 dict(
- slug="caso-prototipo", tag="Test de usabilidad · Prototipo",
- card="Validar una app antes de lanzarla",
- card_lede="Un test con usuarias de un prototipo: qué funcionaba y qué ajustar antes del lanzamiento.",
+ slug="caso-promesa", tag="Diagnóstico de conversión",
+ card="Cuando el nombre promete otra cosa",
+ card_lede="Una página con mucho tráfico casi no convertía. El problema estaba en lo que se prometía antes de llegar a ella.",
  facts=[],
- h1="Validar una app antes de lanzarla",
- lede="El test confirmó que la app resolvía una necesidad que nadie cubría y señaló los ajustes de lenguaje, flujo y accesibilidad antes de lanzarla.",
- sheet=[("Cliente","Empresa que preparaba su primer lanzamiento"),("Producto","App conectada a dispositivos de uso diario"),("Equipo","Yo, de principio a fin")],
- reto=key("Validar el prototipo antes de seguir desarrollando.") + ul([
-   "La app se conecta con dispositivos que la persona usa a diario.",
-   "¿Se entendían el primer uso y el panel? ¿Respondían a lo que necesita el usuario?"]),
- rol=key("Llevé el proyecto sola, de principio a fin.") + ul([
-   "Diseño del test y de las tareas.",
-   "Sesiones con usuarias.",
-   "Análisis, informe y recomendaciones."]),
- enfoque=key("Un test de usabilidad que simula dos momentos de vida del producto.") + ul([
-   "<strong>Primer uso:</strong> crear el perfil y vincular los dispositivos.",
-   "<strong>Tres meses después:</strong> entender el panel con datos acumulados.",
-   "Conversación sobre su día a día."]),
- hallazgos=key("La app resolvía algo que nadie cubría: saber con certeza qué has hecho y cuándo.") + ul([
-   "Al empezar, el usuario reaprende su rutina casi solo.",
-   "Su información está repartida en varias apps.",
-   "El primer uso era claro y conectar los dispositivos sorprendía para bien.",
-   "El lenguaje técnico no funcionaba y algunas secciones eran ambiguas.",
-   "La accesibilidad era crítica para este público."]),
+ h1="Cuando el nombre promete otra cosa",
+ lede="Una página con mucho tráfico de campañas casi no convertía. El problema no estaba en la página, estaba en lo que se prometía antes de llegar a ella.",
+ sheet=[("Cliente","Organización con una página de producto muy visitada"),("Equipo","Diagnóstico, research y recomendaciones")],
+ reto=key("Saber por qué una página con muchas visitas apenas generaba transacciones."),
+ decidi=ul([
+   "En lugar de ir directa a la usabilidad, planteé tres hipótesis: el tráfico, la página y el concepto.",
+   "Demostré que el problema era de promesa, no de usabilidad. El nombre hacía esperar una cosa y la página ofrecía otra, y esa idea se formaba antes de entrar, en el buscador y en los anuncios.",
+   "Por eso la primera recomendación fue cambiar los anuncios, fuera de la web, y después la página."]),
+ enfoque=key("Seguir la expectativa desde antes del primer clic hasta la página.") + ul([
+   "Analítica y mapas de clics.",
+   "Lo que dicen el buscador y los anuncios.",
+   "Qué entiende la gente por el nombre.",
+   "Evaluación heurística de la página."]),
+ hallazgos=key("La gente esperaba elegir libremente una cantidad pequeña y encontraba un catálogo cerrado.") + ul([
+   "La expectativa ya venía fijada desde el buscador, antes del primer clic.",
+   "Lo más pulsado era «ver más»: no estaba lo que buscaban.",
+   "Las preguntas frecuentes no respondían a las dudas de esa página."]),
  quote=None,
- entregables=ul([
-   "Informe con evaluación pantalla a pantalla.",
-   "Oportunidades y recomendaciones.",
-   "Análisis de la arquitectura de la información."]) + "@@EVAL@@",
- traduccion=key("Los ajustes, uno a uno.") + ul([
-   "Agrupar el registro en bloques.",
-   "Permitir varias respuestas en las preguntas sobre la rutina.",
-   "Hablar con las palabras del usuario.",
-   "Aclarar qué se puede editar y qué no.",
-   "Mejorar la accesibilidad."]),
+ entregables="",
+ deliv="diagnóstico de expectativas, evaluación heurística y plan de optimización.",
+ traduccion=key("Un plan en cuatro frentes.") + ul([
+   "Anuncios que explican lo que hay detrás.",
+   "Una forma directa de actuar nada más llegar.",
+   "El catálogo visible de un vistazo.",
+   "Preguntas frecuentes propias de la página.",
+   "El cliente está estudiando cómo aplicarlo."]),
+ extra=None,
+),
+dict(
+ slug="caso-producto", tag="Research integrado en producto",
+ card="Research dentro de un equipo de producto",
+ card_lede="Los estudios llegaban como encargos concretos. En varios, la respuesta cambió la pregunta de partida.",
+ facts=[],
+ h1="Research dentro de un equipo de producto",
+ lede="Los estudios llegaban como encargos concretos. En varios, la respuesta cambió la pregunta de partida.",
+ sheet=[("Cliente","Un e-commerce grande"),("Equipo","Integrada en su equipo de producto, cada estudio llevado sola de principio a fin")],
+ owner="Proyecto realizado en Sngular, integrada en el equipo de producto del cliente. El trabajo y sus entregables son propiedad de Sngular.",
+ reto=key("Responder a encargos de producto sin perder de vista la pregunta de negocio que había detrás.") + ul([
+   "Registro, captación y entrega, entre otros.",
+   "Cada estudio con hipótesis ligadas a KPIs desde el kickoff."]),
+ decidi=ul([
+   "<strong>Registro:</strong> ante un formulario de compra largo, propuse no pedir el registro en ese momento, porque cada vez más gente compra como invitada, y ofrecerlo después con ventajas claras.",
+   "<strong>Captar gente joven:</strong> mostré que el problema no era de canal sino de marca. Para la gente joven no era aspiracional, era algo con lo que romper, la ropa que sus padres les compraban para el colegio. Y avisé de que, con el perfil al que se podía llegar, la parte de nuevos clientes necesitaba un estudio aparte.",
+   "<strong>Entrega de bajas emisiones:</strong> con un test sin ganador, planteé si tenía sentido cargar más el paso más crítico de la compra."]),
+ enfoque=key("Research dentro del día a día del equipo.") + ul([
+   "Entrevistas y tests con usuarios.",
+   "Analítica, benchmark y tests A/B.",
+   "Kickoffs con todas las áreas implicadas para fijar objetivos y riesgos."]),
+ hallazgos=key("Quien compra quiere hacerlo en los menos clics posibles.") + ul([
+   "La mayoría no lee los mensajes largos y elige el camino que intuye más corto.",
+   "Registrarse se asocia a correo no deseado.",
+   "Para la gente joven, la marca era la norma de la que querían salir."]),
+ quote=None,
+ entregables="",
+ deliv="planes de research, informes de cada estudio y recomendaciones para el equipo.",
+ traduccion=key("Preguntas mejor planteadas para el equipo de producto.") + ul([
+   "Cada estudio terminó con recomendaciones concretas y la pregunta de negocio que había detrás."]),
  extra=None,
 ),
 ]
@@ -272,7 +297,7 @@ ICONS = {
 }
 
 # Cifras de la cabecera de cada caso: dato grande + etiqueta, sin caja (no deben parecer botones)
-STATS = {k: [] for k in ["caso-relacion","caso-web","caso-ia","caso-app","caso-prototipo"]}  # versión anónima: sin cifras
+STATS = {k: [] for k in ["caso-relacion","caso-web","caso-ia","caso-app","caso-promesa","caso-producto"]}  # versión anónima: sin cifras
 
 # Trazos "dibujados a mano" (SVG). Se dibujan solos al entrar en pantalla (.draw)
 ARROW = '<svg class="doodle draw arrow" viewBox="0 0 120 60" aria-hidden="true"><path pathLength="1" d="M6 50 C 22 18, 58 6, 104 18"/><path pathLength="1" d="M90 6 L106 18 L91 29"/></svg>'
@@ -282,11 +307,12 @@ LOOP = '<svg class="doodle draw loop" viewBox="0 0 220 120" preserveAspectRatio=
 WINK = '<svg class="doodle draw wink" viewBox="0 0 48 48" role="img" aria-label="guiño"><path pathLength="1" d="M24 4 C 36 3, 45 13, 44 25 C 43 37, 33 45, 22 44 C 10 43, 3 33, 4 22 C 5 12, 13 5, 25 5"/><path pathLength="1" d="M15 18 C 16 17, 17 17, 17 19"/><path pathLength="1" d="M28 19 C 30 17, 33 17, 35 19"/><path pathLength="1" d="M13 28 C 18 36, 30 37, 36 27"/></svg>'
 # Nota a mano de cada caso, junto a la foto de cabecera
 NOTES = {"caso-relacion": "de vender productos<br>a vender una relación", "caso-web": "del organigrama<br>a tres bloques",
- "caso-ia": "¿qué IA construimos primero?", "caso-app": "una vida normal,<br>no solo una tarea", "caso-prototipo": "ajustes antes<br>de lanzar"}
+ "caso-ia": "¿qué IA construimos primero?", "caso-app": "una vida normal,<br>no solo una tarea",
+ "caso-promesa": "la promesa,<br>no la página", "caso-producto": "cambiar la pregunta<br>de partida"}
 
 LINES = ["ln-top", "ln-left", "ln-right", "ln-bottom", "ln-top-r"]  # posición de la línea de color de cada tarjeta
 
-YEARS = {"caso-relacion": "2024–25", "caso-web": "2026", "caso-ia": "2026", "caso-app": "2025", "caso-prototipo": "2024"}
+YEARS = {"caso-relacion": "2024–25", "caso-web": "2026", "caso-ia": "2026", "caso-app": "2025", "caso-promesa": "2026", "caso-producto": "2022–24"}
 
 def row(c, k=0):
     """Fila de la lista de casos de la home (sustituye a las tarjetas, 18 nov 2026)."""
@@ -429,20 +455,16 @@ IMPACT = {
    ("Mejoras listas para aplicar", "Cambios de diseño concretos para cada sección de la app."),
    ("Una hoja de ruta de producto", "Nuevas funcionalidades por etapa del journey y por tipo de usuario."),
    ("Una segunda fase", "El cliente contrató una nueva fase para evaluar también su web.")]),
- "caso-prototipo": ("Luz verde para seguir desarrollando.", [
-   ("Propuesta de valor validada", "La app resolvía una necesidad que ninguna otra cubría."),
-   ("Ajustes antes de lanzar", "Cambios concretos de lenguaje, flujo y accesibilidad."),
-   ("Una hoja de ruta", "Ideas para que la app crezca: contenido experto fiable, conexión con profesionales y un canal de ayuda.")]),
 }
 
-STEP_KIND = {"El reto": "reto", "Mi rol": "rol", "Enfoque": "enfoque", "Hallazgos clave": "hallazgos", "Entregables": "entregables", "En qué se tradujo": "tradujo"}
+STEP_KIND = {"El reto": "reto", "Lo que decidí": "decidi", "Enfoque": "enfoque", "Hallazgos clave": "hallazgos", "En qué se tradujo": "tradujo"}
 
-def step(n, title, body, white):
+def step(n, title, body, white, total=5):
     kind = STEP_KIND[title]
     tone = " dark" if kind == "hallazgos" else (" white" if white else "")
     chip = "chip-sky" if n % 2 else "chip-lav"
     return f'''<section class="band step step-{kind}{tone}" id="{kind}"><div class="inner">
-  <div class="step-head reveal"><span class="bignum" aria-hidden="true">{n:02d}</span><span class="chip {chip}">Paso {n:02d} de 06</span><h2>{title}</h2></div>
+  <div class="step-head reveal"><span class="bignum" aria-hidden="true">{n:02d}</span><span class="chip {chip}">Paso {n:02d} de {total:02d}</span><h2>{title}</h2></div>
   <div class="prose">{body}</div>
 </div></section>'''
 
@@ -468,10 +490,14 @@ def case_page(i, c):
     if c["extra"]:
         lab, h, body = c["extra"]; body = body.replace("@@WORKSHOP@@", workshop_demo())
         trad += f'<div class="extra"><span class="label">{lab}</span><h3>{h}</h3>{body}</div>'
-    steps = [("El reto", c["reto"]), ("Mi rol", c["rol"]), ("Enfoque", c["enfoque"]), ("Hallazgos clave", hall), ("Entregables", c["entregables"].replace("@@EVAL@@", eval_demo()).replace("@@FARMA@@", farma_demo()).replace("@@ONG@@", ong_demo())), ("En qué se tradujo", trad)]
+    # 23 nov 2026: «Mi rol» pasa a la ficha y entra «Lo que decidí». Los entregables son una línea dentro de «En qué se tradujo»
+    demo = c["entregables"].replace("@@EVAL@@", eval_demo()).replace("@@FARMA@@", farma_demo()).replace("@@ONG@@", ong_demo())
+    demo = demo[demo.index("<figure"):] if "<figure" in demo else ""
+    trad += f'<p class="deliv"><strong>Entregables:</strong> {c["deliv"]}</p>' + demo
+    steps = [("El reto", c["reto"]), ("Lo que decidí", '<div class="decidi">' + c["decidi"] + '</div>'), ("Enfoque", c["enfoque"]), ("Hallazgos clave", hall), ("En qué se tradujo", trad)]
     toc = ('<nav class="case-toc" aria-label="En este caso"><span class="label">En este caso</span><ol>'
-           '<li><a href="#impacto">Impacto</a></li>' + "".join(f'<li><a href="#{STEP_KIND[t]}">{t}</a></li>' for t, _ in steps) + '</ol></nav>')
-    body = "".join(step(k + 1, t, b, k % 2 == 0) + (pull if t == "Hallazgos clave" else "") for k, (t, b) in enumerate(steps))
+           + ('<li><a href="#impacto">Impacto</a></li>' if c["slug"] in IMPACT else '') + "".join(f'<li><a href="#{STEP_KIND[t]}">{t}</a></li>' for t, _ in steps) + '</ol></nav>')
+    body = "".join(step(k + 1, t, b, k % 2 == 0, len(steps)) + (pull if t == "Hallazgos clave" else "") for k, (t, b) in enumerate(steps))
     return f'''<!doctype html>
 <html lang="es">
 <head>
@@ -499,9 +525,9 @@ def case_page(i, c):
   </div>
   <div class="sheet">{sheet}</div>
   {toc}
-  <p class="owner-note"><span class="dot" aria-hidden="true"></span>Proyecto realizado como Senior Researcher y Service Designer en Sngular. El trabajo y sus entregables son propiedad de Sngular.</p>
+  <p class="owner-note"><span class="dot" aria-hidden="true"></span>{c.get("owner", "Proyecto realizado como Senior Researcher y Service Designer en Sngular. El trabajo y sus entregables son propiedad de Sngular.")}</p>
 </div></section>
-{impact_html(c)}
+{impact_html(c) if c["slug"] in IMPACT else ""}
 {body}
 <section class="band next"><div class="inner">
   <a class="next-case" href="{nxt['slug']}.html"><span class="label">Siguiente caso</span><h3>{nxt['card']}</h3></a>
@@ -513,8 +539,8 @@ def case_page(i, c):
 </html>
 '''
 
-# 23 nov 2026: casos en orden cronológico, del más reciente al más antiguo
-_ORDEN = ["caso-web", "caso-ia", "caso-relacion", "caso-app", "caso-prototipo"]
+# 23 nov 2026 (tarde): primero los casos con más peso estratégico
+_ORDEN = ["caso-relacion", "caso-web", "caso-promesa", "caso-ia", "caso-app", "caso-producto"]
 CASES.sort(key=lambda c: _ORDEN.index(c["slug"]))
 cards = "".join(row(c, k=k) for k, c in enumerate(CASES))
 
@@ -559,6 +585,15 @@ INDEX = f'''<!doctype html>
   </div>
 </div></section>
 
+<section class="band impact decisions" id="decisiones"><div class="inner">
+  <div class="imp-head"><span class="chip chip-sky">Decisiones</span><h2>Decisiones que salieron de mi trabajo</h2></div>
+  <ul class="imp-list">
+    <li class="reveal" style="--d:0ms"><span class="imp-n">01</span><b>Un menú pensado para quien llega</b><span>La dirección aprobó un menú pensado para quien llega, no para el organigrama.</span><a class="link" href="caso-web.html">Ver el caso →</a></li>
+    <li class="reveal" style="--d:100ms"><span class="imp-n">02</span><b>Qué construir primero</b><span>Negocio priorizó qué construir a partir de las oportunidades del research.</span><a class="link" href="caso-relacion.html">Ver el caso →</a></li>
+    <li class="reveal" style="--d:200ms"><span class="imp-n">03</span><b>IA a partir de tareas reales</b><span>Dos equipos construyen su IA a partir de las prioridades que salieron de sus workshops.</span><a class="link" href="caso-ia.html">Ver el caso →</a></li>
+  </ul>
+</div></section>
+
 <section class="band white" id="hallazgos"><div class="inner">
   <div class="findings-wrap">
     <div class="findings-head">
@@ -567,11 +602,11 @@ INDEX = f'''<!doctype html>
       <p>Cinco cosas que solo aparecieron al escuchar a las personas que usan y sostienen el servicio, y lo que cambiaron.</p>
     </div>
     <div class="findings">
-      <a class="finding reveal acc-sky" href="caso-relacion.html"><span class="fnum">01</span><div><span class="chip chip-sky">Estrategia de servicio</span><h3>La confianza pesa más que el precio.</h3><p>Los clientes valoraban sentirse acompañados más que pagar menos. La relación pasó al centro de la estrategia.</p></div></a>
-      <a class="finding reveal acc-lav" href="caso-web.html"><span class="fnum">02</span><div><span class="chip chip-lav">Arquitectura de la información</span><h3>La web estaba ordenada como la organización, no como piensa quien llega a ella.</h3><p>Reordenamos los contenidos en tres bloques que cualquiera entiende.</p></div></a>
-      <a class="finding reveal acc-sky" href="caso-app.html"><span class="fnum">03</span><div><span class="chip chip-sky">Research de producto</span><h3>Nadie quiere gestionar un problema. Quiere llevar una vida normal.</h3><p>Lo emocional pesa tanto como lo práctico, y la app tenía que reflejarlo.</p></div></a>
-      <a class="finding reveal acc-lav" href="caso-prototipo.html"><span class="fnum">04</span><div><span class="chip chip-lav">Test de usabilidad</span><h3>El lenguaje técnico no significa nada para quien empieza.</h3><p>Hablar con las palabras del usuario fue uno de los ajustes clave antes de lanzar.</p></div></a>
-      <a class="finding reveal acc-sky" href="caso-ia.html"><span class="fnum">05</span><div><span class="chip chip-sky">Adopción de IA</span><h3>Para decidir qué IA construir, primero hay que ver en qué se va el tiempo.</h3><p>Las prioridades salieron de tareas reales del equipo, no de la tecnología disponible.</p></div></a>
+      <a class="finding reveal acc-sky" href="caso-relacion.html"><span class="fnum">01</span><div><span class="chip chip-sky">Segmentación y propuesta de valor</span><h3>La confianza pesa más que el precio.</h3><p>Los clientes valoraban sentirse acompañados más que pagar menos. La relación pasó al centro de la estrategia.</p></div></a>
+      <a class="finding reveal acc-lav" href="caso-web.html"><span class="fnum">02</span><div><span class="chip chip-lav">Ordenar una web por quien llega</span><h3>La web estaba ordenada como la organización, no como piensa quien llega a ella.</h3><p>Reordenamos los contenidos en tres bloques que cualquiera entiende.</p></div></a>
+      <a class="finding reveal acc-sky" href="caso-promesa.html"><span class="fnum">03</span><div><span class="chip chip-sky">Diagnóstico de conversión</span><h3>El problema no era la página, era la promesa.</h3><p>El nombre hacía esperar una cosa y la página ofrecía otra.</p></div></a>
+      <a class="finding reveal acc-lav" href="caso-ia.html"><span class="fnum">04</span><div><span class="chip chip-lav">Priorizar qué IA construir</span><h3>Para decidir qué IA construir, primero hay que ver en qué se va el tiempo.</h3><p>Las prioridades salieron de tareas reales del equipo, no de la tecnología disponible.</p></div></a>
+      <a class="finding reveal acc-sky" href="caso-app.html"><span class="fnum">05</span><div><span class="chip chip-sky">Orientar la hoja de ruta de un producto</span><h3>Nadie quiere gestionar un problema. Quiere llevar una vida normal.</h3><p>Lo emocional pesa tanto como lo práctico, y la app tenía que reflejarlo.</p></div></a>
     </div>
   </div>
 </div></section>
@@ -717,7 +752,7 @@ open(os.path.join(OUT, "sobre-mi.html"), "w").write(SOBRE_PAGE.replace('<a href=
 
 # Página propia de casos (20 nov 2026): la sección sale de la home y «Casos» del menú lleva aquí
 CASOS_SECTION = f'''<section class="band" id="casos"><div class="inner">
-  <div class="sec-head"><span class="chip chip-sky">Casos · 2024 a 2026</span><h1 class="h2like">Qué descubrimos y en qué se tradujo</h1><p>Cinco proyectos de Service Design y Research que hice en Sngular. Los cuento sin marcas, sectores ni datos de los clientes.</p></div>
+  <div class="sec-head"><span class="chip chip-sky">Casos · 2022 a 2026</span><h1 class="h2like">Qué vi, qué propuse y qué cambió</h1><p>Seis proyectos de Service Design y Research que hice en Sngular. Los cuento sin marcas, sectores ni datos de los clientes.</p></div>
   <div class="case-list">{cards}</div>
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><filter id="duo" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values=".2126 .7152 .0722 0 0 .2126 .7152 .0722 0 0 .2126 .7152 .0722 0 0 0 0 0 1 0"/><feComponentTransfer><feFuncR type="table" tableValues=".086 .961"/><feFuncG type="table" tableValues=".086 .937"/><feFuncB type="table" tableValues=".086 .894"/></feComponentTransfer></filter></svg>
 </div></section>'''
@@ -727,7 +762,7 @@ CASOS_PAGE = f'''<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Casos · Gema Díez</title>
-<meta name="description" content="Cinco proyectos de Service Design y Research hechos en Sngular, contados por sector.">
+<meta name="description" content="Seis proyectos de Service Design y Research hechos en Sngular: qué vi, qué propuse y qué cambió.">
 {FONTS}
 <script data-goatcounter="https://gemadiez.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
