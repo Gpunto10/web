@@ -559,23 +559,6 @@ INDEX = f'''<!doctype html>
   </div>
 </div></section>
 
-<section class="band white" id="hallazgos"><div class="inner">
-  <div class="findings-wrap">
-    <div class="findings-head">
-      <span class="chip chip-lav">Hallazgos</span>
-      <h2>A veces el problema <span class="hand-o">no es{LOOP}</span> el que parece</h2>
-      <p>Cinco cosas que solo aparecieron al escuchar a las personas que usan y sostienen el servicio, y lo que cambiaron.</p>
-    </div>
-    <div class="findings">
-      <a class="finding reveal acc-sky" href="caso-relacion.html"><span class="fnum">01</span><div><span class="chip chip-sky">Estrategia de servicio</span><h3>La confianza pesa más que el precio.</h3><p>Los clientes valoraban sentirse acompañados más que pagar menos. La relación pasó al centro de la estrategia.</p></div></a>
-      <a class="finding reveal acc-lav" href="caso-web.html"><span class="fnum">02</span><div><span class="chip chip-lav">Arquitectura de la información</span><h3>La web estaba ordenada como la organización, no como piensa quien llega a ella.</h3><p>Reordenamos los contenidos en tres bloques que cualquiera entiende.</p></div></a>
-      <a class="finding reveal acc-sky" href="caso-app.html"><span class="fnum">03</span><div><span class="chip chip-sky">Research de producto</span><h3>Nadie quiere gestionar un problema. Quiere llevar una vida normal.</h3><p>Lo emocional pesa tanto como lo práctico, y la app tenía que reflejarlo.</p></div></a>
-      <a class="finding reveal acc-lav" href="caso-prototipo.html"><span class="fnum">04</span><div><span class="chip chip-lav">Test de usabilidad</span><h3>El lenguaje técnico no significa nada para quien empieza.</h3><p>Hablar con las palabras del usuario fue uno de los ajustes clave antes de lanzar.</p></div></a>
-      <a class="finding reveal acc-sky" href="caso-ia.html"><span class="fnum">05</span><div><span class="chip chip-sky">Adopción de IA</span><h3>Para decidir qué IA construir, primero hay que ver en qué se va el tiempo.</h3><p>Las prioridades salieron de tareas reales del equipo, no de la tecnología disponible.</p></div></a>
-    </div>
-  </div>
-</div></section>
-
 <section class="band" id="sobre-mi"><div class="inner">
   <div class="about">
     <div class="photo"><img src="{v(PHOTO)}" alt="Retrato de Gema Díez sonriendo" width="400" height="400"><span class="note n-about">¡hola, soy yo!{ARROW_DOWN}</span></div>
