@@ -1524,3 +1524,4 @@ figure.eval.is-paused *,figure.eval.is-paused *::before,figure.eval.is-paused *:
 }
 @media (max-width:700px){#hallazgos .findings-wrap a.finding{padding:14px 16px 16px 20px!important}}
 .ct-page #como-trabajo>.inner{padding-top:clamp(56px,8vw,104px)}
+.casos-page #hallazgos>.inner{padding-top:clamp(48px,6vw,88px)}

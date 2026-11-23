@@ -650,7 +650,10 @@ INDEX = f'''<!doctype html>
 
 # 20 nov 2026: la sección «Sobre mí» ya no sale en la home (sigue generándose para sobre-mi.html)
 import re as _re0
-open(os.path.join(OUT, "index.html"), "w").write(_re0.sub(r'\n?<section class="band" id="sobre-mi">.*?</div></section>\n?', '\n', INDEX, count=1, flags=_re0.S))
+# 23 nov 2026: Hallazgos sale de la home y pasa a casos.html, tras el listado
+_HALL = _re0.search(r'<section class="band white" id="hallazgos">.*?</section>', INDEX, _re0.S).group(0)
+_idx = _re0.sub(r'\n?<section class="band" id="sobre-mi">.*?</div></section>\n?', '\n', INDEX, count=1, flags=_re0.S).replace(_HALL, '')
+open(os.path.join(OUT, "index.html"), "w").write(_idx)
 
 # Página propia «Con IA» (19 nov 2026): el Laboratorio sale de la home a ia.html
 IA_PAGE = f'''<!doctype html>
@@ -734,6 +737,7 @@ CASOS_PAGE = f'''<!doctype html>
 {nav('index.html')}
 <main id="contenido">
 {CASOS_SECTION}
+{_HALL}
 </main>
 {FOOT}
 </body>
