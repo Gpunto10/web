@@ -153,7 +153,7 @@ dict(
  reto=key("Saber si la app encajaba con lo que de verdad necesitan sus usuarios.") + ul([
    "Dos objetivos: entender a las personas y probar la app en manos reales."]),
  decidi=ul([
-   "Propuse perfilar a las personas por su actitud ante su situación, y no por su diagnóstico. Salieron cuatro perfiles, de quien prefiere no pensar en ello a quien ya lo ha integrado en su vida.",
+   "Propuse perfilar a las personas por su actitud, y no por las características de su situación. Salieron cuatro perfiles, de quien prefiere no pensar en ello a quien ya lo ha integrado en su vida.",
    "Con esos perfiles, cada mejora y cada idea nueva de la hoja de ruta dice a quién sirve."]),
  enfoque=key("Entrevistas en profundidad que combinaban la historia de cada persona y el test de la app.") + ul([
    "Una parte para entender su recorrido y la mayor parte para probar la app.",
@@ -170,7 +170,7 @@ dict(
    "Journey en cinco etapas.",
    "Arquetipos de usuario.",
    "Evaluación de usabilidad por sección.",
-   "Oportunidades por etapa y por arquetipo."]),
+   "Oportunidades por etapa y por arquetipo."]) + "@@FARMA@@",
  deliv="journey en cinco etapas, perfiles, evaluación por sección y oportunidades por etapa y perfil.",
  traduccion=key("Las mejoras, en concreto.") + ul([
    "Nombres más claros, un solo camino para los recordatorios y lo emocional en el centro.",
@@ -381,29 +381,50 @@ def workshop_demo():
 
 
 def farma_demo():
-    stages = ["Inicio de síntomas", "Diagnóstico", "Adaptación al tratamiento", "Vida con la enfermedad", "Brotes y recaídas"]
+    # 23 nov 2026: versión anónima (sin términos que delaten el sector) con los cuatro perfiles y su monigote
+    stages = ["Primeras señales", "Ponerle nombre", "Adaptarse", "El día a día", "Días difíciles"]
     st = "".join(f'<li class="jy-s s{i}" style="--d:{(i-1)*0.9:.1f}s"><b>{i}</b><span>{t}</span></li>' for i, t in enumerate(stages, 1))
-    journey = ('<figure class="eval jy" aria-label="Journey del paciente en cinco etapas, cíclico desde la tercera">'
-               '<span class="ev-k">Patient journey</span><ol class="jy-row">' + st + '</ol>'
+    journey = ('<figure class="eval jy" aria-label="Journey en cinco etapas, cíclico desde la tercera">'
+               '<span class="ev-k">Journey</span><ol class="jy-row">' + st + '</ol>'
                '<svg class="jy-loop" viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path d="M30 6 C 30 34, 270 34, 270 6" pathLength="1"/><path class="jy-head" d="M262 12 L270 4 L276 14" pathLength="1"/></svg>'
-               '<p class="jy-note">Hasta el diagnóstico el camino es lineal. Desde el tratamiento, las etapas se repiten y se solapan.</p>'
+               '<p class="jy-note">Hasta ponerle nombre, el camino es lineal. Después, las etapas se repiten y se solapan.</p>'
                '<figcaption>Recreación esquemática del journey.</figcaption></figure>')
-    bars = [("Estabilidad", 3), ("Impacto en su vida", 5), ("Expertise", 4), ("Apertura a aprender", 3)]
-    br = "".join(f'<div class="ar-v"><span>{n}</span><span class="ar-dots">' + "".join(f'<i class="{"on" if k < v else ""}" style="--d:{0.15*k + 0.4*j:.2f}s"></i>' for k in range(5)) + '</span></div>' for j, (n, v) in enumerate(bars))
-    face = ('<svg class="ar-face doodle draw" viewBox="0 0 160 160" aria-hidden="true">'
-            '<path pathLength="1" d="M52 70 C 46 36, 74 22, 92 26 C 116 30, 124 52, 116 78 C 112 96, 100 108, 82 108 C 64 108, 56 92, 52 70 Z"/>'
-            '<path pathLength="1" d="M48 66 C 50 30, 112 18, 122 62 C 112 46, 86 40, 64 50 C 58 54, 52 60, 48 66"/>'
-            '<path pathLength="1" d="M62 68 a 10 10 0 1 0 20 0 a 10 10 0 1 0 -20 0 M 90 68 a 10 10 0 1 0 20 0 a 10 10 0 1 0 -20 0 M 82 68 L 90 68"/>'
-            '<path pathLength="1" d="M76 92 C 82 96, 90 96, 96 92"/>'
-            '<path pathLength="1" d="M70 106 L 68 120 C 40 124, 26 140, 22 158 M 98 106 L 100 120 C 128 124, 140 140, 144 158"/>'
-            '</svg>')
-    arch = ('<figure class="eval ar" aria-label="Ficha de arquetipo de paciente">'
-            '<div class="ar-id">' + face + '<span class="ev-k">Arquetipo</span><h3>La perfeccionista</h3>'
-            '<p>Conoce su enfermedad al detalle, contrasta lo que lee y quiere tenerlo todo bajo control. Cuando algo se le escapa, lo vive con culpa.</p></div>'
-            '<div class="ar-body"><div class="ar-q"><span class="ar-k">Quiere</span><p>Una herramienta seria, fiable y exacta.</p></div>'
-            '<div class="ar-q"><span class="ar-k">Necesita</span><p>Sentir que tiene el control y confirmar que lo está haciendo bien.</p></div>'
-            '<div class="ar-vars">' + br + '</div></div>'
-            '<figcaption>Uno de los cuatro arquetipos. Recreación con nombre y datos modificados.</figcaption></figure>')
+    HEAD = 'M52 70 C 46 36, 74 22, 92 26 C 116 30, 124 52, 116 78 C 112 96, 100 108, 82 108 C 64 108, 56 92, 52 70 Z'
+    BODY = 'M70 106 L 68 120 C 40 124, 26 140, 22 158 M 98 106 L 100 120 C 128 124, 140 140, 144 158'
+    HAIR = {
+      "largo": 'M48 66 C 50 30, 112 18, 122 62 C 112 46, 86 40, 64 50 C 58 54, 52 60, 48 66 M50 70 C 44 92, 46 110, 56 122 M118 70 C 124 92, 122 110, 112 122',
+      "flequillo": 'M48 66 C 50 30, 112 18, 122 62 C 112 46, 86 40, 64 50 C 58 54, 52 60, 48 66',
+      "rizos": 'M50 58 C 44 44, 56 30, 68 34 C 70 20, 90 18, 96 28 C 106 18, 124 28, 118 44 C 128 50, 124 64, 116 64',
+      "corto": 'M54 56 C 58 34, 104 26, 116 52 C 104 44, 74 42, 54 56',
+    }
+    EYES = {"gafas": 'M62 68 a 10 10 0 1 0 20 0 a 10 10 0 1 0 -20 0 M 90 68 a 10 10 0 1 0 20 0 a 10 10 0 1 0 -20 0 M 82 68 L 90 68',
+            "cerrados": 'M64 70 C 68 66, 74 66, 78 70 M 92 70 C 96 66, 102 66, 106 70',
+            "puntos": 'M71 68 L 72 69 M 99 68 L 100 69',
+            "abiertos": 'M70 64 C 66 66, 66 72, 70 74 C 74 72, 74 66, 70 64 M 100 64 C 96 66, 96 72, 100 74 C 104 72, 104 66, 100 64'}
+    MOUTH = {"recta": 'M76 94 L 94 94', "media": 'M76 92 C 82 96, 90 96, 96 92', "grande": 'M72 88 C 78 100, 94 100, 100 88', "tranquila": 'M78 92 C 84 95, 88 95, 94 92'}
+    def face(h, e, m):
+        return ('<svg class="ar-face doodle draw" viewBox="0 0 160 160" aria-hidden="true">' +
+                "".join(f'<path pathLength="1" d="{d}"/>' for d in (HEAD, HAIR[h], EYES[e], MOUTH[m], BODY)) + '</svg>')
+    PERFILES = [
+      ("La evitativa", ("flequillo", "cerrados", "recta"), "Aún le cuesta integrar la situación en su vida y prefiere no pensar demasiado en ella. Solo quiere que todo funcione.",
+       "Una app directa y nada invasiva.", "Soluciones simples y rápidas que no le pidan implicación emocional.", [2, 4, 1, 1]),
+      ("La perfeccionista", ("largo", "gafas", "media"), "Conoce su situación al detalle, contrasta lo que lee y quiere tenerlo todo bajo control. Cuando algo se le escapa, lo vive con culpa.",
+       "Una herramienta seria, fiable y exacta.", "Sentir que tiene el control y confirmar que lo está haciendo bien.", [3, 5, 4, 3]),
+      ("El explorador", ("rizos", "abiertos", "grande"), "Curioso y activo. Quiere entender lo que le pasa, contrastar y compartir con otras personas.",
+       "Una app cálida, con recursos cercanos que le inviten a descubrir.", "Fuentes fiables y un espacio para compartir de igual a igual.", [3, 3, 3, 5]),
+      ("El integrado", ("corto", "puntos", "tranquila"), "Ya ha hecho su camino y lo ha integrado en su vida. No dramatiza los días malos y usa lo que le ahorra tiempo.",
+       "Una app eficiente que le acompañe sin infantilizarle.", "Funciones claras que encajen en su rutina sin esfuerzo.", [5, 2, 5, 2]),
+    ]
+    VARS = ["Estabilidad", "Impacto en su vida", "Conocimiento", "Apertura a aprender"]
+    cards = ""
+    for j, (name, f, desc, want, need, vals) in enumerate(PERFILES):
+        br = "".join(f'<div class="ar-v"><span>{n}</span><span class="ar-dots">' + "".join(f'<i class="{"on" if k < v else ""}" style="--d:{0.15*k + 0.4*i:.2f}s"></i>' for k in range(5)) + '</span></div>' for i, (n, v) in enumerate(zip(VARS, vals)))
+        cards += ('<div class="ar-card"><div class="ar-id">' + face(*f) + f'<span class="ev-k">Perfil {j+1}</span><h4>{name}</h4><p>{desc}</p></div>'
+                  f'<div class="ar-body"><div class="ar-q"><span class="ar-k">Quiere</span><p>{want}</p></div>'
+                  f'<div class="ar-q"><span class="ar-k">Necesita</span><p>{need}</p></div></div></div>')
+    arch = ('<figure class="eval ars" aria-label="Fichas de los cuatro perfiles de usuario">'
+            '<span class="ev-k">Los cuatro perfiles, según su actitud</span><div class="ar-grid">' + cards + '</div>'
+            '<figcaption>Recreación con textos resumidos y nombres inventados.</figcaption></figure>')
     return journey + arch
 
 
