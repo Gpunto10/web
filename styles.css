@@ -1530,3 +1530,9 @@ figure.eval.is-paused *,figure.eval.is-paused *::before,figure.eval.is-paused *:
 .decidi .list li{font-size:clamp(18px,1.9vw,22px);line-height:1.4;font-weight:500;letter-spacing:-.01em}
 .deliv{margin-top:var(--s5);font-size:15px;color:var(--soft)}
 .decisions .imp-list li .link{margin-top:var(--s2);font-size:15px;justify-self:start}
+/* 23 nov 2026: fichas de los cuatro perfiles del caso de la app */
+.ars{display:grid;gap:var(--s3);margin-top:var(--s4)}
+.ar-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s4)}
+.ar-card{display:grid;gap:var(--s3);align-content:start;min-width:0}
+.ar-id h4{margin:0}
+@media (max-width:760px){.ar-grid{grid-template-columns:1fr}}
