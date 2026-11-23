@@ -207,8 +207,7 @@ dict(
    "Anuncios que explican lo que hay detrás.",
    "Una forma directa de actuar nada más llegar.",
    "El catálogo visible de un vistazo.",
-   "Preguntas frecuentes propias de la página.",
-   "El cliente está estudiando cómo aplicarlo."]),
+   "Preguntas frecuentes propias de la página."]),
  extra=None,
 ),
 dict(
