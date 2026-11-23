@@ -188,7 +188,7 @@ dict(
  sheet=[("Cliente","Organización con una página de producto muy visitada"),("Equipo","Diagnóstico, research y recomendaciones")],
  reto=key("Saber por qué una página con muchas visitas apenas generaba transacciones."),
  decidi=ul([
-   "En lugar de ir directa a la usabilidad, planteé tres hipótesis: el tráfico, la página y el concepto.",
+   "En lugar de ir directa a la usabilidad, navegué tres hipótesis: el tráfico, la página y el concepto.",
    "Demostré que el problema era de promesa, no de usabilidad. El nombre hacía esperar una cosa y la página ofrecía otra, y esa idea se formaba antes de entrar, en el buscador y en los anuncios.",
    "Por eso la primera recomendación fue cambiar los anuncios, fuera de la web, y después la página."]),
  enfoque=key("Seguir la expectativa desde antes del primer clic hasta la página.") + ul([
