@@ -1544,3 +1544,41 @@ figure.eval.is-paused *,figure.eval.is-paused *::before,figure.eval.is-paused *:
 @media (max-width:720px){
   .foot .inner{flex-direction:column;align-items:flex-start;gap:4px;padding-top:18px;padding-bottom:76px}
 }
+
+/* Imágenes de la página «Con IA» dibujadas en SVG, «pantallas de trabajo» (24 nov 2026). Las fotos anteriores están en anterior/v-2026-11-24-ia-fotos/ */
+.ia-ill{display:block;width:100%;height:100%;font-family:var(--sans)}
+.ia-ill .bg{fill:var(--paper)}
+.ia-ill .w{fill:#fff;stroke:var(--ink);stroke-width:1.5}
+.ia-ill .w2{fill:#E3E8FF}
+.ia-ill .k{fill:none;stroke:var(--ink);stroke-width:1.2}
+.ia-ill .kl{fill:none;stroke:var(--ink);stroke-width:1.2;opacity:.35}
+.ia-ill .m{font-family:var(--mono);font-size:11px;letter-spacing:.06em;fill:var(--soft)}
+.ia-ill .s{font-size:14px;fill:var(--ink)}
+.ia-ill .sw{font-size:14px;fill:#fff}
+.ia-ill .bar{stroke:#DCDAD3;stroke-width:8;stroke-linecap:round}
+.ia-ill .bar2{stroke:rgba(255,255,255,.55);stroke-width:8;stroke-linecap:round}
+.ia-ill .hlb{stroke:#BFE3FF;stroke-width:10;stroke-linecap:round}
+.ia-ill .wave{stroke:#2234C4;stroke-width:3;stroke-linecap:round}
+.ia-ill .hd{fill:none;stroke:var(--lav-text);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.ia-ill .hand{font-family:var(--hand);font-weight:600;fill:var(--lav-text)}
+.ia-ill .nd{fill:#fff;stroke:var(--ink);stroke-width:1.5}
+.ia-ill .nd2{fill:#2234C4}
+.ia-ill .bx{fill:#fff;stroke:var(--ink);stroke-width:1.2}
+.ia-ill .bx2{fill:#2234C4}
+.ia-ill .dash{fill:none;stroke:var(--lav-text);stroke-width:2;stroke-dasharray:6 5}
+.ia-ill .ar{stroke:var(--ink);stroke-width:1.5}
+.ia-ill .p1{fill:#BFE3FF}
+.ia-ill .p2{fill:#2234C4}
+.ia-ill .p3{fill:#D9D0FA}
+.ia-ill .dot{fill:var(--lav-text)}
+.ia-ill .cd1{stroke:#2234C4;stroke-width:7;stroke-linecap:round}
+.ia-ill .cd2{stroke:#DCDAD3;stroke-width:7;stroke-linecap:round}
+.ia-ill .btn{fill:#2234C4}
+.ia-ill .cvb{fill:#2234C4}
+.ia-ill .cht{fill:var(--paper)}
+.ia-ill .cha{fill:#2234C4}
+.ia-ill .inp{fill:#fff;stroke:#DCDAD3;stroke-width:1.5}
+.ia-ill .jr{fill:none;stroke:#2234C4;stroke-width:3}
+.lab-cover .ia-ill,.res-img .ia-ill{transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.lab-cover-wrap:hover .lab-cover .ia-ill,.res-row:hover .res-img .ia-ill{transform:scale(1.03)}
+@media (prefers-reduced-motion:reduce){.ia-ill{transition:none!important}}
