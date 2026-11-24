@@ -662,8 +662,7 @@ INDEX = f'''<!doctype html>
       <span class="label">Para proyectos</span>
       <h3>Cuéntame tu proyecto</h3>
       <p>Escríbeme con el reto que tienes entre manos. Te respondo con una primera idea de por dónde empezaría.</p>
-      <div class="mail"><code id="email">gd.glez@gmail.com</code><button class="btn btn-primary" id="copy-email" type="button">Copiar email</button></div>
-      <p class="copy-status" id="copy-status" aria-live="polite"></p>
+      <div class="ctas"><a class="btn btn-primary" href="mailto:gd.glez@gmail.com?subject=Hola%20Gema">Escríbeme un email</a></div>
     </div>
     <div class="door">
       <span class="label">Para empresas</span>
@@ -681,15 +680,6 @@ INDEX = f'''<!doctype html>
 </div></section>
 </main>
 {FOOT}
-<script>
-(function(){{
-  var b=document.getElementById('copy-email'), s=document.getElementById('copy-status'), e=document.getElementById('email');
-  function fallback(){{var r=document.createRange();r.selectNodeContents(e);var sel=window.getSelection();sel.removeAllRanges();sel.addRange(r);s.textContent='Email seleccionado. Cópialo con Ctrl+C o Cmd+C.';}}
-  b.addEventListener('click',function(){{
-    if(navigator.clipboard&&navigator.clipboard.writeText){{navigator.clipboard.writeText(e.textContent).then(function(){{s.textContent='Email copiado.';}}).catch(fallback);}} else {{fallback();}}
-  }});
-}})();
-</script>
 </body>
 </html>
 '''
