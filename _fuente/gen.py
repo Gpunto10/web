@@ -560,7 +560,7 @@ def case_page(i, c):
 '''
 
 # 23 nov 2026 (tarde): primero los casos con más peso estratégico
-_ORDEN = ["caso-relacion", "caso-web", "caso-promesa", "caso-ia", "caso-app", "caso-producto"]
+_ORDEN = ["caso-web", "caso-ia", "caso-promesa", "caso-relacion", "caso-app", "caso-producto"]  # 24 nov 2026: cronológico, del más reciente al más antiguo
 CASES.sort(key=lambda c: _ORDEN.index(c["slug"]))
 cards = "".join(row(c, k=k) for k, c in enumerate(CASES))
 
@@ -613,10 +613,10 @@ INDEX = f'''<!doctype html>
       <p>Cinco cosas que solo aparecieron al escuchar a las personas que usan y sostienen el servicio, y lo que cambiaron.</p>
     </div>
     <div class="findings">
-      <a class="finding reveal acc-sky" href="caso-relacion.html"><span class="fnum">01</span><div><span class="chip chip-sky">Segmentación y propuesta de valor</span><h3>La confianza pesa más que el precio.</h3><p>Los clientes valoraban sentirse acompañados más que pagar menos. La relación pasó al centro de la estrategia.</p></div></a>
-      <a class="finding reveal acc-lav" href="caso-web.html"><span class="fnum">02</span><div><span class="chip chip-lav">Ordenar una web por quien llega</span><h3>La web estaba ordenada como la organización, no como piensa quien llega a ella.</h3><p>Reordenamos los contenidos en tres bloques que cualquiera entiende.</p></div></a>
+      <a class="finding reveal acc-sky" href="caso-web.html"><span class="fnum">01</span><div><span class="chip chip-sky">Ordenar una web por quien llega</span><h3>La web estaba ordenada como la organización, no como piensa quien llega a ella.</h3><p>Reordenamos los contenidos en tres bloques que cualquiera entiende.</p></div></a>
+      <a class="finding reveal acc-lav" href="caso-ia.html"><span class="fnum">02</span><div><span class="chip chip-lav">Priorizar qué IA construir</span><h3>Para decidir qué IA construir, primero hay que ver en qué se va el tiempo.</h3><p>Las prioridades salieron de tareas reales del equipo, no de la tecnología disponible.</p></div></a>
       <a class="finding reveal acc-sky" href="caso-promesa.html"><span class="fnum">03</span><div><span class="chip chip-sky">Diagnóstico de conversión</span><h3>El problema no era la página, era la promesa.</h3><p>El nombre hacía esperar una cosa y la página ofrecía otra.</p></div></a>
-      <a class="finding reveal acc-lav" href="caso-ia.html"><span class="fnum">04</span><div><span class="chip chip-lav">Priorizar qué IA construir</span><h3>Para decidir qué IA construir, primero hay que ver en qué se va el tiempo.</h3><p>Las prioridades salieron de tareas reales del equipo, no de la tecnología disponible.</p></div></a>
+      <a class="finding reveal acc-lav" href="caso-relacion.html"><span class="fnum">04</span><div><span class="chip chip-lav">Segmentación y propuesta de valor</span><h3>La confianza pesa más que el precio.</h3><p>Los clientes valoraban sentirse acompañados más que pagar menos. La relación pasó al centro de la estrategia.</p></div></a>
       <a class="finding reveal acc-sky" href="caso-app.html"><span class="fnum">05</span><div><span class="chip chip-sky">Orientar la hoja de ruta de un producto</span><h3>Nadie quiere gestionar un problema. Quiere llevar una vida normal.</h3><p>Lo emocional pesa tanto como lo práctico, y la app tenía que reflejarlo.</p></div></a>
     </div>
   </div>
@@ -698,7 +698,7 @@ INDEX = f'''<!doctype html>
 import re as _re0
 # 23 nov 2026: Hallazgos sale de la home y pasa a casos.html, tras el listado
 _HALL = _re0.search(r'<section class="band white" id="hallazgos">.*?</section>', INDEX, _re0.S).group(0)
-_idx = _re0.sub(r'\n?<section class="band" id="sobre-mi">.*?</div></section>\n?', '\n', INDEX, count=1, flags=_re0.S).replace(_HALL, '')
+_idx = _re0.sub(r'\n?<section class="band" id="sobre-mi">.*?</div></section>\n?', '\n', INDEX, count=1, flags=_re0.S)  # 24 nov 2026: Hallazgos vuelve a la home
 open(os.path.join(OUT, "index.html"), "w").write(_idx)
 
 # Página propia «Con IA» (19 nov 2026): el Laboratorio sale de la home a ia.html
@@ -783,7 +783,6 @@ CASOS_PAGE = f'''<!doctype html>
 {nav('index.html')}
 <main id="contenido">
 {CASOS_SECTION}
-{_HALL}
 </main>
 {FOOT}
 </body>
